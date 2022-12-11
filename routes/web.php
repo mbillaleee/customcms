@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -174,4 +177,35 @@ Route::prefix('pages')->group(function () {
 // Blank
 Route::get('/blank', function () {
     return view('blank');
+});
+
+
+
+Route::prefix('category')->group(function () {
+    Route::get('/', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
+    Route::post('/store', [CategoryController::class, 'store'])->name('category.store');
+    Route::get('/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::post('/update/{category}', [CategoryController::class, 'update'])->name('category.update');
+    Route::delete('/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+});
+
+
+Route::prefix('tag')->group(function () {
+    Route::get('/', [TagController::class, 'index'])->name('tag.index');
+    Route::get('/create', [TagController::class, 'create'])->name('tag.create');
+    Route::post('/store', [TagController::class, 'store'])->name('tag.store');
+    Route::get('/edit/{tag}', [TagController::class, 'edit'])->name('tag.edit');
+    Route::post('/update/{tag}', [TagController::class, 'update'])->name('tag.update');
+    Route::delete('/destroy/{tag}', [TagController::class, 'destroy'])->name('tag.destroy');
+});
+
+
+Route::prefix('blog')->group(function () {
+    Route::get('/', [BlogController::class, 'index'])->name('blog.index');
+    Route::get('/create', [BlogController::class, 'create'])->name('blog.create');
+    Route::post('/store', [BlogController::class, 'store'])->name('blog.store');
+    Route::get('/edit/{blog}', [BlogController::class, 'edit'])->name('blog.edit');
+    Route::post('/update/{blog}', [BlogController::class, 'update'])->name('blog.update');
+    Route::delete('/destroy/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy');
 });
