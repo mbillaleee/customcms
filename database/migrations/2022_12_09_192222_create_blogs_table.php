@@ -16,11 +16,16 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('slug')->nullable()->index('slug');
+            $table->unsignedBigInteger('category_id');
+            $table->string('title');
+            $table->string('slug')->index('slug');
+            $table->text('content');
+            $table->string('image');
             $table->integer('status')->default(1)->comment('Active=1, Inactive=0');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

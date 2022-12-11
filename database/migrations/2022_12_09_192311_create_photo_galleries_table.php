@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('photo_galleries', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('slug')->nullable()->index('slug');
+            $table->string('title');
+            $table->string('image');
+            $table->string('slug')->index('slug');
+            $table->string('desc')->nullable();
             $table->integer('status')->default(1)->comment('Active=1, Inactive=0');
             $table->timestamps();
             $table->softDeletes();

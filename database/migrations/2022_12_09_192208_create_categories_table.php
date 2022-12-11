@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('name');
-            $table->string('slug')->nullable()->index('slug');
+            $table->string('slug')->index('slug');
+            $table->string('desc')->nullable();
+            $table->string('image')->nullable();
             $table->integer('status')->default(1)->comment('Active=1, Inactive=0');
             $table->timestamps();
             $table->softDeletes();
