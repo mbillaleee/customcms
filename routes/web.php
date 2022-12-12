@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -209,5 +211,13 @@ Route::prefix('blog')->middleware('auth')->group(function () {
     Route::post('/update/{blog}', [BlogController::class, 'update'])->name('blog.update');
     Route::delete('/destroy/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy');
 });
+
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+
+});
+
 
 require __DIR__.'/auth.php';
