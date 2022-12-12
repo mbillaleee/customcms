@@ -201,7 +201,7 @@ Route::prefix('tag')->group(function () {
 });
 
 
-Route::prefix('blog')->group(function () {
+Route::prefix('blog')->middleware('auth')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/create', [BlogController::class, 'create'])->name('blog.create');
     Route::post('/store', [BlogController::class, 'store'])->name('blog.store');
@@ -209,3 +209,5 @@ Route::prefix('blog')->group(function () {
     Route::post('/update/{blog}', [BlogController::class, 'update'])->name('blog.update');
     Route::delete('/destroy/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy');
 });
+
+require __DIR__.'/auth.php';

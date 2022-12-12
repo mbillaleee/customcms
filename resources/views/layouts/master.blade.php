@@ -8,6 +8,7 @@
     <main class="workspace @hasSection('sidebar') workspace_with-sidebar @endif {{ $workspaceClasses ?? '' }}">
 
         @yield('workspace')
+        @yield('content')
 
         @if(!isset($footer) or $footer)
             @include('partials._footer')
