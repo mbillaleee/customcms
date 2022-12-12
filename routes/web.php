@@ -4,11 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\BlogController;
+<<<<<<< HEAD
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\PhotoGalleryController;
 use App\Http\Controllers\VideoGalleryController;
 use App\Http\Controllers\ProductController;
+=======
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+>>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
 
 /*
 |--------------------------------------------------------------------------
@@ -186,7 +191,11 @@ Route::get('/blank', function () {
 
 
 
+<<<<<<< HEAD
 Route::prefix('category')->group(function () {
+=======
+Route::prefix('category')->middleware('auth')->group(function () {
+>>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
     Route::get('/', [CategoryController::class, 'index'])->name('category.index');
     Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
     Route::post('/store', [CategoryController::class, 'store'])->name('category.store');
@@ -196,7 +205,11 @@ Route::prefix('category')->group(function () {
 });
 
 
+<<<<<<< HEAD
 Route::prefix('tag')->group(function () {
+=======
+Route::prefix('tag')->middleware('auth')->group(function () {
+>>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
     Route::get('/', [TagController::class, 'index'])->name('tag.index');
     Route::get('/create', [TagController::class, 'create'])->name('tag.create');
     Route::post('/store', [TagController::class, 'store'])->name('tag.store');
@@ -206,7 +219,11 @@ Route::prefix('tag')->group(function () {
 });
 
 
+<<<<<<< HEAD
 Route::prefix('blog')->group(function () {
+=======
+Route::prefix('blog')->middleware('auth')->group(function () {
+>>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/create', [BlogController::class, 'create'])->name('blog.create');
     Route::post('/store', [BlogController::class, 'store'])->name('blog.store');
@@ -216,6 +233,7 @@ Route::prefix('blog')->group(function () {
 });
 
 
+<<<<<<< HEAD
 Route::prefix('page')->group(function () {
     Route::get('/', [PageController::class, 'index'])->name('page.index');
     Route::get('/create', [PageController::class, 'create'])->name('page.create');
@@ -263,3 +281,13 @@ Route::prefix('product')->group(function () {
     Route::post('/update/{product}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 });
+=======
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+
+});
+
+
+require __DIR__.'/auth.php';
+>>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254

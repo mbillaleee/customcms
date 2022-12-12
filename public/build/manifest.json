@@ -7,6 +7,10 @@
     "file": "assets/breakfast.deb1fb9d.jpg",
     "src": "resources/images/breakfast.jpg"
   },
+  "resources/images/check.svg": {
+    "file": "assets/check.1d76b6f6.svg",
+    "src": "resources/images/check.svg"
+  },
   "resources/images/favicon/favicon-128.png": {
     "file": "assets/favicon-128.1141b446.png",
     "src": "resources/images/favicon/favicon-128.png"
@@ -19,17 +23,21 @@
     "file": "assets/favicon-167.caca6f71.png",
     "src": "resources/images/favicon/favicon-167.png"
   },
-  "resources/images/favicon/favicon-196.png": {
-    "file": "assets/favicon-196.684f6597.png",
-    "src": "resources/images/favicon/favicon-196.png"
+  "resources/images/favicon/favicon-180.png": {
+    "file": "assets/favicon-180.e74a4aa5.png",
+    "src": "resources/images/favicon/favicon-180.png"
+  },
+  "resources/images/favicon/favicon-192.png": {
+    "file": "assets/favicon-192.1537a6ad.png",
+    "src": "resources/images/favicon/favicon-192.png"
   },
   "resources/images/favicon/favicon-32.png": {
     "file": "assets/favicon-32.2309dc41.png",
     "src": "resources/images/favicon/favicon-32.png"
   },
-  "resources/images/favicon/favicon-192.png": {
-    "file": "assets/favicon-192.1537a6ad.png",
-    "src": "resources/images/favicon/favicon-192.png"
+  "resources/images/favicon/favicon-196.png": {
+    "file": "assets/favicon-196.684f6597.png",
+    "src": "resources/images/favicon/favicon-196.png"
   },
   "resources/images/garlic.jpg": {
     "file": "assets/garlic.a7fb576a.jpg",
@@ -39,13 +47,13 @@
     "file": "assets/ingredients.4585f071.jpg",
     "src": "resources/images/ingredients.jpg"
   },
-  "resources/images/onion.jpg": {
-    "file": "assets/onion.79a940cb.jpg",
-    "src": "resources/images/onion.jpg"
-  },
   "resources/images/pepper-flower.jpg": {
     "file": "assets/pepper-flower.1aa4b9e7.jpg",
     "src": "resources/images/pepper-flower.jpg"
+  },
+  "resources/images/onion.jpg": {
+    "file": "assets/onion.79a940cb.jpg",
+    "src": "resources/images/onion.jpg"
   },
   "resources/images/pepper.jpg": {
     "file": "assets/pepper.c43df933.jpg",
@@ -55,25 +63,17 @@
     "file": "assets/potato.b2d25776.jpg",
     "src": "resources/images/potato.jpg"
   },
-  "resources/images/favicon/favicon-180.png": {
-    "file": "assets/favicon-180.e74a4aa5.png",
-    "src": "resources/images/favicon/favicon-180.png"
-  },
-  "resources/images/check.svg": {
-    "file": "assets/check.1d76b6f6.svg",
-    "src": "resources/images/check.svg"
-  },
   "resources/images/tomato.jpg": {
     "file": "assets/tomato.c5f02bb5.jpg",
     "src": "resources/images/tomato.jpg"
   },
-  "node_modules/line-awesome/dist/line-awesome/fonts/la-regular-400.eot": {
-    "file": "assets/la-regular-400.7dc456f0.eot",
-    "src": "node_modules/line-awesome/dist/line-awesome/fonts/la-regular-400.eot"
-  },
   "node_modules/line-awesome/dist/line-awesome/fonts/la-brands-400.eot": {
     "file": "assets/la-brands-400.c0e32387.eot",
     "src": "node_modules/line-awesome/dist/line-awesome/fonts/la-brands-400.eot"
+  },
+  "node_modules/line-awesome/dist/line-awesome/fonts/la-regular-400.eot": {
+    "file": "assets/la-regular-400.7dc456f0.eot",
+    "src": "node_modules/line-awesome/dist/line-awesome/fonts/la-regular-400.eot"
   },
   "node_modules/line-awesome/dist/line-awesome/fonts/la-solid-900.eot": {
     "file": "assets/la-solid-900.8a57f8a9.eot",
@@ -107,13 +107,13 @@
     "file": "assets/la-brands-400.fbc98702.ttf",
     "src": "node_modules/line-awesome/dist/line-awesome/fonts/la-brands-400.ttf"
   },
-  "node_modules/line-awesome/dist/line-awesome/fonts/la-solid-900.ttf": {
-    "file": "assets/la-solid-900.07ce3559.ttf",
-    "src": "node_modules/line-awesome/dist/line-awesome/fonts/la-solid-900.ttf"
-  },
   "node_modules/line-awesome/dist/line-awesome/fonts/la-regular-400.ttf": {
     "file": "assets/la-regular-400.4b6ab8d0.ttf",
     "src": "node_modules/line-awesome/dist/line-awesome/fonts/la-regular-400.ttf"
+  },
+  "node_modules/line-awesome/dist/line-awesome/fonts/la-solid-900.ttf": {
+    "file": "assets/la-solid-900.07ce3559.ttf",
+    "src": "node_modules/line-awesome/dist/line-awesome/fonts/la-solid-900.ttf"
   },
   "node_modules/line-awesome/dist/line-awesome/fonts/la-regular-400.svg": {
     "file": "assets/la-regular-400.884ce19c.svg",

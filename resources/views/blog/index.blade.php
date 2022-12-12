@@ -22,7 +22,10 @@
                         <tr>
                             <th class="ltr:text-left rtl:text-right uppercase">#</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Name</th>
+<<<<<<< HEAD
                             <th class="ltr:text-left rtl:text-right uppercase">Category</th>
+=======
+>>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
                             <th class="ltr:text-left rtl:text-right uppercase">Desc</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Image</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Status</th>
@@ -34,7 +37,10 @@
                         <tr>
                             <td>1</td>
                             <td>{{ $blog->title }}</td>
+<<<<<<< HEAD
                             <td>{{ $blog->categories->name }}</td>
+=======
+>>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
                             <td>{{ $blog->content }}</td>
                             <td>@if($blog->image != null)<img src="{{asset('uploads/blog/'.$blog->image)}}" width="80" alt="$blog->title">@endif</td>
                             <td>{!! !!$blog->status ? '<span class="badge bg-success">Active</span>': '<span

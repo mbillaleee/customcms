@@ -17,7 +17,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $categories = Category::latest()->get(); 
+=======
+        $categories = Category::latest()->get();
+>>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
         return view('category.index', compact('categories'));
     }
 
@@ -82,7 +86,11 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+<<<<<<< HEAD
         return view('category.edit', compact('category')); 
+=======
+        return view('category.edit', compact('category'));
+>>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
     }
 
     /**

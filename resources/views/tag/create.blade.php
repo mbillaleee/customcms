@@ -14,8 +14,13 @@
         </ul>
     </section>
 
+<<<<<<< HEAD
     <div class="grid lg:grid-cols-2 gap-2">
         <div class="flex flex-col gap-y-5 lg:col-span-1">
+=======
+    <div class="grid gap-5">
+        <div class="flex flex-col gap-y-5">
+>>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
             <form action="{{route('tag.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
                 <div class="card p-5">
