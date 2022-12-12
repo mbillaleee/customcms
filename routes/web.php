@@ -181,7 +181,7 @@ Route::get('/blank', function () {
 
 
 
-Route::prefix('category')->group(function () {
+Route::prefix('category')->middleware('auth')->group(function () {
     Route::get('/', [CategoryController::class, 'index'])->name('category.index');
     Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
     Route::post('/store', [CategoryController::class, 'store'])->name('category.store');
@@ -191,7 +191,7 @@ Route::prefix('category')->group(function () {
 });
 
 
-Route::prefix('tag')->group(function () {
+Route::prefix('tag')->middleware('auth')->group(function () {
     Route::get('/', [TagController::class, 'index'])->name('tag.index');
     Route::get('/create', [TagController::class, 'create'])->name('tag.create');
     Route::post('/store', [TagController::class, 'store'])->name('tag.store');
