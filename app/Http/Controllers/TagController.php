@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TagController extends Controller
 {
@@ -14,7 +15,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::latest()->get();
+        return view('tag.index', compact('tags'));
     }
 
     /**
@@ -24,7 +26,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        return view('tag.create');
     }
 
     /**
@@ -35,7 +37,19 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $tag = New Tag;
+
+        // $user = Auth::user();
+        // $id = Auth::user()->id;
+
+            $tag->tag=$request->tag;
+            $tag->user_id=1;
+            $tag->slug= Str::slug($request->tag);
+            $tag->status=$request->status;
+            $tag->save();
+
+            return redirect()->route('tag.index')->with('success','Tag created successfully!');
     }
 
     /**
@@ -57,7 +71,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('tag.edit', compact('tag'));
     }
 
     /**
@@ -69,7 +83,14 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+        // dd($request->all());
+        $tag->tag=$request->tag;
+        $tag->user_id=1;
+        $tag->slug= Str::slug($request->tag);
+        $tag->status=$request->status;
+        $tag->save();
+
+        return redirect()->route('tag.index')->with('success','Tag created successfully!');
     }
 
     /**
@@ -80,6 +101,7 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+        return redirect()->back()->with('success','Tag deleted successfully!');
     }
 }

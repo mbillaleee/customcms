@@ -23,6 +23,7 @@
     <link rel="apple-touch-icon" href="{{ Vite::asset('resources/images/favicon/favicon-152.png') }}" sizes="152x152">
     <link rel="apple-touch-icon" href="{{ Vite::asset('resources/images/favicon/favicon-167.png') }}" sizes="167x167">
     <link rel="apple-touch-icon" href="{{ Vite::asset('resources/images/favicon/favicon-180.png') }}" sizes="180x180">
+    <script src="https://cdn.tailwindcss.com"></script>
 
     {{-- <link rel="stylesheet" href="{{ asset('build/css/style.css') }}" /> --}}
     @vite([ 'resources/css/style.css'])

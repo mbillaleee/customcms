@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
@@ -14,7 +15,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        $pages = Page::latest()->get();
+        return view('page.index', compact('pages'));
     }
 
     /**
@@ -24,7 +26,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view('page.create');
     }
 
     /**
@@ -35,7 +37,25 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $page = New Page;
+
+        $image = $request->file('image');
+            if($image != '')
+            {
+                $imagename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('uploads/page'), $imagename);
+                $page->image=$imagename;
+            }
+
+            $page->title=$request->title;
+            $page->user_id=1;
+            $page->slug= Str::slug($request->name);
+            $page->content=$request->content;
+            $page->status=$request->status;
+            $page->save();
+
+            return redirect()->route('page.index')->with('success','Page created successfully!');
     }
 
     /**
@@ -57,7 +77,7 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        return view('page.edit', compact('page'));
     }
 
     /**
@@ -69,7 +89,26 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
-        //
+
+        $image = $request->file('image');
+        if($image != '')
+        {
+            if($page->image == null){
+            unlink(public_path('uploads/page/'.$page->image));
+            }
+            $imagename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads/page'), $imagename);
+            $page->image=$imagename;
+        }
+
+            $page->title=$request->title;
+            $page->user_id=1;
+            $page->slug= Str::slug($request->name);
+            $page->content=$request->content;
+            $page->status=$request->status;
+            $page->save();
+
+            return redirect()->route('page.index')->with('success','Page created successfully!');
     }
 
     /**
@@ -80,6 +119,7 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        //
+        $page->delete();
+        return redirect()->back()->with('success','Category deleted successfully!');
     }
 }

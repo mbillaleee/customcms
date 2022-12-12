@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class SliderController extends Controller
 {
@@ -14,7 +15,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        //
+        $sliders = Slider::latest()->get();
+        return view('slider.index', compact('sliders'));
     }
 
     /**
@@ -24,7 +26,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        //
+        return view('slider.create');
     }
 
     /**
@@ -35,7 +37,26 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        
+        $slider = New Slider;
+
+        $image = $request->file('image');
+            if($image != '')
+            {
+                $imagename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('uploads/slider'), $imagename);
+                $slider->image=$imagename;
+            }
+
+            $slider->title=$request->title;
+            $slider->user_id=1;
+            $slider->slug= Str::slug($request->name);
+            $slider->content=$request->content;
+            $slider->status=$request->status;
+            $slider->save();
+
+            return redirect()->route('slider.index')->with('success','Slider created successfully!');
     }
 
     /**
@@ -57,7 +78,7 @@ class SliderController extends Controller
      */
     public function edit(Slider $slider)
     {
-        //
+        return view('slider.edit', compact('slider'));
     }
 
     /**
@@ -69,7 +90,28 @@ class SliderController extends Controller
      */
     public function update(Request $request, Slider $slider)
     {
-        //
+        // dd($request->all());
+
+
+        $image = $request->file('image');
+        if($image != '')
+        {
+            if($slider->image == null){
+            unlink(public_path('uploads/slider/'.$slider->image));
+            }
+            $imagename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads/slider'), $imagename);
+            $slider->image=$imagename;
+        }
+
+        $slider->user_id=1;
+        $slider->title=$request->title;
+        $slider->slug= Str::slug($request->name);
+        $slider->content=$request->content;
+        $slider->status=$request->status;
+        $slider->save();
+
+        return redirect()->route('slider.index')->with('success','Slider update successfully!');
     }
 
     /**
@@ -80,6 +122,7 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        //
+        $slider->delete();
+        return redirect()->back()->with('success','Slider deleted successfully!');
     }
 }
