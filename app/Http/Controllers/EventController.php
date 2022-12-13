@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
-class EventController extends Controller
+class EventController extends Controller 
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::latest()->get(); 
+        return view('event.index', compact('events'));
     }
 
     /**
@@ -24,7 +26,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('event.create');
     }
 
     /**
@@ -35,7 +37,33 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $event = New Event;
+
+        $image = $request->file('image');
+        $document = $request->file('document');
+            if($image != '')
+            {
+                $imagename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('uploads/eventimage'), $imagename);
+                $event->image=$imagename;
+            }
+            if($document != '')
+            {
+                $documentname = pathinfo($document->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . '.' . $document->getClientOriginalExtension();
+                $document->move(public_path('uploads/eventdocument'), $documentname);
+                $event->document=$documentname;
+            }
+
+            $event->user_id=1;
+            $event->title=$request->title;
+            $event->slug= Str::slug($request->title);
+            $event->desc=$request->desc;
+            $event->date_time=$request->date_time;
+            $event->status=$request->status;
+            $event->save();
+
+            return redirect()->route('event.index')->with('success','Event created successfully!');
     }
 
     /**
@@ -57,7 +85,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view('event.edit', compact('event'));
     }
 
     /**
@@ -69,7 +97,37 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        // dd($request->all());
+        $image = $request->file('image');
+        $document = $request->file('document');
+        if($image != '')
+        {
+            if($event->image != null){
+            unlink(public_path('uploads/eventimage/'.$event->image));
+            }
+            $imagename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads/eventimage'), $imagename);
+            $event->image=$imagename;
+        }
+        if($document != '')
+        {
+            if($event->document != null){
+            unlink(public_path('uploads/event/'.$event->document));
+            }
+            $documentname = pathinfo($document->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . '.' . $document->getClientOriginalExtension();
+            $document->move(public_path('uploads/event'), $documentname);
+            $event->document=$documentname;
+        }
+
+        $event->user_id=1;
+        $event->title=$request->title;
+        $event->slug= Str::slug($request->title);
+        $event->desc=$request->desc;
+        $event->date_time=$request->date_time;
+        $event->status=$request->status;
+        $event->save();
+
+            return redirect()->route('event.index')->with('success','Event update successfully!');
     }
 
     /**
@@ -80,6 +138,7 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
+        return redirect()->back()->with('success','Event deleted successfully!');
     }
 }

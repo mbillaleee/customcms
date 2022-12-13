@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('title');
             $table->string('slug')->nullable()->index('slug');
+            $table->longText('desc')->nullable();
+            $table->string('image');
             $table->integer('status')->default(1)->comment('Active=1, Inactive=0');
             $table->timestamps();
             $table->softDeletes();

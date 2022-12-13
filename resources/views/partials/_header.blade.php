@@ -23,6 +23,8 @@
     <link rel="apple-touch-icon" href="{{ Vite::asset('resources/images/favicon/favicon-152.png') }}" sizes="152x152">
     <link rel="apple-touch-icon" href="{{ Vite::asset('resources/images/favicon/favicon-167.png') }}" sizes="167x167">
     <link rel="apple-touch-icon" href="{{ Vite::asset('resources/images/favicon/favicon-180.png') }}" sizes="180x180">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
     {{-- <link rel="stylesheet" href="{{ asset('build/css/style.css') }}" /> --}}

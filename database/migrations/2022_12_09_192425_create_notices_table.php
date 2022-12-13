@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('notices', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('title');
+            $table->longText('desc')->nullable();
+            $table->string('document')->nullable();
+            $table->date('date')->nullable();
             $table->string('slug')->nullable()->index('slug');
             $table->integer('status')->default(1)->comment('Active=1, Inactive=0');
             $table->timestamps();

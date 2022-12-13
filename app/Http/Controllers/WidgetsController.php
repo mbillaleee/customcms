@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Widgets;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class WidgetsController extends Controller
 {
@@ -14,7 +15,8 @@ class WidgetsController extends Controller
      */
     public function index()
     {
-        //
+        $widgets = Widgets::latest()->get(); 
+        return view('widgets.index', compact('widgets'));
     }
 
     /**
@@ -24,7 +26,7 @@ class WidgetsController extends Controller
      */
     public function create()
     {
-        //
+        return view('widgets.create');
     }
 
     /**
@@ -35,7 +37,18 @@ class WidgetsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+
+        $widgets = New Widgets;
+        $widgets->user_id=1;
+        $widgets->title=$request->title;
+        $widgets->slug= Str::slug($request->title);
+        $widgets->content=$request->content;
+        $widgets->position=$request->position;
+        $widgets->status=$request->status;
+        $widgets->save();
+
+        return redirect()->route('widgets.index')->with('success','Widget created successfully!');
     }
 
     /**
@@ -57,7 +70,7 @@ class WidgetsController extends Controller
      */
     public function edit(Widgets $widgets)
     {
-        //
+        return view('widgets.edit', compact('widgets'));
     }
 
     /**
@@ -69,7 +82,16 @@ class WidgetsController extends Controller
      */
     public function update(Request $request, Widgets $widgets)
     {
-        //
+        // dd($request->all());
+        $widgets->user_id=1;
+        $widgets->title=$request->title;
+        $widgets->slug= Str::slug($request->title);
+        $widgets->content=$request->content;
+        $widgets->position=$request->position;
+        $widgets->status=$request->status;
+        $widgets->save();
+
+        return redirect()->route('widgets.index')->with('success','Widget created successfully!');
     }
 
     /**
@@ -80,6 +102,8 @@ class WidgetsController extends Controller
      */
     public function destroy(Widgets $widgets)
     {
-        //
+        // dd($widgets->id);
+        $widgets->delete();
+        return redirect()->back()->with('success','Portfolio deleted successfully!');
     }
 }

@@ -11,6 +11,10 @@ use App\Http\Controllers\VideoGalleryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\WidgetsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -189,9 +193,7 @@ Route::get('/blank', function () {
 
 
 Route::prefix('category')->group(function () {
-=======
-Route::prefix('category')->middleware('auth')->group(function () {
->>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
+// Route::prefix('category')->middleware('auth')->group(function () {
     Route::get('/', [CategoryController::class, 'index'])->name('category.index');
     Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
     Route::post('/store', [CategoryController::class, 'store'])->name('category.store');
@@ -202,9 +204,7 @@ Route::prefix('category')->middleware('auth')->group(function () {
 
 
 Route::prefix('tag')->group(function () {
-=======
-Route::prefix('tag')->middleware('auth')->group(function () {
->>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
+// Route::prefix('tag')->middleware('auth')->group(function () {
     Route::get('/', [TagController::class, 'index'])->name('tag.index');
     Route::get('/create', [TagController::class, 'create'])->name('tag.create');
     Route::post('/store', [TagController::class, 'store'])->name('tag.store');
@@ -215,9 +215,7 @@ Route::prefix('tag')->middleware('auth')->group(function () {
 
 
 Route::prefix('blog')->group(function () {
-=======
-Route::prefix('blog')->middleware('auth')->group(function () {
->>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
+// Route::prefix('blog')->middleware('auth')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/create', [BlogController::class, 'create'])->name('blog.create');
     Route::post('/store', [BlogController::class, 'store'])->name('blog.store');
@@ -274,6 +272,45 @@ Route::prefix('product')->group(function () {
     Route::post('/update/{product}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 });
+
+Route::prefix('event')->group(function () {
+    Route::get('/', [EventController::class, 'index'])->name('event.index');
+    Route::get('/create', [EventController::class, 'create'])->name('event.create');
+    Route::post('/store', [EventController::class, 'store'])->name('event.store');
+    Route::get('/edit/{event}', [EventController::class, 'edit'])->name('event.edit');
+    Route::post('/update/{event}', [EventController::class, 'update'])->name('event.update');
+    Route::delete('/destroy/{event}', [EventController::class, 'destroy'])->name('event.destroy');
+});
+
+Route::prefix('notice')->group(function () {
+    Route::get('/', [NoticeController::class, 'index'])->name('notice.index');
+    Route::get('/create', [NoticeController::class, 'create'])->name('notice.create');
+    Route::post('/store', [NoticeController::class, 'store'])->name('notice.store');
+    Route::get('/edit/{notice}', [NoticeController::class, 'edit'])->name('notice.edit');
+    Route::post('/update/{notice}', [NoticeController::class, 'update'])->name('notice.update');
+    Route::delete('/destroy/{notice}', [NoticeController::class, 'destroy'])->name('notice.destroy');
+});
+
+
+Route::prefix('portfolio')->group(function () {
+    Route::get('/', [PortfolioController::class, 'index'])->name('portfolio.index');
+    Route::get('/create', [PortfolioController::class, 'create'])->name('portfolio.create');
+    Route::post('/store', [PortfolioController::class, 'store'])->name('portfolio.store');
+    Route::get('/edit/{portfolio}', [PortfolioController::class, 'edit'])->name('portfolio.edit');
+    Route::post('/update/{portfolio}', [PortfolioController::class, 'update'])->name('portfolio.update');
+    Route::delete('/destroy/{portfolio}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
+});
+
+Route::prefix('widgets')->group(function () {
+    Route::get('/', [WidgetsController::class, 'index'])->name('widgets.index');
+    Route::get('/create', [WidgetsController::class, 'create'])->name('widgets.create');
+    Route::post('/store', [WidgetsController::class, 'store'])->name('widgets.store');
+    Route::get('/edit/{widgets}', [WidgetsController::class, 'edit'])->name('widgets.edit');
+    Route::post('/update/{widgets}', [WidgetsController::class, 'update'])->name('widgets.update');
+    Route::delete('/destroy/{widgets}', [WidgetsController::class, 'destroy'])->name('widgets.destroy');
+});
+
+
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);

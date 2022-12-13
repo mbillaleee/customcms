@@ -16,7 +16,12 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('title');
             $table->string('slug')->nullable()->index('slug');
+            $table->longText('desc')->nullable();
+            $table->string('document')->nullable();
+            $table->string('image')->nullable();
+            $table->dateTime('date_time')->nullable();
             $table->integer('status')->default(1)->comment('Active=1, Inactive=0');
             $table->timestamps();
             $table->softDeletes();
