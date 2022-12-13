@@ -4,16 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\BlogController;
-<<<<<<< HEAD
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\PhotoGalleryController;
 use App\Http\Controllers\VideoGalleryController;
 use App\Http\Controllers\ProductController;
-=======
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
->>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
 
 /*
 |--------------------------------------------------------------------------
@@ -191,7 +188,6 @@ Route::get('/blank', function () {
 
 
 
-<<<<<<< HEAD
 Route::prefix('category')->group(function () {
 =======
 Route::prefix('category')->middleware('auth')->group(function () {
@@ -205,7 +201,6 @@ Route::prefix('category')->middleware('auth')->group(function () {
 });
 
 
-<<<<<<< HEAD
 Route::prefix('tag')->group(function () {
 =======
 Route::prefix('tag')->middleware('auth')->group(function () {
@@ -219,7 +214,6 @@ Route::prefix('tag')->middleware('auth')->group(function () {
 });
 
 
-<<<<<<< HEAD
 Route::prefix('blog')->group(function () {
 =======
 Route::prefix('blog')->middleware('auth')->group(function () {
@@ -233,7 +227,6 @@ Route::prefix('blog')->middleware('auth')->group(function () {
 });
 
 
-<<<<<<< HEAD
 Route::prefix('page')->group(function () {
     Route::get('/', [PageController::class, 'index'])->name('page.index');
     Route::get('/create', [PageController::class, 'create'])->name('page.create');
@@ -281,7 +274,6 @@ Route::prefix('product')->group(function () {
     Route::post('/update/{product}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 });
-=======
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
@@ -290,4 +282,3 @@ Route::group(['middleware' => ['auth']], function() {
 
 
 require __DIR__.'/auth.php';
->>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254

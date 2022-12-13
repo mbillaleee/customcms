@@ -22,13 +22,8 @@
                         <tr>
                             <th class="ltr:text-left rtl:text-right uppercase">#</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Name</th>
-<<<<<<< HEAD
-                            <th class="ltr:text-left rtl:text-right uppercase">Image</th>
-                            <th class="ltr:text-left rtl:text-right uppercase">Desc</th>
-=======
                             <th class="ltr:text-left rtl:text-right uppercase">Desc</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Image</th>
->>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
                             <th class="ltr:text-left rtl:text-right uppercase">Status</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Action</th>
                         </tr>
@@ -38,17 +33,10 @@
                         <tr>
                             <td>1</td>
                             <td>{{ $category->name }}</td>
-<<<<<<< HEAD
-                            <td>@if($category->image != null)<img src="{{asset('uploads/category/'.$category->image)}}" width="80" alt="$category->name">@endif</td>
-                            <td>{!! !!$category->status ? '<span class="badge bg-success">Active</span>': '<span
-                                                class="badge bg-danger">Inactive</span>' !!}</td>
-                            <td>{{ $category->desc }}</td>
-=======
                             <td>{{ $category->desc }}</td>
                             <td>@if($category->image != null)<img src="{{asset('uploads/category/'.$category->image)}}" width="80" alt="$category->name">@endif</td>
                             <td>{!! !!$category->status ? '<span class="badge bg-success">Active</span>': '<span
                                                 class="badge bg-danger">Inactive</span>' !!}</td>
->>>>>>> c18ccb3533e89285fb6a3bc866c7d24062069254
                             <td class="flex">
                             <a class="bg-blue-500 text-white hover:text-white font-bold py-1 px-4 rounded-full" href="{{ route('category.edit',$category->id) }}">Edit</a>
                                 <form class="" method="POST" action="{{route('category.destroy', $category->id)}}">
