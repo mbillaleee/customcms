@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('prodcut_galleries', function (Blueprint $table) {
+        Schema::create('product_event_galleries', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('reference_id')->index('reference_id');
+            $table->string('title')->nullable();
             $table->string('image');
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prodcut_galleries');
+        Schema::dropIfExists('product_event_galleries');
     }
 };

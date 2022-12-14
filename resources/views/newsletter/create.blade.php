@@ -6,9 +6,9 @@
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <h1>Event</h1>
+        <h1>News Letter</h1>
         <ul>
-            <li><a href="#no-link">Event</a></li>
+            <li><a href="#no-link">News Letter</a></li>
             <li class="divider la la-arrow-right"></li>
             <li><a href="#no-link">Create</a></li>
         </ul>
@@ -16,7 +16,7 @@
 
     <div class="grid gap-5">
         <div class="flex flex-col gap-y-5">
-            <form action="{{route('event.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('newsletter.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
                 <div class="card p-5">
                     <div class="mt-5">
@@ -28,20 +28,12 @@
                         <input type="file" id="input" class="form-control" name="image">
                     </div>
                     <div class="mt-5">
-                        <label class="label block mb-2">Multiple Image</label>
-                        <input type="file" id="input" class="form-control" name="multi_image[]" multiple>
+                        <label class="label block mb-2">Publish Date</label>
+                        <input type="date" id="input" class="form-control" name="pub_date">
                     </div>
                     <div class="mt-5">
-                        <label class="label block mb-2">Document</label>
-                        <input type="file" id="input" class="form-control" name="document">
-                    </div>
-                    <div class="mt-5">
-                        <label class="label block mb-2">Date and Time</label>
-                        <input type="datetime-local" id="input" class="form-control" name="date_time">
-                    </div>
-                    <div class="mt-5">
-                        <label class="label block mb-2">Descrition</label>
-                        <textarea type="text" class="form-control" rows="5" name="desc"></textarea>
+                        <label class="label block mb-2">Content</label>
+                        <textarea type="text" class="form-control" rows="5" name="content"></textarea>
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Status</label>

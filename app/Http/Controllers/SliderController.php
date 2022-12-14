@@ -49,9 +49,9 @@ class SliderController extends Controller
                 $slider->image=$imagename;
             }
 
-            $slider->title=$request->title;
             $slider->user_id=1;
-            $slider->slug= Str::slug($request->name);
+            $slider->title=$request->title;
+            $slider->slug= Str::slug($request->title);
             $slider->content=$request->content;
             $slider->status=$request->status;
             $slider->save();

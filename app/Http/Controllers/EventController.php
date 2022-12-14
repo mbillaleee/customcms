@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\ProductEventGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -62,6 +63,30 @@ class EventController extends Controller
             $event->date_time=$request->date_time;
             $event->status=$request->status;
             $event->save();
+
+            if($event->save()){
+                $id=$event->id;
+                foreach ($request->multi_image as $key => $vl){ 
+                    $multi_image = $request->file('multi_image')[$key] ?? '';
+                    if($multi_image != '')
+                    {
+                        $imagename = pathinfo($multi_image->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . '.' . $multi_image->getClientOriginalExtension();
+                        $multi_image->move(public_path('uploads/variantproducts'), $imagename);
+                        $multi_image=$imagename;
+                    }else{
+                        $multi_image=null;
+                    }
+                
+                    $data = array(
+                        'user_id'=>1,
+                        'reference_id'=>$id,
+                        'title'=>$request->title,
+                        'multi_image'=>$multi_image,
+        
+                    );
+                    ProductEventGallery::insert($data);
+                }
+            }
 
             return redirect()->route('event.index')->with('success','Event created successfully!');
     }

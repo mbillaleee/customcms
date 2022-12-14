@@ -28,10 +28,25 @@
                         <input type="file" id="input" class="form-control" name="image">
                         @if($product->image != null)<img src="{{asset('uploads/product/'.$product->image)}}" width="80" alt="{{$product->name}}">@endif
                     </div>
+                    <div class="row-span-full mt-5">
+                        <label class="label block mb-2">Multi Image</label>
+                        <input type="file" id="input" class="form-control" name="multi_image[]" multiple>
+                        <div class="grid grid-flow-col">
+                        @foreach($multiimages as $multiimage)
+                        @if($multiimage->multi_image != null)<img src="{{asset('uploads/productsmultiimage/'.$multiimage->multi_image )}}" width="80" alt="{{$multiimage->multi_image}}">@endif
+                        @endforeach
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Product Specification</label>
+                        <input type="text" id="input" class="form-control" name="specification" value="{{ $product->specification }}" placeholder="Enter text here">
+                        
+                    </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Short Descrition</label>
                         <textarea type="text" class="form-control" rows="5" name="desc">{{ $product->desc }}</textarea>
                     </div>
+                    
                     <div class="mt-5">
                         <label class="label block mb-2">Descrition</label>
                         <textarea type="text" class="form-control" rows="5" name="short_desc">{{ $product->short_desc }}</textarea>

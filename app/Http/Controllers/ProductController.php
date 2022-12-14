@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\ProductEventGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -57,8 +58,53 @@ class ProductController extends Controller
             $product->slug= Str::slug($request->name);
             $product->desc=$request->desc;
             $product->short_desc=$request->short_desc;
+            $product->specification=$request->specification;
             $product->status=$request->status;
-            $product->save();
+            // $product->save();
+
+            if($product->save()){
+                $id=$product->id;
+                foreach ($request->multi_image as $key => $vl){ 
+                    $multi_image = $request->file('multi_image')[$key] ?? '';
+                    if($multi_image != '')
+                    {
+                        $imagename = pathinfo($multi_image->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . '.' . $multi_image->getClientOriginalExtension();
+                        $multi_image->move(public_path('uploads/productsmultiimage'), $imagename);
+                        $multi_image=$imagename;
+                    }else{
+                        $multi_image=null;
+                    }
+                
+                    $data = array(
+                        'user_id'=>1,
+                        'reference_id'=>$id,
+                        'title'=>$request->name,
+                        'multi_image'=>$multi_image,
+        
+                    );
+                    ProductEventGallery::insert($data);
+                }
+            }
+
+
+
+            // if($product->save()){
+            //     $id=$product->id;
+            //     $title=$product->name;
+            //     $flag = 1;
+            //     foreach($request->file('multi_image') as $product_multiple_photo){
+            //     $uploaded_photo = $product_multiple_photo;
+            //     $new_name = $product . '-' . $flag .'.'.$uploaded_photo->getClientOriginalExtension();
+            //     $new_upload_location = base_path('public/uploads/multi_image/' . $new_name);
+            //     //photo upload end
+            //     ProductEventGallery::insert([
+            //         'reference_id ' => $id,
+            //         'title' => $title,
+            //         'multi_image'  => $new_name,
+            //     ]);
+            //     $flag++;
+            //     }
+            // }
 
             return redirect()->route('product.index')->with('success','Product created successfully!');
     }
@@ -83,7 +129,9 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::latest()->get();
-        return view('product.edit', compact('product', 'categories'));
+        $multiimages = ProductEventGallery::where('reference_id', $product->id )->get();
+        // dd( $multiimages);
+        return view('product.edit', compact('product', 'categories', 'multiimages'));
     }
 
     /**
@@ -113,6 +161,7 @@ class ProductController extends Controller
         $product->slug= Str::slug($request->name);
         $product->desc=$request->desc;
         $product->short_desc=$request->short_desc;
+        $product->specification=$request->specification;
         $product->status=$request->status;
         $product->save();
 

@@ -50,7 +50,7 @@ class PageController extends Controller
 
             $page->title=$request->title;
             $page->user_id=1;
-            $page->slug= Str::slug($request->name);
+            $page->slug= Str::slug($request->title);
             $page->content=$request->content;
             $page->status=$request->status;
             $page->save();
@@ -103,7 +103,7 @@ class PageController extends Controller
 
             $page->title=$request->title;
             $page->user_id=1;
-            $page->slug= Str::slug($request->name);
+            $page->slug= Str::slug($request->title);
             $page->content=$request->content;
             $page->status=$request->status;
             $page->save();

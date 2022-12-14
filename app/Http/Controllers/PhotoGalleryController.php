@@ -51,7 +51,7 @@ class PhotoGalleryController extends Controller
 
             $photogallery->title=$request->title;
             $photogallery->user_id=1;
-            $photogallery->slug= Str::slug($request->name);
+            $photogallery->slug= Str::slug($request->title);
             $photogallery->desc=$request->desc;
             $photogallery->status=$request->status;
             $photogallery->save();

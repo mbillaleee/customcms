@@ -27,6 +27,16 @@
                         <label class="label block mb-2">Image</label>
                         <input type="file" id="input" class="form-control" name="image">
                     </div>
+                    
+                    <div class="mt-5">
+                        <label class="label block mb-2">Multiple Image</label>
+                        <input type="file" id="input" class="form-control" name="multi_image[]" multiple>
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Product Specification</label>
+                        <input type="text" id="input" class="form-control" name="specification" placeholder="Enter text here">
+                        
+                    </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Short Descrition</label>
                         <textarea type="text" class="form-control" rows="5" name="desc"></textarea>

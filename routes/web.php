@@ -15,6 +15,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\WidgetsController;
+use App\Http\Controllers\NewsLetterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -308,6 +309,15 @@ Route::prefix('widgets')->group(function () {
     Route::get('/edit/{widgets}', [WidgetsController::class, 'edit'])->name('widgets.edit');
     Route::post('/update/{widgets}', [WidgetsController::class, 'update'])->name('widgets.update');
     Route::delete('/destroy/{widgets}', [WidgetsController::class, 'destroy'])->name('widgets.destroy');
+});
+
+Route::prefix('newsletter')->group(function () {
+    Route::get('/', [NewsLetterController::class, 'index'])->name('newsletter.index');
+    Route::get('/create', [NewsLetterController::class, 'create'])->name('newsletter.create');
+    Route::post('/store', [NewsLetterController::class, 'store'])->name('newsletter.store');
+    Route::get('/edit/{newsletter}', [NewsLetterController::class, 'edit'])->name('newsletter.edit');
+    Route::post('/update/{newsletter}', [NewsLetterController::class, 'update'])->name('newsletter.update');
+    Route::delete('/destroy/{newsletter}', [NewsLetterController::class, 'destroy'])->name('newsletter.destroy');
 });
 
 
