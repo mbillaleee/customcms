@@ -33,7 +33,12 @@
                         <input type="file" id="input" class="form-control" name="multi_image[]" multiple>
                         <div class="grid grid-flow-col">
                         @foreach($multiimages as $multiimage)
-                        @if($multiimage->multi_image != null)<img src="{{asset('uploads/productsmultiimage/'.$multiimage->multi_image )}}" width="80" alt="{{$multiimage->multi_image}}">@endif
+                        @if($multiimage->multi_image != null)
+                        <div class="img-gallery">
+                        <a href="#">x</a>
+                        <img src="{{asset('uploads/productsmultiimage/'.$multiimage->multi_image )}}" width="80" alt="{{$multiimage->multi_image}}">
+                        </div>
+                        @endif
                         @endforeach
                         </div>
                     </div>
