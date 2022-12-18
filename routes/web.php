@@ -16,6 +16,10 @@ use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\WidgetsController;
 use App\Http\Controllers\NewsLetterController;
+use App\Http\Controllers\ProductEventGalleryController;
+use App\Http\Controllers\ContentController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -272,6 +276,11 @@ Route::prefix('product')->group(function () {
     Route::get('/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
     Route::post('/update/{product}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
+    // Route::delete('delete/{id}', [ProductController::class, 'multiDestroy'])->name('product.multiDestroy');
+    // Route::post('delete', [ProductController::class, 'multiDestroy'])->name('product.multiDestroy');
+    // Route::get('delete/{id}', [ProductController::class, 'multiDestroy'])->name("product.multiDestroy");
+    // Route::delete('delete/{id}', [ProductController::class, 'multiDestroy'])->name("multiDestroy");
+    Route::post('/delete', [ProductController::class, 'multiDestroy'])->name("multiDestroy");//Ajax Routes
 });
 
 Route::prefix('event')->group(function () {
@@ -318,6 +327,32 @@ Route::prefix('newsletter')->group(function () {
     Route::get('/edit/{newsletter}', [NewsLetterController::class, 'edit'])->name('newsletter.edit');
     Route::post('/update/{newsletter}', [NewsLetterController::class, 'update'])->name('newsletter.update');
     Route::delete('/destroy/{newsletter}', [NewsLetterController::class, 'destroy'])->name('newsletter.destroy');
+});
+
+Route::prefix('content')->group(function () {
+    Route::get('/', [ContentController::class, 'index'])->name('content.index');
+    Route::get('/create', [ContentController::class, 'create'])->name('content.create');
+    Route::post('/store', [ContentController::class, 'store'])->name('content.store');
+    Route::get('/edit/{content}', [ContentController::class, 'edit'])->name('content.edit');
+    Route::post('/update/{content}', [ContentController::class, 'update'])->name('content.update');
+    Route::delete('/destroy/{content}', [ContentController::class, 'destroy'])->name('content.destroy');
+});
+
+
+Route::prefix('menu')->group(function () {
+    Route::get('/', [MenuController::class, 'index'])->name('menu.index');
+    Route::get('/create', [MenuController::class, 'create'])->name('menu.create');
+    Route::post('/store', [MenuController::class, 'store'])->name('menu.store');
+    Route::get('/edit/{menu}', [MenuController::class, 'edit'])->name('menu.edit');
+    Route::post('/update/{menu}', [MenuController::class, 'update'])->name('menu.update');
+    Route::delete('/destroy/{menu}', [MenuController::class, 'destroy'])->name('menu.destroy');
+});
+
+Route::prefix('settings')->group(function () {
+    Route::get('/create', [SettingsController::class, 'create'])->name('settings.create');
+    Route::post('/store', [SettingsController::class, 'store'])->name('settings.store');
+    Route::get('/edit', [SettingsController::class, 'edit'])->name('settings.edit');
+    Route::post('/update', [SettingsController::class, 'update'])->name('settings.update');
 });
 
 

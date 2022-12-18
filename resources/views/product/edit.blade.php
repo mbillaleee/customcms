@@ -34,8 +34,23 @@
                         <div class="grid grid-flow-col">
                         @foreach($multiimages as $multiimage)
                         @if($multiimage->multi_image != null)
-                        <div class="img-gallery">
-                        <a href="#">x</a>
+                        <div class="img-gallery" >
+                        <!-- <a href="#">x</a> -->
+                        <!-- <button class="deleteRecord" data-id="{{ $multiimage->id }}" >Delete Record</button> -->
+                        <!-- <button class="deleteProduct" data-id="{{ $multiimage->id }}" data-token="{{ csrf_token() }}" >Delete Task</button> -->
+                        <!-- <td>
+                        <a class="deleteRecord" data_id="{{$multiimage->id}}"> X </a>
+                        </td> -->
+                        <!-- <button class="deleteRecord" data-id="{{$multiimage->id}}"><i class="icon-bin"></i>delete</button> -->
+                        <!-- <a class="deleteRecord" data_id="{{$multiimage->id}}"><i class="icon-bin"></i>delete</a> -->
+                        <!-- <a href="{{ $multiimage->id }}" class="delete text-danger">
+                                        <span class="fa fa-remove"></span>
+                                    </a> -->
+                                    <!-- <a href="" class="delete_mil_img" data-id="{{$multiimage->id}}">delete</a> -->
+                                    <!-- <a href="javascript:void(0)" id="mid{{$multiimage->id}}" onclick="multiDestroy({{$multiimage->id}})" class="">Delete</a> -->
+                                    <a href="{{ $multiimage->id }}" class="delete">
+                                        DEL
+                                    </a>
                         <img src="{{asset('uploads/productsmultiimage/'.$multiimage->multi_image )}}" width="80" alt="{{$multiimage->multi_image}}">
                         </div>
                         @endif
@@ -79,3 +94,196 @@
     </div>
 
 @endsection
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+<!-- <script>
+    // function multiDestroy($id){
+    //     if(confirm("do you want delete")){
+    //         $.ajax({
+    //             url:'product/delete/'+id,
+    //             type:'DELETE',
+    //             data:{
+    //                 _token: $("input[name=_token]").val()
+    //             },
+    //             success:function(response){
+    //                 $("#mid"+id).remove();
+    //             }
+    //         })
+    //     }
+    // }
+
+    $(document).on('click','.delete_mil_img', function(e){
+        e.preventDefault();
+        let id = $(this).data('id');
+
+        $.ajax({
+            url:{{ route('multiDestroy')}},
+            method:'POST',
+            data:
+        })
+    })
+</script> -->
+<script>
+
+
+
+    // $(document).on('click', '.delete', function(e) {
+
+    // e.preventDefault();
+    // id = $(this).attr('href');
+    // // alert(id);
+    // var token = $("meta[name='csrf-token']").attr("content");
+    // url = '{{ route('multiDestroy', ':id') }}';
+    // url = url.replace(':id', id);
+    // // alert(url);
+    // $.ajax({
+    //     url: "product/delete/"+id,
+    //     type: 'POST',
+    //     dataType: 'json',
+    //     data: {
+    //         _method: 'POST',
+    //         submit: true,
+    //         _token: token,
+    //     },
+    //     success: function(data) {
+    //         console.log("it Works");
+    //     }
+    // });
+    // });
+
+// $(".deleteRecord").click(function(){
+//     var id = $(this).data("id");
+//     console.log(id);
+//     var token = $("meta[name='csrf-token']").attr("content");
+
+//     $.ajax({
+//         url: "product/delete/"+id,
+//         type: 'POST',
+//         dataType: 'json',
+//         data: {
+//             _method: 'POST',
+//             submit: true,
+//             _token: token,
+//         },
+//         success: function (){
+//             console.log("it Works");
+//         }
+//     });   
+// });
+
+// $(".deleteRecord").click(function(){
+//     // $.ajaxSetup({
+//     //     headers: {
+//     //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//     //     }
+//     // });
+//         var id = $(this).data("id");
+//         // var token = $("meta[name='csrf-token']").attr("content");
+
+//         $.ajax({
+//             url: "product/delete/"+id
+//             type: 'GET',
+//             data: {
+//                 "id": id,
+//                 // "_token": token,
+//             },
+//             success: function (result){
+//                 swal({
+//                                     title: "multiimage deleted succesfuly",
+//                                     icon: "success",
+//                                     type: 'success',
+//                                 })
+//             }
+//         });
+
+//     });
+
+
+    // $(".deleteRecord").each(function () {
+    //         $(this).on("click", function () {
+    //             var $tr = $(this).closest('tr');
+    //             var id = $(this).attr("data_id");
+    //             swal({
+    //                 title: "Are you sure to Delete!",
+    //                 text: "***",
+    //                 icon: "warning",
+    //                 buttons: [
+    //                     'cansle!',
+    //                     'yes'
+    //                 ],
+    //                 dangerMode: true,
+    //             }).then(function(isConfirm) {
+    //                 if (isConfirm) {
+    //                     $.ajax({
+    //                         url: '/product/delete',
+    //                         type: 'post',
+    //                         dataType: 'json',
+    //                         data: {_token: "{{csrf_token()}}" , id:id},
+    //                         success: function () {
+    //                             swal({
+    //                                 title: "multiimage deleted succesfuly",
+    //                                 icon: "success",
+    //                                 type: 'success',
+    //                             })
+    //                             $tr.find('td').fadeOut(1000,function(){
+    //                                 $tr.remove();
+    //                             });
+    //                         }
+    //                     })
+    //                 }
+    //             })
+    //         });
+    //     });
+
+
+
+
+//     $(".deleteProduct").click(function(){
+//     $.ajaxSetup({
+//         headers: {
+//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//         }
+//     });
+
+//         var id = $(this).data("id");
+//         // var token = $(this).data("token");
+//         alert(id);
+//     $.ajax(
+//     {
+//         url: "product/delete/"+id,
+//         type: 'delete', // replaced from put
+//         dataType: "JSON",
+//         data: {
+//             "id": id // method and token not needed in data
+//         },
+//         success: function (response)
+//         {
+//             console.log(response); // see the reponse sent
+//         },
+//         error: function(xhr) {
+//          console.log(xhr.responseText); // this line will save you tons of hours while debugging
+//         // do something here because of error
+//        }
+//     });
+// });
+
+    // $(".deleteRecord").click(function(){
+    // var id = $(this).data("id");
+    //  console.log(id);
+    // // var token = $("meta[name='csrf-token']").attr("content");
+   
+    // $.ajax(
+    // {
+    //     url: "product/multiDestroy/"+id,
+    //     type: 'DELETE',
+    //     data: {
+    //         "id": id,
+    //         "_token": token,
+    //     },
+    //     success: function (){
+    //         // console.log("it Works");
+    //         alert('ok');
+    //     }
+    // });
+   
+    // });
+</script>

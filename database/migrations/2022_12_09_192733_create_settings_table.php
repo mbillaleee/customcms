@@ -15,12 +15,10 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('slug')->nullable()->index('slug');
-            $table->integer('status')->default(1)->comment('Active=1, Inactive=0');
+            $table->string('key');
+            $table->string('value')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -179,4 +179,60 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->back()->with('success','Product deleted successfully!');
     }
+
+    // public function multiDestroy($id){
+    //     dd($id);
+   
+    //     ProductEventGallery::find($id)->delete($id);
+      
+    //     return response()->json([
+    //         'success' => 'Record deleted successfully!'
+    //     ]);
+    // }
+
+//     public function multiDestroy($id)
+// {   //For Deleting Users
+//     $multiimagedelete = new ProductEventGallery;
+//     $multiimagedelete = ProductEventGallery::find($id);
+//     $multiimagedelete->delete($id);
+//     dd($multiimagedelete);
+//     return response()->json([
+//         'success' => 'Record has been deleted successfully!'
+//     ]);
+// }
+
+// public function multiDestroy(Request $request)
+//     {
+//         $id=$request['id'];
+//         ProductEventGallery::where('id', $id)->delete();
+//         return response()->json(['articleDelete' => 'success']);
+//     }
+
+// public function multiDestroy($multiimage)
+//     {
+//         ProductEventGallery::where('id', $multiimage)->delete();
+//         return response()->json([
+//             'success' => 'Record deleted successfully!'
+//         ]);
+//     }
+
+// public function multiDestroy($id)
+// {
+//     ProductEventGallery::where('id', $id)->delete($id);
+
+//     return response()->json(['success'=>'success']);
+// }
+public function multiDestroy($id)
+{
+    // ProductEventGallery::find($id);
+    // ProductEventGallery::destroy($id);
+    //     return response()->json(['success' => ProductEventGallery::all()], Response::HTTP_OK);
+
+    $promulimg = ProductEventGallery::find($id);
+    $promulimg ->delete();
+    return response()->json(['sucess'=>'delete']);
+
+}
+
+
 }

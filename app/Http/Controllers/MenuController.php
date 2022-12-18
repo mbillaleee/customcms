@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class MenuController extends Controller
 {
@@ -14,7 +15,9 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
+        $menus = Menu::latest()->get();
+        
+        return view('menu.index', compact('menus'));
     }
 
     /**
@@ -24,7 +27,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        return view('menu.create');
     }
 
     /**
@@ -35,7 +38,16 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        
+        $menu = New Menu;
+        $menu->user_id=1;
+        $menu->name=$request->name;
+        $menu->slug= Str::slug($request->name);
+        $menu->position=$request->position;
+        $menu->status=$request->status;
+        $menu->save();
+        return redirect()->route('menu.index')->with('success','Menu created successfully!');
     }
 
     /**
@@ -57,7 +69,7 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        //
+        return view('menu.edit', compact('menu'));
     }
 
     /**
@@ -69,7 +81,13 @@ class MenuController extends Controller
      */
     public function update(Request $request, Menu $menu)
     {
-        //
+        $menu->user_id=1;
+        $menu->name=$request->name;
+        $menu->slug= Str::slug($request->name);
+        $menu->position=$request->position;
+        $menu->status=$request->status;
+        $menu->save();
+        return redirect()->route('menu.index')->with('success','Menu created successfully!');
     }
 
     /**
@@ -80,6 +98,7 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        //
+        $menu->delete();
+        return redirect()->back()->with('success','Menu deleted successfully!');
     }
 }

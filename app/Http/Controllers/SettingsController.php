@@ -14,7 +14,8 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        //
+        $settingss = Settings::latest()->get();
+        return view('settings.index', compact('settingss'));
     }
 
     /**
@@ -57,7 +58,7 @@ class SettingsController extends Controller
      */
     public function edit(Settings $settings)
     {
-        //
+        return view('settings.edit', compact('settings'));
     }
 
     /**
@@ -67,9 +68,28 @@ class SettingsController extends Controller
      * @param  \App\Models\Settings  $settings
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Settings $settings)
+    // public function update($key ,$value)
+    // {
+        // dd($key);
+        // $set = new Settings;
+        // $set->name = $key;
+        // $set->value = $value;
+        // $set->save();
+    // }
+
+    public function update(Request $request)
     {
-        //
+        // dd( $request->all());
+        foreach ($request->all() as $key => $value)
+        {
+        if($key != '_token'){
+            Settings::updateOrCreate([
+                'key' => $key,
+                'value' => $value
+            ]);
+        }
+        }
+        return redirect()->route('settings.edit')->with('success','Product created successfully!');
     }
 
     /**

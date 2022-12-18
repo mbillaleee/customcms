@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Content;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ContentController extends Controller
 {
@@ -14,7 +15,9 @@ class ContentController extends Controller
      */
     public function index()
     {
-        //
+        $contents = Content::latest()->get();
+        
+        return view('content.index', compact('contents'));
     }
 
     /**
@@ -24,7 +27,7 @@ class ContentController extends Controller
      */
     public function create()
     {
-        //
+        return view('content.create');
     }
 
     /**
@@ -35,7 +38,17 @@ class ContentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        
+        $content = New Content;
+
+            $content->user_id=1;
+            $content->title=$request->title;
+            $content->slug= Str::slug($request->title);
+            $content->content=$request->content;
+            $content->status=$request->status;
+            $content->save();
+            return redirect()->route('content.index')->with('success','Product created successfully!');
     }
 
     /**
@@ -57,7 +70,7 @@ class ContentController extends Controller
      */
     public function edit(Content $content)
     {
-        //
+        return view('content.edit', compact('content'));
     }
 
     /**
@@ -69,7 +82,14 @@ class ContentController extends Controller
      */
     public function update(Request $request, Content $content)
     {
-        //
+            $content->user_id=1;
+            $content->title=$request->title;
+            $content->slug= Str::slug($request->title);
+            $content->content=$request->content;
+            $content->status=$request->status;
+            $content->save();
+
+            return redirect()->route('content.index')->with('success','Content Update successfully!');
     }
 
     /**
@@ -80,6 +100,7 @@ class ContentController extends Controller
      */
     public function destroy(Content $content)
     {
-        //
+        $content->delete();
+        return redirect()->back()->with('success','Content deleted successfully!');
     }
 }
