@@ -3,7 +3,7 @@
 
 
 @section('workspace')
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Breadcrumb -->
     <section class="breadcrumb">
         <h1>Product</h1>
@@ -31,26 +31,12 @@
                     <div class="row-span-full mt-5">
                         <label class="label block mb-2">Multi Image</label>
                         <input type="file" id="input" class="form-control" name="multi_image[]" multiple>
-                        <div class="grid grid-flow-col">
+                        <div class="grid grid-flow-col pimg_gallery" id="pimg_gallery">
                         @foreach($multiimages as $multiimage)
                         @if($multiimage->multi_image != null)
-                        <div class="img-gallery" >
-                        <!-- <a href="#">x</a> -->
-                        <!-- <button class="deleteRecord" data-id="{{ $multiimage->id }}" >Delete Record</button> -->
-                        <!-- <button class="deleteProduct" data-id="{{ $multiimage->id }}" data-token="{{ csrf_token() }}" >Delete Task</button> -->
-                        <!-- <td>
-                        <a class="deleteRecord" data_id="{{$multiimage->id}}"> X </a>
-                        </td> -->
-                        <!-- <button class="deleteRecord" data-id="{{$multiimage->id}}"><i class="icon-bin"></i>delete</button> -->
-                        <!-- <a class="deleteRecord" data_id="{{$multiimage->id}}"><i class="icon-bin"></i>delete</a> -->
-                        <!-- <a href="{{ $multiimage->id }}" class="delete text-danger">
-                                        <span class="fa fa-remove"></span>
-                                    </a> -->
-                                    <!-- <a href="" class="delete_mil_img" data-id="{{$multiimage->id}}">delete</a> -->
-                                    <!-- <a href="javascript:void(0)" id="mid{{$multiimage->id}}" onclick="multiDestroy({{$multiimage->id}})" class="">Delete</a> -->
-                                    <a href="{{ $multiimage->id }}" class="delete">
-                                        DEL
-                                    </a>
+                        <div class="img-gallery" id="pimg{{ $multiimage->id }}">
+                        <button type="button" class="deleteRecord" data-id="{{ $multiimage->id }}" >Delete Record</button>
+                        
                         <img src="{{asset('uploads/productsmultiimage/'.$multiimage->multi_image )}}" width="80" alt="{{$multiimage->multi_image}}">
                         </div>
                         @endif
@@ -94,23 +80,61 @@
     </div>
 
 @endsection
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-<!-- <script>
-    // function multiDestroy($id){
-    //     if(confirm("do you want delete")){
-    //         $.ajax({
-    //             url:'product/delete/'+id,
-    //             type:'DELETE',
-    //             data:{
-    //                 _token: $("input[name=_token]").val()
-    //             },
-    //             success:function(response){
-    //                 $("#mid"+id).remove();
-    //             }
-    //         })
-    //     }
-    // }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
+$(document).ready(function () {
+            $('.deleteRecord').on('click', function () {
+                var dataId = $(this).attr("data-id");
+
+                $.ajax({
+                    url: "{{route('multiimage.destroy')}}",
+                    type: "POST",
+                    data: {
+                        id: dataId,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        console.log(result.success);
+                        if(result.success){
+                            $('#pimg_gallery').find("[id='pimg" + dataId + "']").hide();
+                            // dataId.hide();
+                        }
+                        // $('#state-dd').html('<option value="">Select State</option>');
+                        // $.each(result.states, function (key, value) {
+                        //     $("#state-dd").append('<option value="' + value
+                        //         .id + '">' + value.name + '</option>');
+                        // });
+                        // $('#city-dd').html('<option value="">Select City</option>');
+                    }
+                });
+            });
+        });
+// $.ajaxSetup({
+//     headers: {
+//         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+//     }
+// });
 
 
+// $(".deleteRecord").click(function(){
+//     var id = $(this).data("id");
+//     // var token = $("meta[name='csrf-token']").attr("content");
+//     alert(id);
+   
+//     $.ajax(
+//     {
+//         url: "product/multiimage/"+id,
+//         type: 'POST',
+//         data: {
+//             "id": id,
+//             "_token": token,
+//         },
+//         success: function (){
+//             console.log("it Works");
+//         }
+//     });
+   
+// });
+</script>

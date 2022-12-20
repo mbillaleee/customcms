@@ -20,6 +20,7 @@ use App\Http\Controllers\ProductEventGalleryController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\Template1Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,50 @@ use App\Http\Controllers\SettingsController;
 // Dahboard
 Route::get('/', function () {
     return view('index');
+});
+Route::prefix('education')->group(function () {
+    Route::get('/home', function () {
+        return view('frontend-template1/index');
+    });
+    Route::get('/about', function () {
+        return view('frontend-template1/about');
+    });
+    Route::get('/contact', function () {
+        return view('frontend-template1/contact');
+    });
+    Route::get('/gallery', function () {
+        return view('frontend-template1/gallery');
+    });
+    Route::get('/blog-details', function () {
+        return view('frontend-template1/blog-details');
+    });
+    Route::get('/blog', function () {
+        return view('frontend-template1/blog');
+    });
+    Route::get('/class-grid', function () {
+        return view('frontend-template1/class-grid');
+    });
+    Route::get('/class-list', function () {
+        return view('frontend-template1/class-list');
+    });
+    Route::get('/class-details', function () {
+        return view('frontend-template1/class-details');
+    });
+});
+
+// Route::get('/frontend-template1', function () {
+//     return view('frontend-template1/index');
+// });
+Route::get('/frontend-template2', function () {
+    return view('frontend-template2/index');
+});
+
+Route::get('/frontend-template3', function () {
+    return view('frontend-template3/index');
+});
+
+Route::get('/frontend-template4', function () {
+    return view('frontend-template4/index');
 });
 
 // UI
@@ -276,11 +321,7 @@ Route::prefix('product')->group(function () {
     Route::get('/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
     Route::post('/update/{product}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
-    // Route::delete('delete/{id}', [ProductController::class, 'multiDestroy'])->name('product.multiDestroy');
-    // Route::post('delete', [ProductController::class, 'multiDestroy'])->name('product.multiDestroy');
-    // Route::get('delete/{id}', [ProductController::class, 'multiDestroy'])->name("product.multiDestroy");
-    // Route::delete('delete/{id}', [ProductController::class, 'multiDestroy'])->name("multiDestroy");
-    Route::post('/delete', [ProductController::class, 'multiDestroy'])->name("multiDestroy");//Ajax Routes
+    Route::post('multiimage/delete', [ProductController::class, 'multiImageDestroy'])->name('multiimage.destroy');
 });
 
 Route::prefix('event')->group(function () {
@@ -353,6 +394,16 @@ Route::prefix('settings')->group(function () {
     Route::post('/store', [SettingsController::class, 'store'])->name('settings.store');
     Route::get('/edit', [SettingsController::class, 'edit'])->name('settings.edit');
     Route::post('/update', [SettingsController::class, 'update'])->name('settings.update');
+});
+
+
+Route::prefix('template1')->group(function () {
+    Route::get('/', [Template1Controller::class, 'index'])->name('template1.index');
+    Route::get('/create', [Template1Controller::class, 'create'])->name('template1.create');
+    Route::post('/store', [Template1Controller::class, 'store'])->name('template1.store');
+    Route::get('/edit/{template1}', [Template1Controller::class, 'edit'])->name('template1.edit');
+    Route::post('/update/{template1}', [Template1Controller::class, 'update'])->name('template1.update');
+    Route::delete('/destroy/{template1}', [Template1Controller::class, 'destroy'])->name('template1.destroy');
 });
 
 
