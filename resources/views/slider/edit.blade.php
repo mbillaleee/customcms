@@ -24,6 +24,14 @@
                         <input type="text" id="input" class="form-control" name="title" value="{{ $slider->title }}" placeholder="Enter text here">
                     </div>
                     <div class="mt-5">
+                        <label class="label block mb-2">Button Name</label>
+                        <input type="text" id="input" class="form-control" name="button_name" value="{{ $slider->button_name }}" placeholder="Enter text here">
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Button Link</label>
+                        <input type="text" id="input" class="form-control" name="button_link" value="{{ $slider->button_link }}" placeholder="Enter text here">
+                    </div>
+                    <div class="mt-5">
                         <label class="label block mb-2">Image</label>
                         <input type="file" id="input" class="form-control" name="image">
                         @if($slider->image != null)<img src="{{asset('uploads/slider/'.$slider->image)}}" width="80" alt="{{$slider->name}}">@endif

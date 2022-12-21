@@ -24,6 +24,14 @@
                         <input type="text" id="input" class="form-control" name="title" placeholder="Enter text here">
                     </div>
                     <div class="mt-5">
+                        <label class="label block mb-2">Button Name</label>
+                        <input type="text" id="input" class="form-control" name="button_name" placeholder="Enter text here">
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Button Link</label>
+                        <input type="text" id="input" class="form-control" name="button_link" placeholder="Enter text here">
+                    </div>
+                    <div class="mt-5">
                         <label class="label block mb-2">Image</label>
                         <input type="file" id="input" class="form-control" name="image">
                     </div>

@@ -21,6 +21,7 @@ use App\Http\Controllers\ContentController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\Template1Controller;
+use App\Http\Controllers\EducationFrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +39,10 @@ Route::get('/', function () {
     return view('index');
 });
 Route::prefix('education')->group(function () {
-    Route::get('/home', function () {
-        return view('frontend-template1/index');
-    });
+    Route::get('/home', [EducationFrontendController::class, 'index'])->name('photogallery.index');
+    // Route::get('/home', function () {
+    //     return view('frontend-template1/index');
+    // });
     Route::get('/about', function () {
         return view('frontend-template1/about');
     });
@@ -65,12 +67,58 @@ Route::prefix('education')->group(function () {
     Route::get('/class-details', function () {
         return view('frontend-template1/class-details');
     });
+    Route::get('/teachers-info', function () {
+        return view('frontend-template1/teachers-info');
+    });
+    Route::get('/teacher', function () {
+        return view('frontend-template1/teacher');
+    });
+});
+
+
+Route::prefix('ecommerce')->group(function () {
+    Route::get('/home', function () {
+        return view('frontend-ecommerce/index');
+    });
+    Route::get('/category', function () {
+        return view('frontend-ecommerce/category');
+    });
+    Route::get('/product', function () {
+        return view('frontend-ecommerce/product');
+    });
+    Route::get('/product-detail', function () {
+        return view('frontend-ecommerce/product-detail');
+    });
+    Route::get('/contact', function () {
+        return view('frontend-ecommerce/contact');
+    });
+    Route::get('/wishlist', function () {
+        return view('frontend-ecommerce/wishlist');
+    });
+    Route::get('/blog-single', function () {
+        return view('frontend-ecommerce/blog-single');
+    });
+    Route::get('/cart', function () {
+        return view('frontend-ecommerce/cart');
+    });
+    Route::get('/checkout', function () {
+        return view('frontend-ecommerce/checkout');
+    });
+    Route::get('/account', function () {
+        return view('frontend-ecommerce/account');
+    });
+    Route::get('/teachers-info', function () {
+        return view('frontend-ecommerce/teachers-info');
+    });
+    Route::get('/teacher', function () {
+        return view('frontend-ecommerce/teacher');
+    });
 });
 
 // Route::get('/frontend-template1', function () {
 //     return view('frontend-template1/index');
 // });
-Route::get('/frontend-template2', function () {
+Route::get('/frontend-it-solution', function () {
     return view('frontend-template2/index');
 });
 

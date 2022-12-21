@@ -51,7 +51,9 @@ class SliderController extends Controller
 
             $slider->user_id=1;
             $slider->title=$request->title;
-            $slider->slug= Str::slug($request->title);
+            $slider->button_name=$request->button_name;
+            $slider->button_link=$request->button_link;
+            // $slider->slug= Str::slug($request->title);
             $slider->content=$request->content;
             $slider->status=$request->status;
             $slider->save();
@@ -106,7 +108,9 @@ class SliderController extends Controller
 
         $slider->user_id=1;
         $slider->title=$request->title;
-        $slider->slug= Str::slug($request->name);
+        $slider->button_name=$request->button_name;
+        $slider->button_link=$request->button_link;
+        // $slider->slug= Str::slug($request->title);
         $slider->content=$request->content;
         $slider->status=$request->status;
         $slider->save();
