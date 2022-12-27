@@ -39,15 +39,17 @@
             </div>
             <div class="filter-items">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 mix single-items drawing overlay-hover">
+                    @foreach($photogallery as $photogaller)
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items drawing overlay-hover">
                         <div class="overlay-effect">
-                            <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/1.jpg" alt=""></a>
+                            <a href="#"><img src="{{asset('uploads/photogallery/'.$photogaller->image)}}" alt=""></a> 
                             <div class="gallery-hover-effect">
-                                <a class="gallery-icon venobox" href="{{asset('frontent-template1')}}/img/gallery/1.jpg"><i class="fa fa-image"></i></a>
-                                <span class="gallery-text">Drawings</span>
-                            </div> 
+                                <a class="gallery-icon venobox" href="{{asset('uploads/photogallery/'.$photogaller->image)}}"><i class="fa fa-image"></i></a>
+                                <span class="gallery-text">{{$photogaller->category_id}}</span>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                     <div class="col-lg-4 col-md-4 col-sm-6 col-12 mix single-items play courses overlay-hover">
                         <div class="overlay-effect">
                             <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/2.jpg" alt=""></a>
@@ -84,15 +86,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 mix single-items drawing overlay-hover">
+                    @foreach($photogallery as $photogaller)
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items drawing overlay-hover">
                         <div class="overlay-effect">
-                            <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/12.jpg" alt=""></a>
+                            <a href="#"><img src="{{asset('uploads/photogallery/'.$photogaller->image)}}" alt=""></a> 
                             <div class="gallery-hover-effect">
-                                <a class="gallery-icon venobox" href="{{asset('frontent-template1')}}/img/gallery/12.jpg"><i class="fa fa-image"></i></a>
-                                <span class="gallery-text">Drawing</span>
+                                <a class="gallery-icon venobox" href="{{asset('uploads/photogallery/'.$photogaller->image)}}"><i class="fa fa-image"></i></a>
+                                <span class="gallery-text">{{$photogaller->category_id}}</span>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                     <div class="col-lg-4 col-md-4 col-sm-6 col-12 mix single-items courses excursions overlay-hover">
                         <div class="overlay-effect">
                             <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/6.jpg" alt=""></a>
@@ -111,15 +115,17 @@
                             </div>
                         </div>
                     </div>  
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 mix single-items drawing overlay-hover">
+                    @foreach($photogallery as $photogaller)
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items drawing overlay-hover">
                         <div class="overlay-effect">
-                            <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/7.jpg" alt=""></a> 
+                            <a href="#"><img src="{{asset('uploads/photogallery/'.$photogaller->image)}}" alt=""></a> 
                             <div class="gallery-hover-effect">
-                                <a class="gallery-icon venobox" href="{{asset('frontent-template1')}}/img/gallery/7.jpg"><i class="fa fa-image"></i></a>
-                                <span class="gallery-text">Drawings</span>
+                                <a class="gallery-icon venobox" href="{{asset('uploads/photogallery/'.$photogaller->image)}}"><i class="fa fa-image"></i></a>
+                                <span class="gallery-text">{{$photogaller->category_id}}</span>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                     <div class="col-lg-4 col-md-4 col-sm-6 col-12 mix single-items play courses overlay-hover">
                         <div class="overlay-effect">
                             <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/13.jpg" alt=""></a>

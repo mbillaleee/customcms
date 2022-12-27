@@ -576,16 +576,18 @@
             </div>
             <div class="gallery-row">
                 <div class="filter-items row">
+                    @foreach($photogallery as $photogaller)
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items drawing overlay-hover">
                         <div class="overlay-effect">
-                            <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/1.jpg" alt=""></a> 
+                            <a href="#"><img src="{{asset('uploads/photogallery/'.$photogaller->image)}}" alt=""></a> 
                             <div class="gallery-hover-effect">
-                                <a class="gallery-icon venobox" href="{{asset('frontent-template1')}}/img/gallery/1.jpg"><i class="fa fa-image"></i></a>
-                                <span class="gallery-text">Drawings</span>
+                                <a class="gallery-icon venobox" href="{{asset('uploads/photogallery/'.$photogaller->image)}}"><i class="fa fa-image"></i></a>
+                                <span class="gallery-text">{{$photogaller->category_id}}</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items play courses overlay-hover">
+                    @endforeach
+                    <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items play courses overlay-hover">
                         <div class="overlay-effect">
                             <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/2.jpg" alt=""></a>
                             <div class="gallery-hover-effect">
@@ -647,7 +649,7 @@
                                 <span class="gallery-text">Drawing, Exursions</span>
                             </div>
                         </div>
-                    </div>                                               
+                    </div>                                                -->
                 </div>  
             </div>
             <div class="row">
@@ -680,7 +682,7 @@
                     <div class="single-blog-image">
                         <div class="overlay-effect">
                             <a href="#">
-                                <img src="{{asset('uploads/blog/'.$blog->image)}}" alt=""/>
+                                <img src="" alt="{{asset('uploads/blog/'.$blog->image)}}"/>
                                 <span class="class-date">Apr 21 <span>3000</span></span>
                             </a>
                         </div>    

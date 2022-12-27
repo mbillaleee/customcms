@@ -24,6 +24,15 @@
                         <input type="text" id="input" class="form-control" name="title" placeholder="Enter text here">
                     </div>
                     <div class="mt-5">
+                        <label class="label block mb-2">Category</label>
+                        <select class="form-control" id="category_id" name="category_id">
+                            <option value="">Please Select</option>
+                            @foreach($categories as $category)
+                            <option value="{{ $category->id}}">{{ $category->name}}</option>
+                            @endforeach  
+                        </select>
+                    </div>
+                    <div class="mt-5">
                         <label class="label block mb-2">Image</label>
                         <input type="file" id="input" class="form-control" name="image">
                     </div>

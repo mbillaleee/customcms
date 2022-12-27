@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PhotoGallery;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -26,7 +27,8 @@ class PhotoGalleryController extends Controller
      */
     public function create()
     {
-        return view('photogallery.create');
+        $categories = Category::latest()->get();
+        return view('photogallery.create', compact('categories'));
     }
 
     /**
@@ -49,6 +51,7 @@ class PhotoGalleryController extends Controller
                 $photogallery->image=$imagename;
             }
 
+            $photogallery->category_id=$request->category_id;
             $photogallery->title=$request->title;
             $photogallery->user_id=1;
             $photogallery->slug= Str::slug($request->title);
