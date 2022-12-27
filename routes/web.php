@@ -40,6 +40,7 @@ Route::get('/', function () {
 });
 Route::prefix('education')->group(function () {
     Route::get('/home', [EducationFrontendController::class, 'index'])->name('photogallery.index');
+    Route::get('/home', [EducationFrontendController::class, 'index'])->name('photogallery.index');
     // Route::get('/home', function () {
     //     return view('frontend-template1/index');
     // });

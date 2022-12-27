@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Blog;
+use App\Models\PhotoGallery;
 
 class EducationFrontendController extends Controller
 {
@@ -17,7 +18,15 @@ class EducationFrontendController extends Controller
     {
         $sliders = Slider::all();
         $blogs = Blog::all();
-        return view('frontend-template1.index', compact('sliders', 'blogs'));
+        $photogallery = PhotoGallery::all();
+        return view('frontend-template1.index' && 'frontend-template1.gallery', compact('sliders', 'blogs', 'photogallery'));
+    }
+    public function galleryindex()
+    {
+        $sliders = Slider::all();
+        $blogs = Blog::all();
+        $photogallery = PhotoGallery::all();
+        return view('frontend-template1.index' && 'frontend-template1.gallery', compact('sliders', 'blogs', 'photogallery'));
     }
 
     /**
