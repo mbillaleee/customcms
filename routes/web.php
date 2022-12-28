@@ -22,6 +22,8 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\Template1Controller;
 use App\Http\Controllers\EducationFrontendController;
+use App\Http\Controllers\OurClassController;
+use App\Http\Controllers\TeacherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +42,7 @@ Route::get('/', function () {
 });
 Route::prefix('education')->group(function () {
     Route::get('/home', [EducationFrontendController::class, 'index'])->name('photogallery.index');
-    Route::get('/home', [EducationFrontendController::class, 'index'])->name('photogallery.index');
+    // Route::get('/home', [EducationFrontendController::class, 'index'])->name('photogallery.index');
     // Route::get('/home', function () {
     //     return view('frontend-template1/index');
     // });
@@ -317,7 +319,7 @@ Route::prefix('blog')->group(function () {
 // Route::prefix('blog')->middleware('auth')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/create', [BlogController::class, 'create'])->name('blog.create');
-    Route::post('/store', [BlogController::class, 'store'])->name('blog.store');
+    Route::any('/store', [BlogController::class, 'store'])->name('blog.store');
     Route::get('/edit/{blog}', [BlogController::class, 'edit'])->name('blog.edit');
     Route::post('/update/{blog}', [BlogController::class, 'update'])->name('blog.update');
     Route::delete('/destroy/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy');
@@ -337,7 +339,7 @@ Route::prefix('page')->group(function () {
 Route::prefix('slider')->group(function () {
     Route::get('/', [SliderController::class, 'index'])->name('slider.index');
     Route::get('/create', [SliderController::class, 'create'])->name('slider.create');
-    Route::post('/store', [SliderController::class, 'store'])->name('slider.store');
+    Route::any('/store', [SliderController::class, 'store'])->name('slider.store');
     Route::get('/edit/{slider}', [SliderController::class, 'edit'])->name('slider.edit');
     Route::post('/update/{slider}', [SliderController::class, 'update'])->name('slider.update');
     Route::delete('/destroy/{slider}', [SliderController::class, 'destroy'])->name('slider.destroy');
@@ -453,6 +455,24 @@ Route::prefix('template1')->group(function () {
     Route::get('/edit/{template1}', [Template1Controller::class, 'edit'])->name('template1.edit');
     Route::post('/update/{template1}', [Template1Controller::class, 'update'])->name('template1.update');
     Route::delete('/destroy/{template1}', [Template1Controller::class, 'destroy'])->name('template1.destroy');
+});
+
+Route::prefix('our-class')->group(function () {
+    Route::get('/', [OurClassController::class, 'index'])->name('ourclass.index');
+    Route::get('/create', [OurClassController::class, 'create'])->name('ourclass.create');
+    Route::any('/store', [OurClassController::class, 'store'])->name('ourclass.store');
+    Route::get('/edit/{ourClass}', [OurClassController::class, 'edit'])->name('ourclass.edit');
+    Route::any('/update/{ourClass}', [OurClassController::class, 'update'])->name('ourclass.update');
+    Route::delete('/destroy/{ourClass}', [OurClassController::class, 'destroy'])->name('ourclass.destroy');
+});
+
+Route::prefix('teacher')->group(function () {
+    Route::get('/', [TeacherController::class, 'index'])->name('teacher.index');
+    Route::get('/create', [TeacherController::class, 'create'])->name('teacher.create');
+    Route::any('/store', [TeacherController::class, 'store'])->name('teacher.store');
+    Route::get('/edit/{teacher}', [TeacherController::class, 'edit'])->name('teacher.edit');
+    Route::any('/update/{teacher}', [TeacherController::class, 'update'])->name('teacher.update');
+    Route::delete('/destroy/{teacher}', [TeacherController::class, 'destroy'])->name('teacher.destroy');
 });
 
 

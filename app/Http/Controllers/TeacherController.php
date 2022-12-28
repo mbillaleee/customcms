@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teacher;
 use Illuminate\Http\Request;
-use App\Models\Slider;
-use App\Models\Blog;
-use App\Models\PhotoGallery;
 
-class EducationFrontendController extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,17 +14,7 @@ class EducationFrontendController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
-        $blogs = Blog::all();
-        $photogallery = PhotoGallery::all();
-        return view('frontend-template1.index', compact('sliders', 'blogs', 'photogallery'));
-    }
-    public function galleryindex()
-    {
-        $sliders = Slider::all();
-        $blogs = Blog::all();
-        $photogallery = PhotoGallery::all();
-        return view('frontend-template1.index', compact('sliders', 'blogs', 'photogallery'));
+        //
     }
 
     /**
@@ -53,10 +41,10 @@ class EducationFrontendController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Teacher $teacher)
     {
         //
     }
@@ -64,10 +52,10 @@ class EducationFrontendController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Teacher $teacher)
     {
         //
     }
@@ -76,10 +64,10 @@ class EducationFrontendController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Teacher $teacher)
     {
         //
     }
@@ -87,10 +75,10 @@ class EducationFrontendController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Teacher $teacher)
     {
         //
     }

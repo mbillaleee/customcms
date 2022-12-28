@@ -15,15 +15,17 @@ return new class extends Migration
     {
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            // $table->unsignedBigInteger('user_id');
             $table->string('title');
-            $table->string('slug')->index('slug');
+            // $table->string('slug')->index('slug');
+            $table->string('button_name');
+            $table->string('button_link');
             $table->text('content')->nullable();
             $table->string('image');
             $table->integer('status')->default(1)->comment('Active=1, Inactive=0');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

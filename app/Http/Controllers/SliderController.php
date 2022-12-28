@@ -39,7 +39,7 @@ class SliderController extends Controller
     {
         // dd($request->all());
         
-        $slider = New Slider;
+        $slider = New Slider();
 
         $image = $request->file('image');
             if($image != '')
@@ -49,7 +49,7 @@ class SliderController extends Controller
                 $slider->image=$imagename;
             }
 
-            $slider->user_id=1;
+            // $slider->user_id=1;
             $slider->title=$request->title;
             $slider->button_name=$request->button_name;
             $slider->button_link=$request->button_link;
@@ -58,6 +58,7 @@ class SliderController extends Controller
             $slider->status=$request->status;
             $slider->save();
 
+            // return 'ok';
             return redirect()->route('slider.index')->with('success','Slider created successfully!');
     }
 

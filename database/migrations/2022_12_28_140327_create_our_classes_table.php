@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('template1s', function (Blueprint $table) {
+        Schema::create('our_classes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('title');
-            $table->string('slug')->nullable()->index('slug');
             $table->string('content');
-            $table->string('thumb');
+            $table->string('image');
+            $table->string('class_size');
+            $table->string('age_range');
+            $table->date('class_date');
             $table->integer('status')->default(1)->comment('Active=1, Inactive=0');
             $table->timestamps();
             $table->softDeletes();
@@ -34,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('template1s');
+        Schema::dropIfExists('our_classes');
     }
 };

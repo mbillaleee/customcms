@@ -16,7 +16,7 @@
 
     <div class="grid gap-5">
         <div class="flex flex-col gap-y-5">
-            <form action="{{route('slider.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('ourclass.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
                 <div class="card p-5">
                     <div class="mt-5">
@@ -24,12 +24,16 @@
                         <input type="text" id="input" class="form-control" name="title" placeholder="Enter text here">
                     </div>
                     <div class="mt-5">
-                        <label class="label block mb-2">Button Name</label>
-                        <input type="text" id="input" class="form-control" name="button_name" placeholder="Enter text here">
+                        <label class="label block mb-2">Class Size</label>
+                        <input type="text" id="input" class="form-control" name="class_size" placeholder="Enter text here">
                     </div>
                     <div class="mt-5">
-                        <label class="label block mb-2">Button Link</label>
-                        <input type="text" id="input" class="form-control" name="button_link" placeholder="Enter text here">
+                        <label class="label block mb-2">Age Range</label>
+                        <input type="text" id="input" class="form-control" name="age_range" placeholder="Enter text here">
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Class Date</label>
+                        <input type="date" id="input" class="form-control" name="class_date" placeholder="Enter text here">
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Image</label>
