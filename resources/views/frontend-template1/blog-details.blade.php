@@ -47,66 +47,28 @@
                             <h3>Related Posts</h3>
                         </div>
                         <div class="row">
+                            @foreach($blogs as $blog)
                             <div class="col-xl-4 col-lg-6 col-md-6 col-12">
                                 <div class="single-blog-item overlay-hover">
                                     <div class="single-blog-image">
                                         <div class="overlay-effect">
                                             <a href="#">
-                                                <img src="{{asset('frontent-template1')}}/img/blog/1.jpg" alt="">
+                                            <img src="{{asset('uploads/blog/'.$blog->image)}}" alt=""/>
                                                 <span class="class-date">Dec 21 <span>2015</span></span>
                                             </a>
                                         </div>    
                                     </div>
                                     <div class="single-blog-text">
-                                        <h4><a href="blog-details.html">New Friends Everyday at Kiddie</a></h4>
+                                        <h4><a href="blog-details.html">{{ $blog->title }}</a></h4>
                                         <div class="blog-date">
                                             <span><i class="fa fa-calendar"></i>08 Apr, 2016</span>
                                         </div>
-                                        <p>The concept of the activity room is about 'Learning', through play, in a totally different environment.</p>
+                                        <p>{{ $blog->content }}</p>
                                         <a href="blog-details.html">Read more.</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-12">
-                                <div class="single-blog-item overlay-hover">
-                                    <div class="single-blog-image">
-                                        <div class="overlay-effect">
-                                            <a href="#">
-                                                <img src="{{asset('frontent-template1')}}/img/blog/2.jpg" alt="">
-                                                <span class="class-date">Jan 24 <span>2016</span></span>
-                                            </a>
-                                        </div>    
-                                    </div>
-                                    <div class="single-blog-text">
-                                        <h4><a href="blog-details.html">Swimming Lessons at the New</a></h4>
-                                        <div class="blog-date">
-                                            <span><i class="fa fa-calendar"></i>27 Jan, 2014</span>
-                                        </div>
-                                        <p>The concept of the activity room is about 'Learning', through play, in a totally different environment.</p>
-                                        <a href="blog-details.html">Read more.</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6 col-12">
-                                <div class="single-blog-item overlay-hover">
-                                    <div class="single-blog-image">
-                                        <div class="overlay-effect">
-                                            <a href="#">
-                                                <img src="{{asset('frontent-template1')}}/img/blog/3.jpg" alt="">
-                                                <span class="class-date">May 18 <span>2016</span></span>
-                                            </a>
-                                        </div>    
-                                    </div>
-                                    <div class="single-blog-text">
-                                        <h4><a href="blog-details.html">New Friends Everyday at Kiddie</a></h4>
-                                        <div class="blog-date">
-                                            <span><i class="fa fa-calendar"></i>30 Feb, 2015</span>
-                                        </div>
-                                        <p>The concept of the activity room is about 'Learning', through play, in a totally different environment.</p>
-                                        <a href="blog-details.html">Read more.</a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div> 
                     </div>
                 </div>
@@ -131,42 +93,17 @@
                             <h3>Recent Classes</h3>
                         </div>
                         <div class="single-widget-container">
+                            @foreach($ourclasses as $ourclass)
                             <div class="recent-post-item">
                                 <div class="recent-post-image">
-                                    <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/15.jpg" alt=""></a>
+                                <img src="{{asset('uploads/ourclass/'.$ourclass->image)}}" alt=""/>
                                 </div>
                                 <div class="recent-post-text">
-                                    <h4><a href="#">Alphabet Match Class</a></h4>
+                                    <h4><a href="#">{{$ourclass->title}}</a></h4>
                                     <span><i class="fa fa-calendar"></i>March 25, 2016</span>
                                 </div>
                             </div>
-                            <div class="recent-post-item">
-                                <div class="recent-post-image">
-                                    <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/16.jpg" alt=""></a>
-                                </div>
-                                <div class="recent-post-text">
-                                    <h4><a href="#">Cool Math Class</a></h4>
-                                    <span><i class="fa fa-calendar"></i>April 23, 2016</span>
-                                </div>
-                            </div>
-                            <div class="recent-post-item">
-                                <div class="recent-post-image">
-                                    <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/17.jpg" alt=""></a>
-                                </div>
-                                <div class="recent-post-text">
-                                    <h4><a href="#">Color Match Class</a></h4>
-                                    <span><i class="fa fa-calendar"></i>July 12, 2016</span>
-                                </div>
-                            </div>
-                            <div class="recent-post-item">
-                                <div class="recent-post-image">
-                                    <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/18.jpg" alt=""></a>
-                                </div>
-                                <div class="recent-post-text">
-                                    <h4><a href="#">Letter Match Class</a></h4>
-                                    <span><i class="fa fa-calendar"></i>June 29, 2016</span>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="single-widget-item hidden-sm">

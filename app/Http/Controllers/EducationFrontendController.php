@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Blog;
 use App\Models\PhotoGallery;
+use App\Models\Teacher;
+use App\Models\OurClass;
+use App\Models\Tag;
 
 class EducationFrontendController extends Controller
 {
@@ -19,7 +22,9 @@ class EducationFrontendController extends Controller
         $sliders = Slider::all();
         $blogs = Blog::all();
         $photogallery = PhotoGallery::all();
-        return view('frontend-template1.index', compact('sliders', 'blogs', 'photogallery'));
+        $teachers = Teacher::all();
+        $ourclasses = OurClass::all();
+        return view('frontend-template1.index', compact('sliders', 'blogs', 'photogallery', 'teachers', 'ourclasses'));
     }
     public function galleryindex()
     {
@@ -27,6 +32,46 @@ class EducationFrontendController extends Controller
         $blogs = Blog::all();
         $photogallery = PhotoGallery::all();
         return view('frontend-template1.index', compact('sliders', 'blogs', 'photogallery'));
+    }
+
+    public function teachers()
+    {
+        $sliders = Slider::all();
+        
+        $teachers = Teacher::all();
+        return view('frontend-template1.teacher', compact('teachers'));
+    }
+
+    public function classgrid()
+    {
+        $sliders = Slider::all();
+        
+        $ourclasses = OurClass::all();
+        return view('frontend-template1/class-grid', compact('ourclasses'));
+    }
+    public function classlist()
+    {
+        $sliders = Slider::all();
+        
+        $ourclasslists = OurClass::all();
+        return view('frontend-template1/class-list', compact('ourclasslists'));
+    }
+
+    public function aboutteachers()
+    {
+        $sliders = Slider::all();
+        
+        $teachers = Teacher::all();
+        return view('frontend-template1/about', compact('teachers'));
+    }
+
+    public function blogdetails()
+    {
+        $sliders = Slider::all();
+        
+        $blogs = Blog::all();
+        $ourclasses = OurClass::all();
+        return view('frontend-template1/blog-details', compact('blogs', 'ourclasses'));
     }
 
     /**

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class TeacherController extends Controller
 {
@@ -14,7 +16,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $teachers = Teacher::latest()->get();
+        return view('teacher.index', compact('teachers'));
     }
 
     /**
@@ -24,7 +27,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('teacher.create');
     }
 
     /**
@@ -35,7 +38,39 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+
+        $teacher = New Teacher();
+
+        $image = $request->file('image');
+        if($image != '')
+        {
+            $imagename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads/teacher'), $imagename);
+            $teacher->image=$imagename;
+        }
+
+        $teacher->user_id=1;
+        $teacher->name=$request->name;
+        $teacher->subject=$request->subject;
+        $teacher->slug= Str::slug($request->name);
+        $teacher->phone=$request->phone;
+        $teacher->email=$request->email;
+        $teacher->skype=$request->skype;
+        $teacher->degree=$request->degree;
+        $teacher->experience=$request->experience;
+        $teacher->hobbies=$request->hobbies;
+        $teacher->my_courses=$request->my_courses;
+        $teacher->projects=$request->projects;
+        $teacher->description=$request->description;
+        $teacher->social_link1=$request->social_link1;
+        $teacher->social_link2=$request->social_link2;
+        $teacher->social_link3=$request->social_link3;
+        $teacher->social_link4=$request->social_link4;
+        $teacher->status=$request->status;
+        $teacher->save();
+
+        return redirect()->route('teacher.index')->with('success','Teacher created successfully!');
     }
 
     /**
@@ -57,7 +92,7 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
-        //
+        return view('teacher.edit', compact('teacher'));
     }
 
     /**
@@ -69,7 +104,40 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        //
+        // dd($request->all());
+
+        $image = $request->file('image');
+        if($image != '')
+        {
+            if($teacher->image == null){
+            unlink(public_path('uploads/teacher/'.$teacher->image));
+            }
+            $imagename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads/teacher'), $imagename);
+            $teacher->image=$imagename;
+        }
+
+        $teacher->user_id=1;
+        $teacher->name=$request->name;
+        $teacher->subject=$request->subject;
+        $teacher->slug= Str::slug($request->name);
+        $teacher->phone=$request->phone;
+        $teacher->email=$request->email;
+        $teacher->skype=$request->skype;
+        $teacher->degree=$request->degree;
+        $teacher->experience=$request->experience;
+        $teacher->hobbies=$request->hobbies;
+        $teacher->my_courses=$request->my_courses;
+        $teacher->projects=$request->projects;
+        $teacher->description=$request->description;
+        $teacher->social_link1=$request->social_link1;
+        $teacher->social_link2=$request->social_link2;
+        $teacher->social_link3=$request->social_link3;
+        $teacher->social_link4=$request->social_link4;
+        $teacher->status=$request->status;
+        $teacher->save();
+
+        return redirect()->route('teacher.index')->with('success','Teacher created successfully!');
     }
 
     /**
@@ -80,6 +148,7 @@ class TeacherController extends Controller
      */
     public function destroy(Teacher $teacher)
     {
-        //
+        $teacher->delete();
+        return redirect()->back()->with('success','Teacher deleted successfully!');
     }
 }

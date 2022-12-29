@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('hobbies');
             $table->string('my_courses');
             $table->string('projects');
-            $table->string('description');
+            $table->longText('description');
             $table->string('social_link1');
             $table->string('social_link2');
             $table->string('social_link3');

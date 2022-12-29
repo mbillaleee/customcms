@@ -43,39 +43,44 @@ Route::get('/', function () {
 Route::prefix('education')->group(function () {
     Route::get('/home', [EducationFrontendController::class, 'index'])->name('photogallery.index');
     // Route::get('/home', [EducationFrontendController::class, 'index'])->name('photogallery.index');
+    Route::get('/teacher', [EducationFrontendController::class, 'teachers']);
+    Route::get('/about', [EducationFrontendController::class, 'aboutteachers']);
+    Route::get('/class-grid', [EducationFrontendController::class, 'classgrid']);
+    Route::get('/class-list', [EducationFrontendController::class, 'classlist']);
+    Route::get('/blog-details', [EducationFrontendController::class, 'blogdetails']);
     // Route::get('/home', function () {
     //     return view('frontend-template1/index');
     // });
-    Route::get('/about', function () {
-        return view('frontend-template1/about');
-    });
+    // Route::get('/about', function () {
+    //     return view('frontend-template1/about');
+    // });
     Route::get('/contact', function () {
         return view('frontend-template1/contact');
     });
     Route::get('/gallery', function () {
         return view('frontend-template1/gallery');
     });
-    Route::get('/blog-details', function () {
-        return view('frontend-template1/blog-details');
-    });
+    // Route::get('/blog-details', function () {
+    //     return view('frontend-template1/blog-details');
+    // });
     Route::get('/blog', function () {
         return view('frontend-template1/blog');
     });
-    Route::get('/class-grid', function () {
-        return view('frontend-template1/class-grid');
-    });
-    Route::get('/class-list', function () {
-        return view('frontend-template1/class-list');
-    });
+    // Route::get('/class-grid', function () {
+    //     return view('frontend-template1/class-grid');
+    // });
+    // Route::get('/class-list', function () {
+    //     return view('frontend-template1/class-list');
+    // });
     Route::get('/class-details', function () {
         return view('frontend-template1/class-details');
     });
     Route::get('/teachers-info', function () {
         return view('frontend-template1/teachers-info');
     });
-    Route::get('/teacher', function () {
-        return view('frontend-template1/teacher');
-    });
+    // Route::get('/teacher', function () {
+    //     return view('frontend-template1/teacher');
+    // });
 });
 
 

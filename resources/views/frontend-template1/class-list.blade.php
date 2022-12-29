@@ -45,101 +45,27 @@
             </div>
             <div class="row">
                 <div class="col-xl-9 col-lg-8">
+                @foreach($ourclasslists as $ourclasslist)
                     <div class="class-list-item">
                         <div class="row">
                             <div class="col-xl-5 col-lg-6 col-md-6">
-                                <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/9.jpg" alt=""></a>
+                            <img src="{{asset('uploads/ourclass/'.$ourclasslist->image)}}" alt=""/>
                             </div>
                             <div class="col-xl-7 col-lg-6 col-md-6">
                                 <div class="class-list-text">
-                                    <h3><a href="#">Letter Match Class</a></h3>
+                                    <h3><a href="#">{{$ourclasslist->title}}</a></h3>
                                     <div class="class-information">
-                                        <span>Age: 3 - 4 years</span>
-                                        <span>Class Size: 38</span>
-                                        <span>Start Date: March 25, 2016</span>
+                                        <span>Age: {{$ourclasslist->age_range}}</span>
+                                        <span>Class Size: {{$ourclasslist->class_size}}</span>
+                                        <span>Start Date: {{$ourclasslist->class_date}}</span>
                                     </div>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen. </p>
+                                    <p>{{$ourclasslist->content}} </p>
                                     <a href="#" class="button-default">Read More <i class="fa fa-angle-right"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="class-list-item">
-                        <div class="row">
-                            <div class="col-xl-5 col-lg-6 col-md-6">
-                                <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/8.jpg" alt=""></a>
-                            </div>
-                            <div class="col-xl-7 col-lg-6 col-md-6">
-                                <div class="class-list-text">
-                                    <h3><a href="#">Alphabet Matching Class</a></h3>
-                                    <div class="class-information">
-                                        <span>Age: 5 - 6 years</span>
-                                        <span>Class Size: 25</span>
-                                        <span>Start Date: April 10, 2016</span>
-                                    </div>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                                    <a href="#" class="button-default">Read More <i class="fa fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="class-list-item">
-                        <div class="row">
-                            <div class="col-xl-5 col-lg-6 col-md-6">
-                                <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/11.jpg" alt=""></a>
-                            </div>
-                            <div class="col-xl-7 col-lg-6 col-md-6">
-                                <div class="class-list-text">
-                                    <h3><a href="#">Cool Math Class</a></h3>
-                                    <div class="class-information">
-                                        <span>Age: 7 - 8 years</span>
-                                        <span>Class Size: 30</span>
-                                        <span>Start Date: February 18, 2016</span>
-                                    </div>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of</p>
-                                    <a href="#" class="button-default">Read More <i class="fa fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="class-list-item">
-                        <div class="row">
-                            <div class="col-xl-5 col-lg-6 col-md-6">
-                                <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/13.jpg" alt=""></a>
-                            </div>
-                            <div class="col-xl-7 col-lg-6 col-md-6">
-                                <div class="class-list-text">
-                                    <h3><a href="#">Color Matching Class</a></h3>
-                                    <div class="class-information">
-                                        <span>Age: 2 - 3 years</span>
-                                        <span>Class Size: 40</span>
-                                        <span>Start Date: May 18, 2016</span>
-                                    </div>
-                                    <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence.</p>
-                                    <a href="#" class="button-default">Read More <i class="fa fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="class-list-item">
-                        <div class="row">
-                            <div class="col-xl-5 col-lg-6 col-md-6">
-                                <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/10.jpg" alt=""></a>
-                            </div>
-                            <div class="col-xl-7 col-lg-6 col-md-6">
-                                <div class="class-list-text">
-                                    <h3><a href="#">Science Class</a></h3>
-                                    <div class="class-information">
-                                        <span>Age: 3 - 4 years</span>
-                                        <span>Class Size: 30</span>
-                                        <span>Start Date: April 18, 2016</span>
-                                    </div>
-                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa.</p>
-                                    <a href="#" class="button-default">Read More <i class="fa fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                     
                     <div class="pagination-content">
                         <div class="pagination-button">
