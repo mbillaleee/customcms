@@ -1,44 +1,42 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{ asset('auth_assets/fonts/icomoon/style.css') }}">
-
-    <!-- <link rel="stylesheet" href="css/owl.carousel.min.css"> -->
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{asset('auth_assets/css/bootstrap.min.css')}}">
-
-    <!-- Style -->
-
-    <link rel="stylesheet" href="{{ asset('auth_assets/css/style.css') }}">
-
-    <title>Education Login</title>
-  </head>
-  <body>
 
 
+@extends('layouts.blank', ['title' => 'Login'])
 
-  <div class="content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <img src="{{asset('auth_assets/images/undraw_remotely_2j6y.svg')}}" alt="Image" class="img-fluid">
-        </div>
-        <div class="col-md-6 contents">
-          <div class="row justify-content-center">
-            <div class="col-md-8">
-              <div class="mb-4">
-              <h3>Welcome Back</h3>
-              <p class="mb-4">For getting your educational information enter your email and password</p>
+@section('body')
+
+    <!-- Top Bar -->
+    <section class="top-bar">
+
+        <!-- Brand -->
+        <span class="brand">Yeti</span>
+
+        <nav class="flex items-center ltr:ml-auto rtl:mr-auto">
+
+            <!-- Dark Mode -->
+            <label class="switch switch_outlined" data-toggle="tooltip" data-tippy-content="Toggle Dark Mode">
+                <input id="darkModeToggler" type="checkbox">
+                <span></span>
+            </label>
+
+            <!-- Fullscreen -->
+            <button id="fullScreenToggler"
+                class="hidden lg:inline-block ltr:ml-5 rtl:mr-5 text-2xl leading-none la la-expand-arrows-alt"
+                data-toggle="tooltip" data-tippy-content="Fullscreen"></button>
+
+            <!-- Register -->
+            <a href="{{ url('/register') }}" class="btn btn_primary uppercase ltr:ml-5 rtl:mr-5">Register</a>
+        </nav>
+    </section>
+
+    <div class="container flex items-center justify-center mt-20 py-10">
+        <div class="w-full md:w-1/2 xl:w-1/3">
+            <div class="mx-5 md:mx-10">
+                <h2 class="uppercase">It’s Great To See You!</h2>
+                <h4 class="uppercase">Login Here</h4>
             </div>
-            <form action="{{ route('login') }}" method="post">
-              @csrf
-              <div class="form-group first">
+            <form class="card mt-5 p-5 md:p-10" action="{{ route('login') }}" method="post">
+            @csrf
+            <div class="form-group first">
                 <label for="username">E-mail or Username</label>
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -52,11 +50,11 @@
                 <label for="password">Password</label>
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                  @error('password')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
 
               </div>
 
@@ -65,25 +63,14 @@
                   <input type="checkbox" checked="checked"/>
                   <div class="control__indicator"></div>
                 </label>
-                <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
               </div>
 
-              <input type="submit" value="Log In" class="btn btn-block btn-primary">
+                <div class="flex items-center">
+                    <a href="{{ url('pages/auth/forgot-password') }}" class="text-sm uppercase">Forgot Password?</a>
+                    <button class="btn btn_primary ltr:ml-auto rtl:mr-auto uppercase">Login</button>
+                </div>
             </form>
-            </div>
-          </div>
-
         </div>
-
-      </div>
     </div>
-  </div>
 
-
-    <script src="{{asset('auth_assets/js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{asset('auth_assets/js/popper.min.js')}}"></script>
-    <script src="{{asset('auth_assets/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('auth_assets/js/main.js')}}"></script>
-  </body>
-</html>
-
+@endsection

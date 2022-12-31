@@ -1,4 +1,4 @@
-@extends('frontend-ecommerce.include.master', ['title' => 'Chat - Applications', 'footer' => false, 'workspaceClasses' => 'pb-32'])
+@extends('template.ecommerce.include.master', ['title' => 'Chat - Applications', 'footer' => false, 'workspaceClasses' => 'pb-32'])
 
 
   @section('content')

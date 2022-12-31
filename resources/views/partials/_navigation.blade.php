@@ -125,8 +125,17 @@
                 <div class="p-5">
                     <a href="#no-link" class="flex items-center text-normal hover:text-primary">
                         <span class="la la-power-off text-2xl leading-none ltr:mr-2 rtl:ml-2"></span>
-                        Logout
+                        <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <span :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </span>
+                </form>
                     </a>
+                    
                 </div>
             </div>
         </div>
@@ -302,72 +311,76 @@
     <!-- Pages -->
     <div class="menu-detail" data-menu="pages">
         <div class="menu-detail-wrapper">
-            <h6 class="uppercase">Authentication</h6>
-            <a href="{{ url('pages/auth/login') }}">
-                <span class="la la-user"></span>
-                Login
-            </a>
-            <a href="{{ url('pages/auth/forgot-password') }}">
-                <span class="la la-user-lock"></span>
-                Forgot Password
-            </a>
-            <a href="{{ url('pages/auth/register') }}">
-                <span class="la la-user-plus"></span>
-                Register
-            </a>
             <hr>
-            <h6 class="uppercase">Blog</h6>
-            <a href="{{ url('pages/blog/list') }}">
+
+            <h6 class="uppercase">Admin</h6>
+            <a href="{{ route('category.index') }}">
                 <span class="la la-list"></span>
-                List
+                Category List
             </a>
-            <a href="{{ url('pages/blog/list-card-rows') }}">
+            <a href="{{ route('tag.index') }}">
                 <span class="la la-list"></span>
-                List - Card Rows
+                Tag List
             </a>
-            <a href="{{ url('pages/blog/list-card-columns') }}">
+            <a href="{{ route('blog.index') }}">
                 <span class="la la-list"></span>
-                List - Card Columns
+                Blog List
             </a>
-            <a href="{{ url('pages/blog/add') }}">
-                <span class="la la-layer-group"></span>
-                Add Post
+            <a href="{{ route('page.index') }}">
+                <span class="la la-list"></span>
+                Page List
             </a>
+            <a href="{{ route('slider.index') }}">
+                <span class="la la-list"></span>
+                Slider List
+            </a>
+            <a href="{{ route('photogallery.index') }}">
+                <span class="la la-list"></span>
+                Photo Gallery List
+            </a>
+            <a href="{{ route('videogallery.index') }}">
+                <span class="la la-list"></span>
+                Vider Gallery List
+            </a>
+            <a href="{{ route('product.index') }}">
+                <span class="la la-list"></span>
+                Product List
+            </a>
+            <a href="{{ route('event.index') }}">
+                <span class="la la-list"></span>
+                Event List
+            </a>
+            <a href="{{ route('notice.index') }}">
+                <span class="la la-list"></span>
+                Notice List
+            </a>
+            <a href="{{ route('portfolio.index') }}">
+                <span class="la la-list"></span>
+                Portfolio List
+            </a>
+            <a href="{{ route('widgets.index') }}">
+                <span class="la la-list"></span>
+                Widget List
+            </a>
+            <a href="{{ route('newsletter.index') }}">
+                <span class="la la-list"></span>
+                Newsletter List
+            </a>
+            <a href="{{ route('content.index') }}">
+                <span class="la la-list"></span>
+                Content List
+            </a>
+            <a href="{{ route('menu.index') }}">
+                <span class="la la-list"></span>
+                Menu List
+            </a>
+            <a href="">
+                <span class="la la-list"></span>
+                Template List
+            </a>
+            
             <hr>
-            <h6 class="uppercase">Errors</h6>
-            <a href="{{ url('pages/errors/403') }}" target="_blank">
-                <span class="la la-exclamation-circle"></span>
-                403 Error
-            </a>
-            <a href="{{ url('pages/errors/404') }}" target="_blank">
-                <span class="la la-exclamation-circle"></span>
-                404 Error
-            </a>
-            <a href="{{ url('pages/errors/500') }}" target="_blank">
-                <span class="la la-exclamation-circle"></span>
-                500 Error
-            </a>
-            <a href="{{ url('pages/errors/under-maintenance') }}" target="_blank">
-                <span class="la la-exclamation-circle"></span>
-                Under Maintenance
-            </a>
-            <hr>
-            <a href="{{ url('pages/pricing') }}">
-                <span class="la la-dollar"></span>
-                Pricing
-            </a>
-            <a href="{{ url('pages/faqs-layout-1') }}">
-                <span class="la la-question-circle"></span>
-                FAQs - Layout 1
-            </a>
-            <a href="{{ url('pages/faqs-layout-2') }}">
-                <span class="la la-question-circle"></span>
-                FAQs - Layout 2
-            </a>
-            <a href="{{ url('pages/invoice') }}">
-                <span class="la la-file-invoice-dollar"></span>
-                Invoice
-            </a>
+           
         </div>
     </div>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('frontend-ecommerce.include.header')
+@include('template.ecommerce.include.header')
   <body> 
      <!-- wpf loader Two -->
      <div id="wpf-loader-two">          
@@ -14,7 +14,7 @@
   <!-- END SCROLL TOP BUTTON -->
 
 
-        @include('frontend-ecommerce.include.navigation')
+        @include('template.ecommerce.include.navigation')
 
 
 
@@ -26,6 +26,6 @@
 
 
 
-        @include('frontend-ecommerce.include.footer')
+        @include('template.ecommerce.include.footer')
   </body>
 </html>

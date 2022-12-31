@@ -59,7 +59,7 @@ class EducationFrontendController extends Controller
 
     public function aboutteachers()
     {
-        $sliders = Slider::all();
+        // $sliders = Slider::all();
         
         $teachers = Teacher::all();
         return view('frontend-template1/about', compact('teachers'));

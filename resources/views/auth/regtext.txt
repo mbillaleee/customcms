@@ -28,7 +28,7 @@
                 data-toggle="tooltip" data-tippy-content="Fullscreen"></button>
 
             <!-- Login -->
-            <a href="{{ url('/login') }}" class="btn btn_primary uppercase ltr:ml-5 rtl:mr-5">Login</a>
+            <a href="{{ url('pages/auth/login') }}" class="btn btn_primary uppercase ltr:ml-5 rtl:mr-5">Login</a>
         </nav>
     </section>
 
@@ -92,7 +92,7 @@
                     data-toggle="tooltip" data-tippy-content="Fullscreen"></button>
 
                         <!-- Login -->
-                    <button type="submit" class="">
+                    <button type="submit" class="btn btn-primary">
                         {{ __('Register') }}
                     </button>
                 </div>

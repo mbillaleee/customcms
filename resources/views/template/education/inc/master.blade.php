@@ -1,5 +1,5 @@
 
-    @include('frontend-template1.inc.header', ['title' => $title ?? ''])
+    @include('template.education.inc.header', ['title' => $title ?? ''])
     
     <body>
         <!-- [if lt IE 8]>
@@ -7,13 +7,13 @@
         <![endif] -->
         
         <!--Header Area Start-->
-        @include('frontend-template1.inc.navigation')
+        @include('template.education.inc.navigation')
         <!--End of Header Area-->
        
 
         @yield('content')
         
-        @include('frontend-template1.inc.footer')
+        @include('template.education.inc.footer')
 		
     </body>
 
