@@ -53,6 +53,7 @@ class CategoryController extends Controller
                 $category->image=$imagename;
             }
 
+            $category->category_type=$request->category_type;
             $category->name=$request->name;
             $category->user_id=1;
             $category->slug= Str::slug($request->name);
@@ -105,7 +106,7 @@ class CategoryController extends Controller
             $image->move(public_path('uploads/category'), $imagename);
             $category->image=$imagename;
         }
-
+            $category->category_type=$request->category_type;
             $category->name=$request->name;
             $category->user_id=1;
             $category->slug= Str::slug($request->name);

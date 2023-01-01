@@ -33,58 +33,12 @@
     <!--End of Slider Area-->
     <!--Activity Area Start-->
     <div class="activity-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 activity">
-                    <div class="single-activity">
-                        <div class="single-activity-icon">
-                            <i class="fa fa-gamepad"></i>
-                        </div>
-                        <h4>Funny Games</h4>
-                        <p>Fusce pretium, est at aliquam semper, leo ante facilisis risus in feugiat ipsum augue pellent esque metu.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 activity">
-                    <div class="single-activity">
-                        <div class="single-activity-icon">
-                            <i class="fa fa-fort-awesome"></i>
-                        </div>
-                        <h4>Toys</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 activity">
-                    <div class="single-activity mrg-res-top-md">
-                        <div class="single-activity-icon">
-                            <i class="fa fa-futbol-o"></i>
-                        </div>
-                        <h4>Activities</h4>
-                        <p>It was popularised in the 1960s with the release of Letraset sheets release containing Lorem Ipsum passages</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 activity">
-                    <div class="single-activity mrg-res-top-md">
-                        <div class="single-activity-icon">
-                            <i class="fa fa-pencil"></i>
-                        </div>
-                        <h4>Education</h4>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page looking at layout</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    {!!$activity_area->content!!}
     </div>
     <!--End of Activity Area-->
     <!--Advertise Area Start-->
     <div class="advertise-area text-center section-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>How to <span>Enroll Your Child</span> to a <span>Class</span>?</h2>
-                    <a href="#">Join Us</a>
-                </div>
-            </div>
-        </div>
+    {!!$advertise_area->content!!}
     </div>
     <!--End of Advertise Area-->
     <!--Class Area Start-->
@@ -159,87 +113,7 @@
     <!--End of Register Area-->
     <!--Service Area Start-->
     <div class="service-area section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title-wrapper">
-                        <div class="section-title">
-                            <h3>Our Services</h3>
-                            <p>Our best services for your kids</p>
-                        </div>
-                    </div> 
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-12">
-                    <div class="single-service-item-wrapper">
-                        <div class="single-service-item">
-                            <div class="single-service-text">
-                                <h4>Meals Provided</h4>
-                                <p>Lorem ipsum dolor sit amet cotetur adipisicing elit, sed do mod tempor incididunt ut labore etdolore.</p>
-                            </div>
-                            <div class="single-service-icon">
-                                <i class="fa fa-cutlery"></i>
-                            </div>
-                        </div>
-                        <div class="single-service-item">
-                            <div class="single-service-text">
-                                <h4>Language Lessons</h4>
-                                <p>Quidem laudantium itaque reiciendis inventore. Nobis dolorem, odit ipsam ratione minus quisquam iste.</p>
-                            </div>
-                            <div class="single-service-icon">
-                                <i class="fa fa-language"></i>
-                            </div>
-                        </div>
-                        <div class="single-service-item">
-                            <div class="single-service-text">
-                                <h4>Transportation</h4>
-                                <p>Amet voluptate, aperiam praesentium voluptas eveniet dignissimos nisi commodi, illum fuga sapiente?</p>
-                            </div>
-                            <div class="single-service-icon">
-                                <i class="fa fa-bus"></i>
-                            </div>
-                        </div>
-                    </div>    
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <div class="service-image">
-                        <img src="{{asset('frontent-template1')}}/img/banner/2.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <div class="single-service-item-wrapper">
-                        <div class="single-service-item">
-                            <div class="single-service-icon">
-                                <i class="fa fa-calendar-check-o"></i>
-                            </div>
-                            <div class="single-service-text">
-                                <h4>Full Day Session</h4>
-                                <p>Quibusdam harum est praesentium illo ad expedita nihil optio repellat, fugiat obcaecati is sunt.</p>
-                            </div>
-                        </div>
-                        <div class="single-service-item">
-                            <div class="single-service-icon">
-                                <i class="fa fa-bookmark"></i>
-                            </div>
-                            <div class="single-service-text">
-                                <h4>Special Education</h4>
-                                <p>voluptatem, cupiditate eveniet dolores inventore delectus vel eius molestias tho minus, corporis.</p>
-                            </div>
-                        </div>
-                        <div class="single-service-item">
-                            <div class="single-service-icon">
-                                <i class="fa fa-graduation-cap"></i>
-                            </div>
-                            <div class="single-service-text">
-                                <h4>Special Education</h4>
-                                <p>Et, itaque adipisci blanditiis eaque inventore tempore cum commodi, dicta quisquam similique magnam</p>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-            </div>
-        </div>
+    {!!$service_area->content!!}
     </div>
     <!--End of Service Area-->
     <!--Fun Factor Area Start-->
@@ -396,11 +270,9 @@
                 <div class="col-md-12">
                     <div class="filter-menu">
                         <ul>
-                            <li class="filter" data-filter="all">All</li>
-                            <li class="filter" data-filter=".drawing">Drawing</li>
-                            <li class="filter" data-filter=".excursions">Excursions</li>
-                            <li class="filter" data-filter=".courses">Courses</li>
-                            <li class="filter" data-filter=".play">Play time</li>
+                        @foreach($categories as $cat)
+                            <li class="filter" data-filter=".cat{{$cat->id}}">{{$cat->name}}</li>
+                        @endforeach
                         </ul>
                     </div>
                 </div>
@@ -408,7 +280,7 @@
             <div class="gallery-row">
                 <div class="filter-items row">
                     @foreach($photogallery as $photogaller)
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items drawing overlay-hover">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items cat{{$photogaller->category_id}} overlay-hover">
                         <div class="overlay-effect">
                             <a href="#"><img src="{{asset('uploads/photogallery/'.$photogaller->image)}}" alt=""></a> 
                             <div class="gallery-hover-effect">
@@ -418,69 +290,6 @@
                         </div>
                     </div>
                     @endforeach
-                    <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items play courses overlay-hover">
-                        <div class="overlay-effect">
-                            <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/2.jpg" alt=""></a>
-                            <div class="gallery-hover-effect">
-                                <a class="gallery-icon venobox" href="{{asset('frontent-template1')}}/img/gallery/2.jpg"><i class="fa fa-image"></i></a>
-                                <span class="gallery-text">Activities, Photos</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items play overlay-hover">
-                        <div class="overlay-effect">
-                            <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/3.jpg" alt=""></a>
-                            <div class="gallery-hover-effect">
-                                <a class="gallery-icon venobox" href="{{asset('frontent-template1')}}/img/gallery/3.jpg"><i class="fa fa-image"></i></a>
-                                <span class="gallery-text">Play Time</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items play excursions overlay-hover">
-                        <div class="overlay-effect">
-                            <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/4.jpg" alt=""></a>
-                            <div class="gallery-hover-effect">
-                                <a class="gallery-icon venobox" href="{{asset('frontent-template1')}}/img/gallery/4.jpg"><i class="fa fa-image"></i></a>
-                                <span class="gallery-text">Excursions, Play</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items courses excursions overlay-hover">
-                        <div class="overlay-effect">
-                            <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/5.jpg" alt=""></a>
-                            <div class="gallery-hover-effect">
-                                <a class="gallery-icon venobox" href="{{asset('frontent-template1')}}/img/gallery/5.jpg"><i class="fa fa-image"></i></a>
-                                <span class="gallery-text">Courses, Exursions</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items drawing overlay-hover">
-                        <div class="overlay-effect">
-                            <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/12.jpg" alt=""></a>
-                            <div class="gallery-hover-effect">
-                                <a class="gallery-icon venobox" href="{{asset('frontent-template1')}}/img/gallery/6.jpg"><i class="fa fa-image"></i></a>
-                                <span class="gallery-text">Drawing</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items courses excursions overlay-hover">
-                        <div class="overlay-effect">
-                            <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/6.jpg" alt=""></a>
-                            <div class="gallery-hover-effect">
-                                <a class="gallery-icon venobox" href="{{asset('frontent-template1')}}/img/gallery/7.jpg"><i class="fa fa-image"></i></a>
-                                <span class="gallery-text">Excursions, Courses</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-18 mix single-items drawing excursions overlay-hover">
-                        <div class="overlay-effect">
-                            <a href="#"><img src="{{asset('frontent-template1')}}/img/gallery/10.jpg" alt=""></a>
-                            <div class="gallery-hover-effect">
-                                <a class="gallery-icon venobox" href="{{asset('frontent-template1')}}/img/gallery/8.jpg"><i class="fa fa-image"></i></a>
-                                <span class="gallery-text">Drawing, Exursions</span>
-                            </div>
-                        </div>
-                    </div>                                                -->
                 </div>  
             </div>
             <div class="row">
@@ -524,8 +333,8 @@
                         <div class="blog-date">
                             <span><i class="fa fa-calendar"></i>08 Apr, 2016</span>
                         </div>
-                        <p>{{$blog->content}}</p>
-                        <a href="blog-details.html">Read more.</a>
+                        <p>{{ \Illuminate\Support\Str::limit($blog->content, 150, $end='...') }}</p>
+                        <a href="{{ url('education/blog-details', $blog->id) }}">Read more.</a>
                     </div>
                 </div>
                 @endforeach
@@ -562,97 +371,12 @@
     <!--Google Map Area Start -->
     <div class="google-map-area">
         <!--  Map Section -->
-        <div id="contacts" class="map-area">
-            <div id="googleMap" style="width:100%;height:451px;"></div>
-        </div>
+        {!! $google_map_area->content !!}
     </div>
     <!--End of Google Map Area-->
     <!--Footer Area Start-->
     <div class="footer-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-info-container text-center section-padding">
-                        <div class="footer-logo">
-                            <a href="#"><img src="{{asset('frontent-template1')}}/img/logo/footer-logo.png" alt=""></a>
-                        </div>
-                        <div class="footer-info">
-                            <span><i class="fa fa-map-marker"></i>1st Floor New World Tower Miami</span>
-                            <span><i class="fa fa-envelope"></i>admin@power-boosts.com</span>
-                            <span><i class="fa fa-phone"></i>(801) 2345 - 6789</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-widget-container section-padding">
-                <div class="row">
-                    <div class="col-lg-2 col-md-2 col-sm-4">
-                        <div class="single-footer-widget">
-                            <h4>Our School</h4>
-                            <ul class="footer-widget-list">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Become a Teacher</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-4">
-                        <div class="single-footer-widget">
-                            <h4>Links</h4>
-                            <ul class="footer-widget-list">
-                                <li><a href="#">Courses</a></li>
-                                <li><a href="#">Events</a></li>
-                                <li><a href="#">Gallery</a></li>
-                                <li><a href="#">FAQs</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-4">
-                        <div class="single-footer-widget">
-                            <h4>Support</h4>
-                            <ul class="footer-widget-list">
-                                <li><a href="#">Documentation</a></li>
-                                <li><a href="#">Forums</a></li>
-                                <li><a href="#">Language Packs</a></li>
-                                <li><a href="#">Release Status</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="subscribe-container">
-                            <p>Subscribe now and receive weekly newsletter with educational materials, new courses, interesting posts, popular books and much more!</p>
-                            <form action="#">
-                                <div class="subscribe-form">
-                                    <input type="email" name="email" placeholder="Your email here">
-                                    <button type="submit"><i class="fa fa-send"></i></button>
-                                </div>    
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-container">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <span>&copy; 2021 <a href="#">Power-Boosts</a>. All rights reserved</span>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="social-links">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    {!! $footer_area->content !!}
     </div>
     <!--End of Footer Area-->
 @endsection

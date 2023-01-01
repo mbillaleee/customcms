@@ -374,7 +374,7 @@
                 <span class="la la-list"></span>
                 Menu List
             </a>
-            <a href="">
+            <a href="{{ route('template1.index') }}">
                 <span class="la la-list"></span>
                 Template List
             </a>

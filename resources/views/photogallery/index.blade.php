@@ -22,8 +22,8 @@
                         <tr>
                             <th class="ltr:text-left rtl:text-right uppercase">#</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Title</th>
-                            <th class="ltr:text-left rtl:text-right uppercase">Image</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Desc</th>
+                            <th class="ltr:text-left rtl:text-right uppercase">Image</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Status</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Action</th>
                         </tr>

@@ -10,7 +10,7 @@
         <ul>
             <li><a href="#no-link">Widget</a></li>
             <li class="divider la la-arrow-right"></li>
-            <li><a href="#no-link">Create</a></li>
+            <li><a href="#no-link">Update</a></li>
         </ul>
     </section>
 
@@ -55,7 +55,7 @@
                         <input type="radio" name="status" value="0" {{ $widgets ? $widgets->status == 0 ? "checked" : "": ""   }}><span>Inactive</span>
                     </div>
                     <div class="mt-5">
-                        <button type="submit" class="bg-blue-500 text-white hover:text-white font-bold py-1 px-4 rounded-full">Create</button>
+                        <button type="submit" class="bg-blue-500 text-white hover:text-white font-bold py-1 px-4 rounded-full">Update</button>
                     </div>
                 </div>
             </form>

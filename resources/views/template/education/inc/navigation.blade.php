@@ -163,7 +163,7 @@
                                 </li>
                                 <li><a href="{{url('/education/teacher')}}">Teachers Page</a>
                                     <ul>
-                                        <li><a href="{{url('/education/teachers-info')}}">Teachers Info</a></li>
+                                        <li><a href="{{url('/education/teacher-info')}}">Teachers Info</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="gallery.html">Gallery</a></li>

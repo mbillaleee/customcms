@@ -81,7 +81,8 @@ class PhotoGalleryController extends Controller
      */
     public function edit(PhotoGallery $photoGallery)
     {
-        return view('photogallery.edit', compact('photoGallery'));
+        $categories = Category::latest()->get();
+        return view('photogallery.edit', compact('photoGallery', 'categories'));
     }
 
     /**

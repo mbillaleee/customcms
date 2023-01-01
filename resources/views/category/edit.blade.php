@@ -24,6 +24,14 @@
                         <input type="text" id="input" class="form-control" name="name" value="{{ $category->name }}" placeholder="Enter text here">
                     </div>
                     <div class="mt-5">
+                        <label class="label block mb-2">Category Type</label>
+                        <select class="form-control" id="category_type" name="category_type">
+                            <option value="" disabled>Please Select</option>
+                            <option value="1">Blog</option>
+                            <option value="2">Photo Gallery</option>
+                        </select>
+                    </div>
+                    <div class="mt-5">
                         <label class="label block mb-2">Image</label>
                         <input type="file" id="input" class="form-control" name="image">
                         @if($category->image != null)<img src="{{asset('uploads/category/'.$category->image)}}" width="80" alt="{{$category->name}}">@endif
