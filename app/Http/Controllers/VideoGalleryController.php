@@ -125,7 +125,7 @@ class VideoGalleryController extends Controller
      */
     public function destroy(VideoGallery $videoGallery)
     {
-        $videoGallery->delete();
+        $videoGallery->delete(); 
         return redirect()->back()->with('success','photo Gallery deleted successfully!');
     }
 }

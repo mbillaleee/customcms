@@ -62,7 +62,8 @@
                             <h3>Send A Message</h3>
                         </div>
                         <div class="contact-form-container">
-                            <form id="contact-form" action="https://whizthemes.com/mail-php/jaber/contact.php" method="post">
+                            <form id="contact-form" action="{{route('education.contuctus.store')}}" method="POST">
+                            @csrf
                                 <div class="row">
                                     <div class="col-md-6">
                                         <input type="text" name="name" placeholder="Your Name *">

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\OurClass;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class OurClassController extends Controller
 {
@@ -25,7 +27,8 @@ class OurClassController extends Controller
      */
     public function create()
     {
-        return view('our-class.create');
+        $teachers = Teacher::latest()->get(); 
+        return view('our-class.create', compact('teachers'));
     }
 
     /**
@@ -49,11 +52,17 @@ class OurClassController extends Controller
             }
 
             $ourClass->user_id=1;
+            $ourClass->teacher_id=$request->teacher_id;
             $ourClass->title=$request->title;
+            $ourClass->slug= Str::slug($request->title);
             $ourClass->class_size=$request->class_size;
+            $ourClass->class_size=$request->class_size;
+            $ourClass->class_duration=$request->class_duration;
+            $ourClass->transport=$request->transport;
+            $ourClass->morning_food=$request->morning_food;
+            $ourClass->class_starff=$request->class_starff;
             $ourClass->age_range=$request->age_range;
             $ourClass->class_date=$request->class_date;
-            // $ourClass->slug= Str::slug($request->title);
             $ourClass->content=$request->content;
             $ourClass->status=$request->status;
             $ourClass->save();

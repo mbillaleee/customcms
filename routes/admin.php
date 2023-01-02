@@ -19,6 +19,7 @@ use App\Http\Controllers\OurClassController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\Template1Controller;
+use App\Http\Controllers\ContuctUsController;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
@@ -52,7 +53,7 @@ Route::prefix('category')->group(function () {
         Route::any('/store', [BlogController::class, 'store'])->name('blog.store');
         Route::get('/edit/{blog}', [BlogController::class, 'edit'])->name('blog.edit');
         Route::post('/update/{blog}', [BlogController::class, 'update'])->name('blog.update');
-        Route::delete('/destroy/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy');
+        Route::delete('/destroy/{blog}', [BlogController::class, 'destroy'])->name('blog.destroy'); 
     });
     
     
@@ -90,7 +91,7 @@ Route::prefix('category')->group(function () {
         Route::get('/', [VideoGalleryController::class, 'index'])->name('videogallery.index');
         Route::get('/create', [VideoGalleryController::class, 'create'])->name('videogallery.create');
         Route::post('/store', [VideoGalleryController::class, 'store'])->name('videogallery.store');
-        Route::get('/edit/{videoGallery}', [VideoGalleryController::class, 'edit'])->name('videogallery.edit');
+        Route::get('/edit/{videoGallery}', [VideoGalleryController::class, 'edit'])->name('videogallery.edit'); 
         Route::post('/update/{videoGallery}', [VideoGalleryController::class, 'update'])->name('videogallery.update');
         Route::delete('/destroy/{videoGallery}', [VideoGalleryController::class, 'destroy'])->name('videogallery.destroy');
     });
@@ -203,6 +204,12 @@ Route::prefix('category')->group(function () {
         Route::get('/edit/{template1}', [Template1Controller::class, 'edit'])->name('template1.edit');
         Route::post('/update/{template1}', [Template1Controller::class, 'update'])->name('template1.update');
         Route::delete('/destroy/{template1}', [Template1Controller::class, 'destroy'])->name('template1.destroy');
+    });
+
+
+    Route::prefix('contact-us')->group(function () {
+        Route::get('/', [ContuctUsController::class, 'index'])->name('contactus.index');
+        Route::delete('/destroy/{contuctUs}', [ContuctUsController::class, 'destroy'])->name('contact.destroy');
     });
 
 

@@ -12,6 +12,7 @@ use App\Models\OurClass;
 use App\Models\Tag;
 use App\Models\Template1;
 use App\Models\Widgets;
+use App\Models\ContuctUs;
 
 
 class FrontendController extends Controller
@@ -132,6 +133,21 @@ class FrontendController extends Controller
             $footer_area = Widgets::where('position', 6)->first();
             return view('template.education.contact', compact('footer_area'));
         }
+    }
+
+
+
+    public function storecontuctus(Request $request)
+    {
+        // dd($request->all());
+        
+        $contuctus = New ContuctUs();
+            $contuctus->name=$request->name;
+            $contuctus->email=$request->email;
+            $contuctus->subject=$request->subject;
+            $contuctus->message=$request->message;
+            $contuctus->save();
+            return redirect()->route('education.index')->with('success','Message Send successfully!');
     }
 
     

@@ -24,15 +24,59 @@
                         <input type="text" id="input" class="form-control" name="title" placeholder="Enter text here">
                     </div>
                     <div class="mt-5">
-                        <label class="label block mb-2">Class Size</label>
-                        <input type="text" id="input" class="form-control" name="class_size" placeholder="Enter text here">
+                        <label class="label block mb-2">Teacher</label>
+                        <select class="form-control" id="teacher_id" name="teacher_id">
+                            <option value="">Please Select</option>
+                            @foreach($teachers as $teacher)
+                            <option value="{{ $teacher->id}}">{{ $teacher->name}}</option>
+                            @endforeach  
+                        </select>
                     </div>
                     <div class="mt-5">
-                        <label class="label block mb-2">Age Range</label>
+                        <label class="label block mb-2">Class Duration</label>
+                        <div class="custom-select">
+                            <select class="form-control" name="class_duration">
+                                <option>Select</option>
+                                <option value="1">9AM - 3PM</option>
+                                <option value="2">9AM - 3PM</option>
+                                <option value="3">8AM - 2PM</option>
+                            </select>
+                        <div class="custom-select-icon la la-caret-down"></div>
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Transport</label>
+                        <div class="custom-select">
+                            <select class="form-control" name="transport">
+                                <option>Select</option>
+                                <option value="1">Available</option>
+                                <option value="2">Unavailable</option>
+                            </select>
+                        <div class="custom-select-icon la la-caret-down"></div>
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Morning Food</label>
+                        <div class="custom-select">
+                            <select class="form-control" name="morning_food">
+                                <option>Select</option>
+                                <option value="1">Include</option>
+                                <option value="2">Not Include</option>
+                            </select>
+                        <div class="custom-select-icon la la-caret-down"></div>
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Class Starff</label>
+                        <input type="text" id="input" class="form-control" name="class_starff" placeholder="Enter class starff here">
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Class Size</label>
+                        <input type="text" id="input" class="form-control" name="class_size" placeholder="Enter class size">
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Years Old</label>
                         <input type="text" id="input" class="form-control" name="age_range" placeholder="Enter text here">
                     </div>
                     <div class="mt-5">
-                        <label class="label block mb-2">Class Date</label>
+                        <label class="label block mb-2">Start Date</label>
                         <input type="date" id="input" class="form-control" name="class_date" placeholder="Enter text here">
                     </div>
                     <div class="mt-5">

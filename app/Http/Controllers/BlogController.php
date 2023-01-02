@@ -136,7 +136,7 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy(Blog $blog) 
     {
         $blog->delete();
         return redirect()->back()->with('success','Blog deleted successfully!');

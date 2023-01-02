@@ -270,9 +270,10 @@
                 <div class="col-md-12">
                     <div class="filter-menu">
                         <ul>
-                        @foreach($categories as $cat)
-                            <li class="filter" data-filter=".cat{{$cat->id}}">{{$cat->name}}</li>
-                        @endforeach
+                            <li class="filter" data-filter="all">All</li>
+                            @foreach($categories as $cat)
+                            <li class="filter" data-filter=".cat{{$cat->id}}">{{$cat->name}}</li> 
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -346,7 +347,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <form class="newsletter-container">
+                    <form class="newsletter-container" action="{{route('education.contuctus.store')}}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-sm-12">
                                 <h4>You want to know more <br>
