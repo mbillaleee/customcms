@@ -72,10 +72,22 @@
                     <div class="col-lg-9 d-none d-lg-block">
                         <div class="mainmenu-area">
                             <div class="mainmenu">
+                                @php
+                                    $menus = App\Models\Menu::with('childs')->where('template_id', 1)->where('parent_id', null)->get();
+                                @endphp
+
+                                
                                 <nav>
                                     <ul id="nav">
-                                        <li class="current"><a href="{{url('/education/home')}}">Home </a>
+                                        @foreach($menus as $men)
+                                        <li class="current"><a href="{{url('/education/home')}}">{{$men->title}} <i class="fa fa-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                                @foreach($men->childs as $sub_men)
+                                                <li><a href="{{url('/education/blog-details')}}">{{ $sub_men->title }}</a></li>
+                                                @endforeach
+                                            </ul>
                                         </li>
+                                        @endforeach
                                         <li><a href="{{url('/education/about')}}">About us</a></li>
                                         <li><a href="class-grid.html">Classes <i class="fa fa-angle-down"></i></a>
                                             <ul class="sub-menu">

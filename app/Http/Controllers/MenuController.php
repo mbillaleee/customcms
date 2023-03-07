@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\Template1;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -15,7 +16,12 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = Menu::latest()->get();
+        $menus = Menu::with('childs')->where('parent_id', null)->get();
+ 
+        // $men = Menu::where('parent_id', null)->first();
+        // $sub_menus = Menu::where('parent_id', $men->id)->get();
+
+        // dd($men);
         
         return view('menu.index', compact('menus'));
     }
@@ -27,7 +33,9 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('menu.create');
+        $menu = Menu::where('parent_id', null)->get();
+        $Template1 = Template1::all();
+        return view('menu.create', compact('menu', 'Template1'));
     }
 
     /**
@@ -42,9 +50,13 @@ class MenuController extends Controller
         
         $menu = New Menu;
         $menu->user_id=1;
-        $menu->name=$request->name;
-        $menu->slug= Str::slug($request->name);
-        $menu->position=$request->position;
+        $menu->title=$request->title;
+        $menu->slug= Str::slug($request->title);
+        $menu->order=$request->order;
+        $menu->url=$request->url;
+        $menu->template_id=$request->template_id;
+        $menu->parent_id=$request->parent_id;
+        $menu->target=$request->target;
         $menu->status=$request->status;
         $menu->save();
         return redirect()->route('menu.index')->with('success','Menu created successfully!');

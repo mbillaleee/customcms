@@ -318,6 +318,10 @@
                 <span class="la la-list"></span>
                 Category List
             </a>
+            <a href="{{ route('subcategory.index') }}">
+                <span class="la la-list"></span>
+                Sub Category List
+            </a>
             <a href="{{ route('tag.index') }}">
                 <span class="la la-list"></span>
                 Tag List

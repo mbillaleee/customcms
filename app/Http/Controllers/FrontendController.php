@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Slider;
+use App\Models\Menu;
 use App\Models\Blog;
 use App\Models\PhotoGallery;
 use App\Models\Category;
@@ -33,7 +34,8 @@ class FrontendController extends Controller
         $footer_area = Widgets::where('position', 6)->first();
         $google_map_area = Widgets::where('position', 7)->first();
         $categories = Category::where('category_type',2)->get();
-        return view('template.education.index', compact('sliders', 'blogs', 'photogallery', 'teachers', 'ourclasses', 'activity_area', 'advertise_area', 'service_area', 'footer_area', 'google_map_area', 'categories'));
+        $menus = Menu::with('childs')->where('parent_id', null)->get();
+        return view('template.education.index', compact('sliders', 'blogs', 'photogallery', 'teachers', 'ourclasses', 'activity_area', 'advertise_area', 'service_area', 'footer_area', 'google_map_area', 'categories', 'menus'));
         }elseif($activetemplate->id == 2){
             return view('template.ecommerce.index');
         }elseif($activetemplate->id == 3){

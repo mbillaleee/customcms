@@ -31,9 +31,12 @@
     @endif
 
     <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="{{ asset('build/js/vendor.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.js"></script>
 
     @yield('scripts')
+    @stack('js');
 
     <script src="{{ asset('build/js/script.js') }}"></script>
 

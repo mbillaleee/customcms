@@ -20,12 +20,38 @@
             @csrf
                 <div class="card p-5">
                     <div class="mt-5">
-                        <label class="label block mb-2">Name</label>
-                        <input type="text" id="input" class="form-control" name="name" placeholder="Enter text here">
+                        <label class="label block mb-2">Title</label>
+                        <input type="text" id="input" class="form-control" name="title" placeholder="Enter text here">
                     </div>
                     <div class="mt-5">
-                        <label class="label block mb-2">Position</label>
-                        <textarea type="text" class="form-control" rows="5" name="position"></textarea>
+                        <label class="label block mb-2">Order</label>
+                        <input type="text" id="input" class="form-control" name="order" placeholder="Enter text here">
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Target</label>
+                        <input type="text" id="input" class="form-control" name="target" placeholder="Enter target here">
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Url</label>
+                        <input type="text" id="input" class="form-control" name="url" placeholder="Enter url here">
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Menu</label>
+                        <select class="form-control" name="parent_id" id="parent_id">
+                            <option value="">Select one</option>
+                            @foreach($menu as $item)
+                            <option value="{{$item->id}}">{{$item->title}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Template </label>
+                        <select class="form-control" name="template_id" id="template_id">
+                            <option value="">Select one</option>
+                            @foreach($Template1 as $item)
+                            <option value="{{$item->id}}">{{$item->title}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Status</label>

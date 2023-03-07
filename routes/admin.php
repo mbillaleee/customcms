@@ -1,6 +1,7 @@
-<?php 
+<?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PageController;
@@ -24,7 +25,7 @@ use App\Http\Controllers\ContuctUsController;
 Route::prefix('admin')->middleware('auth')->group(function () {
 
     
-Route::prefix('category')->group(function () {
+    Route::prefix('category')->group(function () {
     // Route::prefix('category')->middleware('auth')->group(function () {
         Route::get('/', [CategoryController::class, 'index'])->name('category.index');
         Route::get('/create', [CategoryController::class, 'create'])->name('category.create');
@@ -32,6 +33,15 @@ Route::prefix('category')->group(function () {
         Route::get('/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
         Route::post('/update/{category}', [CategoryController::class, 'update'])->name('category.update');
         Route::delete('/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+    });
+    Route::prefix('sub-category')->group(function () {
+    // Route::prefix('category')->middleware('auth')->group(function () {
+        Route::get('/', [SubCategoryController::class, 'index'])->name('subcategory.index');
+        Route::get('/create', [SubCategoryController::class, 'create'])->name('subcategory.create');
+        Route::post('/store', [SubCategoryController::class, 'store'])->name('subcategory.store');
+        Route::get('/edit/{subCategory}', [SubCategoryController::class, 'edit'])->name('subcategory.edit');
+        Route::post('/update/{subCategory}', [SubCategoryController::class, 'update'])->name('subcategory.update');
+        Route::delete('/destroy/{subCategory}', [SubCategoryController::class, 'destroy'])->name('subcategory.destroy');
     });
     
     

@@ -33,12 +33,12 @@
     <!--End of Slider Area-->
     <!--Activity Area Start-->
     <div class="activity-area">
-    {!!$activity_area->content!!}
+    {!!$activity_area->content ?? '' !!}
     </div>
     <!--End of Activity Area-->
     <!--Advertise Area Start-->
     <div class="advertise-area text-center section-gray">
-    {!!$advertise_area->content!!}
+    {!!$advertise_area->content ?? '' !!}
     </div>
     <!--End of Advertise Area-->
     <!--Class Area Start-->
@@ -113,7 +113,7 @@
     <!--End of Register Area-->
     <!--Service Area Start-->
     <div class="service-area section-padding">
-    {!!$service_area->content!!}
+    {!!$service_area->content ?? '' !!}
     </div>
     <!--End of Service Area-->
     <!--Fun Factor Area Start-->
@@ -373,12 +373,12 @@
     <!--Google Map Area Start -->
     <div class="google-map-area">
         <!--  Map Section -->
-        {!! $google_map_area->content !!}
+        {!! $google_map_area->content ?? ''  !!}
     </div>
     <!--End of Google Map Area-->
     <!--Footer Area Start-->
     <div class="footer-area">
-    {!! $footer_area->content !!}
+    {!! $footer_area->content ?? ''  !!}
     </div>
     <!--End of Footer Area-->
 @endsection

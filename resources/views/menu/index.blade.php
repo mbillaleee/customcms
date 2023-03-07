@@ -21,8 +21,11 @@
                     <thead>
                         <tr>
                             <th class="ltr:text-left rtl:text-right uppercase">#</th>
-                            <th class="ltr:text-left rtl:text-right uppercase">Nmae</th>
-                            <th class="ltr:text-left rtl:text-right uppercase">Position</th>
+                            <th class="ltr:text-left rtl:text-right uppercase">Title</th>
+                            <th class="ltr:text-left rtl:text-right uppercase">Menu</th>
+                            <th class="ltr:text-left rtl:text-right uppercase">Target</th>
+                            <th class="ltr:text-left rtl:text-right uppercase">Template</th>
+                            <th class="ltr:text-left rtl:text-right uppercase">Url</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Status</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Action</th>
                         </tr>
@@ -31,8 +34,11 @@
                         @foreach($menus as $index => $menu)
                         <tr>
                             <td>{{$index +1}}</td>
-                            <td>{{ $menu->name }}</td>
-                            <td>{{ $menu->position }}</td>
+                            <td>{{ $menu->title }}</td>
+                            <td>{{ $menu->parent_id }}</td>
+                            <td>{{ $menu->target }}</td>
+                            <td>{{ $menu->template_id }}</td>
+                            <td>{{ $menu->url }}</td>
                             <td>{!! !!$menu->status ? '<span class="badge bg-success">Active</span>': '<span class="badge bg-danger">Inactive</span>' !!}</td>
                             <td class="flex">
                             <a class="bg-blue-500 text-white hover:text-white font-bold py-1 px-4 rounded-full" href="{{ route('menu.edit',$menu->id) }}">Edit</a>
@@ -54,5 +60,42 @@
         </div>
         <!-- Striped End -->
     </div>
+    <div class="grid grid-rows-1 grid-flow-col gap-4">
+        <!-- Striped -->
+        <div class="dd">
+           
+            <ol class="dd-list">
+                @foreach($menus as $men)
+                <li class="dd-item" data-id="{{$men->id}}">
+                    <div class="dd-handle">{{$men->title}}</div>
+                    <ol class="dd-list">
+                        @foreach($men->childs as $sub_men)
+                        <li class="dd-item" data-id="{{ $sub_men->id }}">
+                            <div class="dd-handle">{{ $sub_men->title }}</div>
+                        </li>
+                        @endforeach
+                    </ol>
+                </li>
+                @endforeach
+            </ol>
+        </div>
+        <!-- Striped End -->
+    </div>
+    
 
 @endsection
+
+
+@push('js')
+
+<script>
+    
+    $(document).ready(function(){
+
+    $('.dd').nestable({ /* config options */ });
+       
+    });
+</script>
+
+
+@endpush

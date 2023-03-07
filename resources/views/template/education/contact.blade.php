@@ -86,6 +86,6 @@
     <!--End of Contact Area-->
     <!--Footer Area Start-->
     <div class="footer-area">
-    {!! $footer_area->content !!}
+    {!! $footer_area->content ?? '' !!}
     </div>
 @endsection

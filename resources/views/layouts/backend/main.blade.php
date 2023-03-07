@@ -23,13 +23,20 @@
   <link rel="stylesheet" href="{{asset('backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{asset('backend/plugins/daterangepicker/daterangepicker.css')}}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
   {{-- <!-- summernote -->
-  <link rel="stylesheet" href="{{asset('backend/plugins/summernote/summernote-bs4.min.css')}}"> --}}
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-<style>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.css"/>
+
+
+
+
+    <link rel="stylesheet" href="{{asset('backend/plugins/summernote/summernote-bs4.min.css')}}"> --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <style>
 .activate {
     background-color: #2A9440 !important;
     color: white;
@@ -114,6 +121,14 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('backend/dist/js/pages/dashboard.js')}}"></script>
 <script src="{{ asset('js/iziToast.js') }}"></script>
+
+
+
+<script src="/node_modules/nestable2/jquery.nestable.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.js"></script>
+<script src=""></script>
+<script src=""></script>
+<script src=""></script>
 
 @include('vendor.lara-izitoast.toast')
 @stack('js')

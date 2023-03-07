@@ -29,6 +29,8 @@
                             <option value="" disabled>Please Select</option>
                             <option value="1">Blog</option>
                             <option value="2">Photo Gallery</option>
+                            <option value="3">Product</option>
+                            <option value="4">Portfolio</option>
                         </select>
                     </div>
                     <div class="mt-5">

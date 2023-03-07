@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->nullable()->index('slug');
             $table->string('content');
-            $table->integer('possition');
+            $table->integer('position');
             $table->integer('status')->default(1)->comment('Active=1, Inactive=0');
             $table->timestamps();
             $table->softDeletes();
