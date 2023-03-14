@@ -174,6 +174,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     
     Route::prefix('menu')->group(function () {
         Route::get('/', [MenuController::class, 'index'])->name('menu.index');
+        Route::get('/{id}', [MenuController::class, 'order'])->name('menu.order');
         Route::get('/create', [MenuController::class, 'create'])->name('menu.create');
         Route::post('/store', [MenuController::class, 'store'])->name('menu.store');
         Route::get('/edit/{menu}', [MenuController::class, 'edit'])->name('menu.edit');

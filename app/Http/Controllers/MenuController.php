@@ -26,6 +26,25 @@ class MenuController extends Controller
         return view('menu.index', compact('menus'));
     }
 
+    public function order(Request $request,$id){
+        $menuItemOrder = json_decode($request->get('order'));
+        $this->ordermenu($menuItemOrder,null);
+    }
+ 
+    private function ordermenu(array $menuItems, $parentId){
+        foreach ($menuItems as $index => $item){
+            $menuItem = MenuItem::findOrFail($item->id);
+ 
+            $menuItem->update([
+               'order' => $index+1,
+               'parent_id' => $parentId
+            ]);
+            if(isset($item->children)){
+                $this->ordermenu($item->children,$menuItem->id);
+            }
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

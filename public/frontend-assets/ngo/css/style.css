@@ -699,7 +699,7 @@ ul.list-styled {
     text-align: center;
   }
   #navbar .nav-link {
-    padding: 15px 10px;
+    /* padding: 15px 10px; */
   }
 }
 .bg-1 {

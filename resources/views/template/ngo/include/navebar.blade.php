@@ -2,7 +2,7 @@
 		<div class="container">
 			<div class="navbar-brand">
 				<a class="navbar-item" href="index.html">
-					<img src="{{asset('frontend-assets/ngo')}}/images/logo.png" alt="logo">
+					<img src="{{asset('frontend-assets/ngo')}}/images/logo.jpg" alt="logo">
 				</a>
 				<button role="button" class="navbar-burger burger" data-hidden="true" data-target="navigation">
 					<span aria-hidden="true"></span>

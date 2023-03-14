@@ -23,13 +23,9 @@
         <div class="row">
             <div class="col-lg-6">
                 <h5 class="title-small">A little about Us</h5>
-                <h3 class="title-big">Welcome to Save Poor charity</h3>
-                <p class="mt-3">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                    ultrices in ligula. Semper at tempufddfel. Lorem ipsum dolor sit amet viverra ornare
-                    elit. Non quae, ut diam libero erat.</p>
-                <p class="mt-3">Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut sed diam libero erat. Aenean faucibus
-                    nibh et justo cursus.</p>
-                <h3 class="title mt-4">"Over 20 Years of Accomplishments”</h3>
+                <p>
+                The J U Foundation was founded in 2016 by A.T.M Jashim Uddin with the goal of creating a world in which individuals can live without hunger, disease and racism, get better education and equal opportunities and live in a peaceful environment. Since its founding, the organization has worked tirelessly to provide education and medical services to underprivileged, built Masjid, Madrasa and Maktab in rural areas of Bangladesh and created awareness on drug abuse, mental health, violence against women and children - thus, building a reputation as a trusted and effective nonprofit organization in Bangladesh.
+                </p>
                 <a href="#MoreAboutUs" class="btn btn-primary btn-style mt-lg-5 mt-4">Learn More about Us</a>
             </div>
             <div class="col-lg-6 mt-lg-0 mt-5">

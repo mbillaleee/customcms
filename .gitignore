@@ -14,3 +14,13 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip

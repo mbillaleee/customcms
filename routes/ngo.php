@@ -1,5 +1,8 @@
 <?php
 
+// Route::get('/', function () {
+//     return view('template/ngo/landing');
+// });
 Route::get('/', function () {
     return view('template/ngo/index');
 });

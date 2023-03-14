@@ -92,7 +92,17 @@
     
     $(document).ready(function(){
 
-    $('.dd').nestable({ /* config options */ });
+    $('.dd').nestable({
+        $('.dd').on('change',function (e){
+           console.log(JSON.stringify($('.dd').nestable('serialize')));
+           $.post('{{route('menu.order',$menu->id)}}',{
+               order: JSON.stringify($('.dd').nestable('serialize')),
+               _token : '{{csrf_token()}}'
+           },function (data){
+               toastr.success('Menus Order Updated :)');
+           });
+        });
+     });
        
     });
 </script>

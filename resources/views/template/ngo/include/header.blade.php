@@ -25,7 +25,7 @@
 		<div class="container">
 			<div class="navbar-brand">
 				<a class="navbar-item" href="index.html">
-					<img src="{{asset('frontend-assets/ngo')}}/images/logo.png" alt="logo">
+					<img src="{{asset('frontend-assets/ngo')}}/images/logo.jpg" alt="logo" height="50px">
 				</a>
 				<button role="button" class="navbar-burger burger" data-hidden="true" data-target="navigation">
 					<span aria-hidden="true"></span>
@@ -35,52 +35,43 @@
 			</div>
 
 			<div class="navbar-menu mr-0" id="navigation">
-				<ul class="navbar-end">					 
-					<li class="navbar-item">
-						<a class="navbar-link" href="{{ url('/') }}">Home</a>
-					</li>
-					
-					<li class="navbar-item">
-						<a class="navbar-link" href="{{ url('/ngo/about') }}">About</a>
-					</li>
+				<ul class="navbar-end">			
 
 					<li class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link">Causes<span class="ml-1">+</span></a>
+						<a class="navbar-link">Who We Are<span class="ml-1">+</span></a>
 						<div class="navbar-dropdown">
-							<a class="navbar-item" href="service.html">Causes</a>
-							<a class="navbar-item" href="cause-single.html">Cause details</a>
+							<a class="navbar-item" href="service.html">About J U Foundation</a>
+							<a class="navbar-item" href="cause-single.html">Vision & Mission and Values</a>
+							<a class="navbar-item" href="cause-single.html">Legal Status</a>
+							<a class="navbar-item" href="cause-single.html">Governing Body</a>
+							<a class="navbar-item" href="cause-single.html">Partners and Donors</a>
 						</div>
 					</li>
 
 					<li class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link">Get Involved<span class="ml-1">+</span></a>
+						<a class="navbar-link">What We Do<span class="ml-1">+</span></a>
 						<div class="navbar-dropdown">
-							<a class="navbar-item" href="donation.html">Donation</a>
-							<a class="navbar-item" href="volunteer.html">Be a Volunteer</a>
+							<a class="navbar-item" href="donation.html">Religious Projects</a>
+							<a class="navbar-item" href="volunteer.html">Our Programs</a>
+							<a class="navbar-item" href="volunteer.html">Program Archive</a>
 						</div>
 					</li>
 
 					<li class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link">Pages<span class="ml-1">+</span></a>
+						<a class="navbar-link">Ways to Support<span class="ml-1">+</span></a>
 						<div class="navbar-dropdown">
-							<a class="navbar-item" href="event.html">Event</a>
-							<a class="navbar-item" href="event-single.html">Event Single</a>
-							<a class="navbar-item" href="confirmation.html">Confirmation</a>
+							<a class="navbar-item" href="event.html">Donate (Highlighted Colored)</a>
+							<a class="navbar-item" href="event-single.html">Sponsor a Child</a>
+							<a class="navbar-item" href="confirmation.html">Become a Volunteer </a>
 							<a class="navbar-item" href="404.html">404</a>
 						</div>
 					</li>
 
 					<li class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link">Blog +</a>
-						<div class="navbar-dropdown align-right">
-							<a class="navbar-item" href="blog-grid.html">Blog Grid</a>
-							<a class="navbar-item" href="blog-sidebar.html">Blog with Sidebar</a>
-							<a class="navbar-item" href="blog-single.html">Blog Single</a>
-						</div>
+						<a class="navbar-link">Contact Us </a>
 					</li>
-					
-					<li class="navbar-item">
-						<a class="navbar-link" href="{{ url('/ngo/contact') }}">Contact</a>
+					<li class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link" href="{{ url('/ngo/about') }}">About Us </a>
 					</li>
 				</ul>
 			</div>
