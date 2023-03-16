@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2023 at 01:13 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Mar 16, 2023 at 11:30 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `activity_areas` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` longtext NOT NULL,
+  `icon` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -46,10 +46,10 @@ CREATE TABLE `blogs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `content` longtext NOT NULL,
+  `image` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -61,9 +61,10 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `user_id`, `category_id`, `title`, `slug`, `content`, `image`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 1, 'New Friends Everyday at Kiddie', '', 'The concept of the activity room is about \'Learning\', through play, in a totally different environment. The perfect class for your child with the best.', '1-1672557680.jpg', 1, '2023-01-01 01:21:20', '2023-01-01 01:23:51', NULL),
-(2, 1, 1, 'Swimming Lessons at the New Pool', 'swimming-lessons-at-the-new-pool', 'The concept of the activity room is about \'Learning\', through play, in a totally different environment. The perfect class for your child with the best.', '2-1672557864.jpg', 1, '2023-01-01 01:24:24', '2023-01-01 01:24:24', NULL),
-(3, 1, 1, 'Play is Our Brain’s Favorite Way of', 'play-is-our-brains-favorite-way-of', 'The concept of the activity room is about \'Learning\', through play, in a totally different environment. The perfect class for your child with the best.', '3-1672557897.jpg', 1, '2023-01-01 01:24:57', '2023-01-01 01:24:57', NULL);
+(1, 1, 1, 'কুরআনের আলোয় ছড়িয়ে যাক পৃথিবী জুড়ে।', '', 'কুরআনের আলোয় ছড়িয়ে যাক পৃথিবী জুড়ে।\r\nJU Foundation কর্তৃক পরিচালিত.... \r\n\"মক্তব\"।\r\n শিশু-কিশোরদের মাঝে কুরআনের জ্ঞান ছড়িয়ে দিতে JU Foundation এর ক্ষুদ্র প্রচেষ্টা অব্যাহত।', 'blog3-1678961198.jpg', 1, '2023-03-16 04:06:26', '2023-03-16 04:06:38', NULL),
+(2, 1, 1, 'JU Foundation এর সহযোগীতায় “ বাইতুর নাজাত মসজিদ” প্রতিষ্ঠা করা হলো।', 'ju-foundation-er-shzogeetay-baitur-najat-msjid-prtishtha-kra-hlo', '”এসো সালাতের দিকে, এসো কল্যাণের দিকে”।\r\nআলহামদুলিল্লাহ্..............\r\n JU Foundation এর সহযোগীতায় “ বাইতুর নাজাত মসজিদ” প্রতিষ্ঠা করা হলো।\r\nলোকেশন: শ্রীপুর, ফুলবাড়িয়া, ময়মনসিংহ।', 'blog11-1678961312.jpg', 1, '2023-03-16 04:08:32', '2023-03-16 04:08:32', NULL),
+(3, 1, 1, 'কুরআনের আলোয় ছড়িয়ে যাক পৃথিবী জুড়ে।', 'kuraner-aloy-chriye-zak-prrithibee-jure', 'কুরআনের আলোয় ছড়িয়ে যাক পৃথিবী জুড়ে।\r\nকুষ্টিয়াতে JU Foundation কর্তৃক পরিচালিত.... \r\n\"মক্তব\"।\r\nওই এলাকায় শিশু-কিশোরদের মাঝে কুরআনের জ্ঞান ছড়িয়ে দিতে JU Foundation এর ক্ষুদ্র প্রচেষ্টা অব্যাহত', 'blog22-1678961380.jpg', 1, '2023-03-16 04:09:40', '2023-03-16 04:09:40', NULL),
+(4, 1, 1, 'JU Foundation কর্তৃক পরিচালিত আল কোরআন  একাডেমি  মাদ্রাসার', 'ju-foundation-krtrrik-pricalit-al-koran-ekademi-madrasar', 'আলহামদুলিল্লাহ,  \r\nJU Foundation কর্তৃক পরিচালিত আল কোরআন  একাডেমি  মাদ্রাসার \r\nবার্ষিক ওয়াজ ও দোয়ার মাহফিল উপলক্ষে\r\nদুইজন  হাফেজে কোরআন ছাত্রকে পাগড়ি পড়ানো হয়েছে।\r\nআল্লাহ তায়লা যেন এ মাদ্রাসা এবং শিক্ষার্থীদের কবুল করেন,  আমিন।', 'blog33-1678961433.jpg', 1, '2023-03-16 04:10:33', '2023-03-16 04:10:33', NULL);
 
 -- --------------------------------------------------------
 
@@ -74,11 +75,11 @@ INSERT INTO `blogs` (`id`, `user_id`, `category_id`, `title`, `slug`, `content`,
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category_type` int(11) NOT NULL COMMENT 'Blog_category=1, Ptogallery_category=2',
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `desc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `category_type` int(11) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `desc` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -89,12 +90,9 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `user_id`, `name`, `category_type`, `slug`, `desc`, `image`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'Blog Category', 1, 'blog-category', 'Descrition', '1-1672557584.jpg', 1, '2023-01-01 01:19:44', '2023-01-01 04:32:46', NULL),
-(3, 1, 'Drawing', 2, 'drawing', 'Drawing Gallery Image', '12-1672559127.jpg', 1, '2023-01-01 01:45:27', '2023-01-01 04:38:53', NULL),
-(4, 1, 'Excursions', 2, 'excursions', 'Excursions Gallery Image', '17-1672559198.jpg', 1, '2023-01-01 01:46:38', '2023-01-01 04:38:35', NULL),
-(5, 1, 'Courses', 2, 'play-time', 'Play Time Gallery Image', '4-1672559256.jpg', 1, '2023-01-01 01:47:37', '2023-01-01 04:37:22', NULL),
-(6, 1, 'Play time', 2, 'courses', 'Courses', '9-1672569772.jpg', 1, '2023-01-01 04:42:52', '2023-01-01 04:42:52', NULL);
+INSERT INTO `categories` (`id`, `user_id`, `category_type`, `name`, `slug`, `desc`, `image`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 1, 'Blog Category', 'blog-category', 'Description', 'blog2-1678960091.png', 1, '2023-03-16 03:47:59', '2023-03-16 03:48:11', NULL),
+(2, 1, 1, 'Photo Gallery Category', 'photo-gallery-category', 'Descrition', '4-1678960133.jpg', 1, '2023-03-16 03:48:53', '2023-03-16 03:48:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -105,13 +103,29 @@ INSERT INTO `categories` (`id`, `user_id`, `name`, `category_type`, `slug`, `des
 CREATE TABLE `contents` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contuct_us`
+--
+
+CREATE TABLE `contuct_us` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` longtext NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -123,11 +137,11 @@ CREATE TABLE `contents` (
 CREATE TABLE `events` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `desc` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `document` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `desc` longtext DEFAULT NULL,
+  `document` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `date_time` datetime DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -143,11 +157,11 @@ CREATE TABLE `events` (
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -160,14 +174,31 @@ CREATE TABLE `failed_jobs` (
 CREATE TABLE `menus` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `possition` int(11) NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `template_id` bigint(20) UNSIGNED NOT NULL,
+  `parent_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `order` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `target` varchar(255) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `menus`
+--
+
+INSERT INTO `menus` (`id`, `user_id`, `template_id`, `parent_id`, `order`, `title`, `url`, `target`, `slug`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 1, NULL, 1, 'Class', 'educaation/home', '1', 'home', 1, '2023-03-02 03:18:30', '2023-03-02 03:18:30', NULL),
+(2, 1, 1, 1, 1, 'Class 1', 'educaation/about', '1', 'about', 1, '2023-03-02 03:24:05', '2023-03-02 03:24:05', NULL),
+(3, 1, 2, NULL, 1, 'Ecommece', 'ecommerce/home', '1', 'ecommece', 1, '2023-03-02 04:20:56', '2023-03-02 04:20:56', NULL),
+(4, 1, 2, 3, 1, 'Contact-us', 'ecommerce/contact-us', '1', 'contact-us', 1, '2023-03-02 04:22:11', '2023-03-02 04:22:11', NULL),
+(5, 1, 2, 3, 1, 'About-us', 'ecommerce/about', '1', 'about-us', 1, '2023-03-02 04:56:02', '2023-03-02 04:56:02', NULL),
+(6, 1, 1, 1, 1, 'Class 2', 'educaation/about', '1', 'about', 1, '2023-03-02 03:24:05', '2023-03-02 03:24:05', NULL),
+(7, 1, 1, 1, 1, 'Class 3', 'educaation/about', '1', 'about', 1, '2023-03-02 03:24:05', '2023-03-02 03:24:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -177,7 +208,7 @@ CREATE TABLE `menus` (
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -204,13 +235,17 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (16, '2022_12_09_192447_create_events_table', 1),
 (17, '2022_12_09_192541_create_widgets_table', 1),
 (18, '2022_12_09_192624_create_contents_table', 1),
-(19, '2022_12_09_192655_create_menus_table', 1),
 (20, '2022_12_09_192733_create_settings_table', 1),
 (21, '2022_12_14_061910_create_product_event_galleries_table', 1),
-(22, '2022_12_28_140327_create_our_classes_table', 1),
-(23, '2022_12_28_180528_create_teachers_table', 1),
-(24, '2022_12_20_055159_create_template1s_table', 2),
-(25, '2023_01_01_043652_create_activity_areas_table', 3);
+(22, '2022_12_20_055159_create_template1s_table', 1),
+(23, '2022_12_28_140326_create_teachers_table', 2),
+(24, '2022_12_28_140327_create_our_classes_table', 2),
+(25, '2023_01_01_043652_create_activity_areas_table', 2),
+(26, '2023_01_02_064452_create_contuct_us_table', 2),
+(29, '2023_03_02_060159_create_sub_categories_table', 8),
+(30, '2022_12_09_192209_create_sub_categories_table', 9),
+(31, '2022_12_09_192655_create_menus_table', 9),
+(33, '2023_03_16_041449_create_volunteers_table', 10);
 
 -- --------------------------------------------------------
 
@@ -221,10 +256,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 CREATE TABLE `news_letters` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `content` longtext NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `pub_date` date NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -241,11 +276,11 @@ CREATE TABLE `news_letters` (
 CREATE TABLE `notices` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `desc` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `document` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) NOT NULL,
+  `desc` longtext DEFAULT NULL,
+  `document` varchar(255) DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -261,11 +296,18 @@ CREATE TABLE `notices` (
 CREATE TABLE `our_classes` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `class_size` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `age_range` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `teacher_id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `content` longtext NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `start_date` date NOT NULL,
+  `class_size` varchar(255) DEFAULT NULL,
+  `age_range` varchar(255) NOT NULL,
+  `class_duration` varchar(255) NOT NULL,
+  `transport` varchar(255) DEFAULT NULL,
+  `morning_food` varchar(255) DEFAULT NULL,
+  `class_starff` varchar(255) DEFAULT NULL,
   `class_date` date NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -282,10 +324,10 @@ CREATE TABLE `our_classes` (
 CREATE TABLE `pages` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `image` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -299,8 +341,8 @@ CREATE TABLE `pages` (
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -312,11 +354,11 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -333,10 +375,10 @@ CREATE TABLE `photo_galleries` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `desc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `desc` varchar(255) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -348,9 +390,14 @@ CREATE TABLE `photo_galleries` (
 --
 
 INSERT INTO `photo_galleries` (`id`, `user_id`, `category_id`, `title`, `image`, `slug`, `desc`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 6, 'Play Time Gallery Image', '4-1672559328.jpg', 'play-time-gallery-image', 'Play Time Gallery Image', 1, '2023-01-01 01:48:48', '2023-01-01 01:48:48', NULL),
-(2, 1, 6, 'Play Time Gallery Image 2', '2-1672559431.jpg', 'play-time-gallery-image-2', 'Play Time Gallery Image 2', 1, '2023-01-01 01:50:31', '2023-01-01 01:50:31', NULL),
-(3, 1, 6, 'Play Time Gallery Image 3', '7-1672559458.jpg', 'play-time-gallery-image-3', 'Play Time Gallery Image 3', 1, '2023-01-01 01:50:58', '2023-01-01 01:50:58', NULL);
+(5, 1, 2, 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 'img1-1678960591.jpg', 'ju-foundationn-krtrrik-pricalit-mktber-sikshartheeder-sikshadaner-kichu-khndcitr', 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 1, '2023-03-16 03:56:31', '2023-03-16 03:56:31', NULL),
+(6, 1, 2, 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 'img2-1678960605.jpg', 'ju-foundationn-krtrrik-pricalit-mktber-sikshartheeder-sikshadaner-kichu-khndcitr', 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 1, '2023-03-16 03:56:45', '2023-03-16 03:56:45', NULL),
+(7, 1, 2, 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 'img3-1678960632.jpg', 'ju-foundationn-krtrrik-pricalit-mktber-sikshartheeder-sikshadaner-kichu-khndcitr', 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 1, '2023-03-16 03:57:12', '2023-03-16 03:57:12', NULL),
+(8, 1, 2, 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 'img4-1678960647.jpg', 'ju-foundationn-krtrrik-pricalit-mktber-sikshartheeder-sikshadaner-kichu-khndcitr', 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 1, '2023-03-16 03:57:27', '2023-03-16 03:57:27', NULL),
+(9, 1, 2, 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 'img5-1678960661.jpg', 'ju-foundationn-krtrrik-pricalit-mktber-sikshartheeder-sikshadaner-kichu-khndcitr', 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 1, '2023-03-16 03:57:41', '2023-03-16 03:57:41', NULL),
+(10, 1, 2, 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 'img5-1678960676.jpg', 'ju-foundationn-krtrrik-pricalit-mktber-sikshartheeder-sikshadaner-kichu-khndcitr', 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 1, '2023-03-16 03:57:56', '2023-03-16 03:57:56', NULL),
+(11, 1, 2, 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 'img6-1678960694.jpg', 'ju-foundationn-krtrrik-pricalit-mktber-sikshartheeder-sikshadaner-kichu-khndcitr', 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 1, '2023-03-16 03:58:14', '2023-03-16 03:58:14', NULL),
+(12, 1, 2, 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 'img7-1678960710.jpg', 'ju-foundationn-krtrrik-pricalit-mktber-sikshartheeder-sikshadaner-kichu-khndcitr', 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', 1, '2023-03-16 03:58:30', '2023-03-16 03:58:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -361,10 +408,10 @@ INSERT INTO `photo_galleries` (`id`, `user_id`, `category_id`, `title`, `image`,
 CREATE TABLE `portfolios` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `desc` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `desc` longtext DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -381,12 +428,12 @@ CREATE TABLE `products` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `specification` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `desc` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `short_desc` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `specification` longtext NOT NULL,
+  `desc` longtext DEFAULT NULL,
+  `short_desc` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -403,8 +450,8 @@ CREATE TABLE `product_event_galleries` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `reference_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -418,8 +465,8 @@ CREATE TABLE `product_event_galleries` (
 
 CREATE TABLE `settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `key` varchar(255) NOT NULL,
+  `value` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -433,11 +480,11 @@ CREATE TABLE `settings` (
 
 CREATE TABLE `sliders` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `button_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `button_link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `button_name` varchar(255) NOT NULL,
+  `button_link` varchar(255) NOT NULL,
+  `content` text DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -449,7 +496,30 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `title`, `button_name`, `button_link`, `content`, `image`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'EDUCATION FOR KIDS', 'ENROLL YOUR CHILD', 'http://127.0.0.1:8000/slider', 'Donec sollicitudin lacus in felis luctus blandit. Ut hendrerit mattis justo\r\nat susp, vivamus orci urna.', '1-1672547705.jpg', 1, '2022-12-31 22:35:05', '2022-12-31 22:35:05', NULL);
+(1, 'JU Foundation', 'Read more', 'www.google.com', 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', '315402447_189701383571376_9034978340146367893_n-1678952338.jpg', 1, '2023-03-16 01:38:58', '2023-03-16 01:38:58', NULL),
+(2, 'JU Foundation', 'Read more', 'www.google.com', 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', '315443906_189701356904712_362997137723101588_n-1678952445.jpg', 1, '2023-03-16 01:40:45', '2023-03-16 01:40:45', NULL),
+(3, 'JU Foundation', 'Read more', 'www.google.com', 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', '315533416_189701410238040_7183243594042569388_n-1678952483.jpg', 1, '2023-03-16 01:41:23', '2023-03-16 01:41:23', NULL),
+(4, 'JU Foundation', 'Enrole Now', 'www.google.com', 'JU Foundationn কর্তৃক পরিচালিত, মক্তবের শিক্ষার্থীদের শিক্ষাদানের কিছু খন্ডচিত্র।', '315422723_189701293571385_5324310939847425820_n-1678952528.jpg', 1, '2023-03-16 01:42:08', '2023-03-16 01:42:08', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_categories`
+--
+
+CREATE TABLE `sub_categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `desc` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -460,8 +530,8 @@ INSERT INTO `sliders` (`id`, `title`, `button_name`, `button_link`, `content`, `
 CREATE TABLE `tags` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `tag` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tag` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -477,34 +547,27 @@ CREATE TABLE `tags` (
 CREATE TABLE `teachers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `skype` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `degree` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `experience` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `hobbies` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `my_courses` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `projects` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `social_link1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `social_link2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `social_link3` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `social_link4` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `skype` varchar(255) NOT NULL,
+  `degree` varchar(255) NOT NULL,
+  `experience` varchar(255) NOT NULL,
+  `hobbies` varchar(255) NOT NULL,
+  `my_courses` varchar(255) NOT NULL,
+  `projects` varchar(255) NOT NULL,
+  `description` longtext NOT NULL,
+  `social_link1` varchar(255) NOT NULL,
+  `social_link2` varchar(255) NOT NULL,
+  `social_link3` varchar(255) NOT NULL,
+  `social_link4` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `teachers`
---
-
-INSERT INTO `teachers` (`id`, `user_id`, `name`, `slug`, `subject`, `phone`, `email`, `skype`, `degree`, `experience`, `hobbies`, `my_courses`, `projects`, `description`, `social_link1`, `social_link2`, `social_link3`, `social_link4`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'GRAVES', 'graves', 'Professor, Harvard College', '+1 (000) 234 5670 | +0800 12345', 'admin@power-boosts.com', 'power-boosts', 'Spanish Literature Master', '5 Years in Preschool Education', 'Music, Dancing and Family', 'Paint Kiddie, Mini Kiddie', 'Map Creation', 'He works in partnership with clients, advising them how to use information technology in order to meet their business objectives or overcome problems. Lorem ipsum dolor sit amet, consectetur adipiscing elites. Nulla convallis egestas rhoncusa. Donec lorem facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam Proin vestibulum leo eget erat congue interdum.\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elites. Nulla convallis egestas rhoncusa. Donec lorem facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam Proin vestibulum leo eget erat congue interdum. Nulla convallis egestas rhoncusa. Donec lorem facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam Proin vestibulum leo eget erat congue interdum.', 'www.google.com', 'www.google.com', 'www.google.com', 'www.google.com', '7-1672481850.jpg', 1, '2022-12-31 04:17:30', '2022-12-31 04:17:30');
 
 -- --------------------------------------------------------
 
@@ -515,10 +578,10 @@ INSERT INTO `teachers` (`id`, `user_id`, `name`, `slug`, `subject`, `phone`, `em
 CREATE TABLE `template1s` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `thumb` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `content` longtext NOT NULL,
+  `thumb` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -530,9 +593,9 @@ CREATE TABLE `template1s` (
 --
 
 INSERT INTO `template1s` (`id`, `user_id`, `title`, `slug`, `content`, `thumb`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'Education', 'education', 'Well come to Techedu come with us, we also teach children about the basic values of human beings as honesty, kindness, generosity, courage, freedom, equality and respect. Learn to celebrate diversity in a spirit of understanding and tolerance and develop a positive regard and awareness of other people. They are taught the values and responsibilities needed to become active members of the community, tolerance and develop something which the modern world is desperate for norem ipsum dolor sit amet desperate.', 'education-1672475848.PNG', 1, '2022-12-31 02:37:28', '2022-12-31 05:23:07', NULL),
-(2, 1, 'Ecommerce', 'ecommerce', 'Well come to Techedu come with us, we also teach children about the basic values of human beings as honesty, kindness, generosity, courage, freedom, equality and respect. Learn to celebrate diversity in a spirit of understanding and tolerance and develop a positive regard and awareness of other people.', 'ecomerce-1672476040.PNG', 0, '2022-12-31 02:40:40', '2022-12-31 05:22:58', NULL),
-(3, 1, 'IT', 'it', 'Well come to Techedu come with us, we also teach children about the basic values of human beings as honesty, kindness, generosity, courage, freedom, equality and respect. Learn to celebrate diversity in a spirit of understanding and tolerance and develop a positive regard and awareness of other people.', 'it-1672476152.PNG', 0, '2022-12-31 02:42:32', '2022-12-31 04:33:23', NULL);
+(1, 1, 'Education', 'education', 'Education', 'pexels-peter-fazekas-1234064-1677739412.jpg', 0, '2023-03-02 00:43:32', '2023-03-05 04:51:35', NULL),
+(2, 1, 'ecommerce', 'ecommerce', 'ecommerce', 'pexels-susanne-jutzeler-sujufoto-1154775-1677741115.jpg', 0, '2023-03-02 01:11:55', '2023-03-02 05:14:00', NULL),
+(3, 1, 'NGO', 'ngo', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, dicta, iure. Esse quasi labore aperiam, dolorem amet voluptas soluta asperiores nostrum voluptate molestias numquam similique. Voluptate natus corporis ex, distinctio.', 'ngo-1677999937.PNG', 1, '2023-03-05 01:05:37', '2023-03-05 04:51:41', NULL);
 
 -- --------------------------------------------------------
 
@@ -542,11 +605,11 @@ INSERT INTO `template1s` (`id`, `user_id`, `title`, `slug`, `content`, `thumb`, 
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -556,10 +619,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Ahan Ahmed', 'admin@gmail.com', NULL, '$2y$10$UkVjBnTkasQdmz3MICMW8emcUJcgUw./bexkbiB1vhRfnMoaLYJvS', NULL, '2022-12-30 22:59:06', '2022-12-30 22:59:06'),
-(2, 'Nayez', 'nayez@gmail.com', NULL, '$2y$10$j.xHy79HWdgZunZekEOWCuTQ8BjpzO46DGH6GRDugA3QnhrSFMUz.', NULL, '2022-12-31 01:29:57', '2022-12-31 01:29:57'),
-(3, 'Washeal', 'washeal@gmail.com', NULL, '$2y$10$OUlLk1DmeSZQC9I6r3WcQ.tqsUuOTrBEyfc8uuuhDy0epMf7P4FjC', NULL, '2022-12-31 02:10:55', '2022-12-31 02:10:55'),
-(4, 'Saiful', 'saiful@gmail.com', NULL, '$2y$10$E6f9SLIJjbed203L0.wbmOAL5zYVgusQsHw12eC52cVsmrdSQ6r8q', NULL, '2022-12-31 02:13:23', '2022-12-31 02:13:23');
+(1, 'Hardik', 'admin@gmail.com', NULL, '$2y$10$xhj.FxJReb4WaICTN.QH3eY7yAjJuKXP8rlfNvjrETJxSPbvSHcfa', NULL, '2023-03-01 22:57:29', '2023-03-01 22:57:29');
 
 -- --------------------------------------------------------
 
@@ -570,9 +630,9 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 CREATE TABLE `video_galleries` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `desc` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) NOT NULL,
+  `desc` varchar(255) DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
   `type` int(11) NOT NULL DEFAULT 1 COMMENT 'Youtube=1, Vimeo=0',
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
@@ -583,35 +643,51 @@ CREATE TABLE `video_galleries` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `volunteers`
+--
+
+CREATE TABLE `volunteers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `address` longtext NOT NULL,
+  `occupation` longtext DEFAULT NULL,
+  `message` longtext DEFAULT NULL,
+  `area_of_work` longtext DEFAULT NULL,
+  `image` longtext DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0 COMMENT 'Approve=1, Pending=2, Rejected=0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `volunteers`
+--
+
+INSERT INTO `volunteers` (`id`, `name`, `email`, `phone`, `address`, `occupation`, `message`, `area_of_work`, `image`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Masum Billal', 'mbillal.eee@gmail.com', '01738744957', 'Dhaka', 'Developer', 'Message', NULL, '334799132_881098026334384_6448889100048908854_n-1678948466.jpg', 0, '2023-03-16 00:34:26', '2023-03-16 00:34:26'),
+(3, 'Admin', 'admin@gmail.com', '01738744956', 'Dhaka', 'Developer', 'Message', NULL, 'JAAGO-Logo-1678950736.png', 0, '2023-03-16 01:12:16', '2023-03-16 01:12:16'),
+(4, 'Masum Billal', 'wmbillal.eee@gmail.com', '01738744958', 'Dhaka', 'Developer', 'mess', 'errer', NULL, 1, '2023-03-16 01:21:27', '2023-03-16 01:21:27');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `widgets`
 --
 
 CREATE TABLE `widgets` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `content` varchar(255) NOT NULL,
   `position` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1 COMMENT 'Active=1, Inactive=0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `widgets`
---
-
-INSERT INTO `widgets` (`id`, `user_id`, `title`, `slug`, `content`, `position`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'activity-area', 'activity-area', '<div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-3 col-md-6 col-sm-6 activity\">\r\n                    <div class=\"single-activity\">\r\n                        <div class=\"single-activity-icon\">\r\n                            <i class=\"fa fa-gamepad\"></i>\r\n                        </div>\r\n                        <h4>Funny Games</h4>\r\n                        <p>Fusce pretium, est at aliquam semper, leo ante facilisis risus in feugiat ipsum augue pellent esque metu.</p>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-3 col-md-6 col-sm-6 activity\">\r\n                    <div class=\"single-activity\">\r\n                        <div class=\"single-activity-icon\">\r\n                            <i class=\"fa fa-fort-awesome\"></i>\r\n                        </div>\r\n                        <h4>Toys</h4>\r\n                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s</p>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-3 col-md-6 col-sm-6 activity\">\r\n                    <div class=\"single-activity mrg-res-top-md\">\r\n                        <div class=\"single-activity-icon\">\r\n                            <i class=\"fa fa-futbol-o\"></i>\r\n                        </div>\r\n                        <h4>Activities</h4>\r\n                        <p>It was popularised in the 1960s with the release of Letraset sheets release containing Lorem Ipsum passages</p>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-3 col-md-6 col-sm-6 activity\">\r\n                    <div class=\"single-activity mrg-res-top-md\">\r\n                        <div class=\"single-activity-icon\">\r\n                            <i class=\"fa fa-pencil\"></i>\r\n                        </div>\r\n                        <h4>Education</h4>\r\n                        <p>It is a long established fact that a reader will be distracted by the readable content of a page looking at layout</p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>', 1, 1, '2022-12-31 23:27:26', '2022-12-31 23:27:26', NULL),
-(2, 1, 'advertise-area', 'advertise-area', '<div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <h2>How to <span>Enroll Your Child</span> to a <span>Class</span>?</h2>\r\n                    <a href=\"#\">Join Us</a>\r\n                </div>\r\n            </div>\r\n        </div>', 2, 1, '2022-12-31 23:42:13', '2022-12-31 23:42:13', NULL),
-(3, 1, 'service-area', 'service-area', '<div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <div class=\"section-title-wrapper\">\r\n                        <div class=\"section-title\">\r\n                            <h3>Our Services</h3>\r\n                            <p>Our best services for your kids</p>\r\n                        </div>\r\n                    </div> \r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-4 col-md-4 col-12\">\r\n                    <div class=\"single-service-item-wrapper\">\r\n                        <div class=\"single-service-item\">\r\n                            <div class=\"single-service-text\">\r\n                                <h4>Meals Provided</h4>\r\n                                <p>Lorem ipsum dolor sit amet cotetur adipisicing elit, sed do mod tempor incididunt ut labore etdolore.</p>\r\n                            </div>\r\n                            <div class=\"single-service-icon\">\r\n                                <i class=\"fa fa-cutlery\"></i>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"single-service-item\">\r\n                            <div class=\"single-service-text\">\r\n                                <h4>Language Lessons</h4>\r\n                                <p>Quidem laudantium itaque reiciendis inventore. Nobis dolorem, odit ipsam ratione minus quisquam iste.</p>\r\n                            </div>\r\n                            <div class=\"single-service-icon\">\r\n                                <i class=\"fa fa-language\"></i>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"single-service-item\">\r\n                            <div class=\"single-service-text\">\r\n                                <h4>Transportation</h4>\r\n                                <p>Amet voluptate, aperiam praesentium voluptas eveniet dignissimos nisi commodi, illum fuga sapiente?</p>\r\n                            </div>\r\n                            <div class=\"single-service-icon\">\r\n                                <i class=\"fa fa-bus\"></i>\r\n                            </div>\r\n                        </div>\r\n                    </div>    \r\n                </div>\r\n                <div class=\"col-lg-4 col-md-4 col-12\">\r\n                    <div class=\"service-image\">\r\n                        <img src=\"/frontent-template1/img/banner/2.jpg\" alt=\"\">\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-4 col-md-4 col-12\">\r\n                    <div class=\"single-service-item-wrapper\">\r\n                        <div class=\"single-service-item\">\r\n                            <div class=\"single-service-icon\">\r\n                                <i class=\"fa fa-calendar-check-o\"></i>\r\n                            </div>\r\n                            <div class=\"single-service-text\">\r\n                                <h4>Full Day Session</h4>\r\n                                <p>Quibusdam harum est praesentium illo ad expedita nihil optio repellat, fugiat obcaecati is sunt.</p>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"single-service-item\">\r\n                            <div class=\"single-service-icon\">\r\n                                <i class=\"fa fa-bookmark\"></i>\r\n                            </div>\r\n                            <div class=\"single-service-text\">\r\n                                <h4>Special Education</h4>\r\n                                <p>voluptatem, cupiditate eveniet dolores inventore delectus vel eius molestias tho minus, corporis.</p>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"single-service-item\">\r\n                            <div class=\"single-service-icon\">\r\n                                <i class=\"fa fa-graduation-cap\"></i>\r\n                            </div>\r\n                            <div class=\"single-service-text\">\r\n                                <h4>Special Education</h4>\r\n                                <p>Et, itaque adipisci blanditiis eaque inventore tempore cum commodi, dicta quisquam similique magnam</p>\r\n                            </div>\r\n                        </div>\r\n                    </div> \r\n                </div>\r\n            </div>\r\n        </div>', 3, 1, '2022-12-31 23:45:36', '2023-01-01 02:22:04', NULL),
-(4, 1, 'about-area', 'about-area', '<div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <div class=\"section-title-wrapper\">\r\n                        <div class=\"section-title\">\r\n                            <h3>Who we are</h3>\r\n                            <p>Fable daycare, preschool, and kindergarten</p>\r\n                        </div>\r\n                    </div> \r\n                </div>       \r\n            </div>\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-6\">\r\n                    <div class=\"about-text-container\">\r\n                        <p><span>Well come to Techedu</span> come with us, we also teach children about the basic values of human beings as honesty, kindness, generosity, courage, freedom, equality and respect. Learn to celebrate diversity in a spirit of understanding and tolerance and develop a positive regard and awareness of other people. They are taught the values and responsibilities needed to become active members of the community, tolerance and develop something which the modern world is desperate for norem ipsum dolor sit amet desperate.<br>\r\n                        Adipiscing signiferumque vix et. No alii docendi usu, pri graeco possim percipit ne.</p>\r\n                        <div class=\"about-us\">\r\n                            <span>Nam gravida magna vitae ante dignissim</span>\r\n                            <span>Duis rhoncus lectus at velit hendrerit quis</span>\r\n                            <span>Sed fringilla tempor arcu feugiat risus</span>\r\n                            <span>Vivamus semper odio in nibh ultricies</span>\r\n                        </div>    \r\n                        <p>Snos trud exerci tation ullorper suscipit lobo maeisrn roester maeoirqs iserrtis nisl ut aliq poerwse thesr oper balinp asein hoinws mawsoib equat. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more tolerance and develop obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through makin of the word in classical literature.</p>\r\n                    </div>\r\n                </div>\r\n                <div class=\"col-lg-6\">\r\n                    <div class=\"skill-image\">\r\n                        <img src=\"/frontent-template1/img/banner/7.jpg\" alt=\"\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>', 4, 1, '2022-12-31 23:59:05', '2023-01-01 02:16:30', NULL),
-(5, 1, 'newsletter-area', 'newsletter-area', '<div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <form class=\"newsletter-container\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-lg-3 col-md-4 col-sm-12\">\r\n                                <h4>You want to know more <br>\r\n                                infomation? send us a mail!</h4>\r\n                            </div>\r\n                            <div class=\"col-lg-3 col-md-4 col-sm-6\">\r\n                                <input type=\"text\" name=\"subject\" placeholder=\"Subject*\">\r\n                                <input type=\"text\" name=\"name\" placeholder=\"Your Name*\">\r\n                                <input type=\"email\" name=\"email\" placeholder=\"Your Email*\">\r\n                            </div>\r\n                            <div class=\"col-lg-6 col-md-4 col-sm-6\">\r\n                                <textarea name=\"message\" id=\"newsletter-msg\" placeholder=\"Your Message\"></textarea>\r\n                                <button class=\"button-default\">Send</button>\r\n                            </div>\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>', 5, 1, '2023-01-01 01:28:27', '2023-01-01 01:28:27', NULL),
-(6, 1, 'footer-area', 'footer-area', '<div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"footer-info-container text-center section-padding\">\r\n                        <div class=\"footer-logo\">\r\n                            <a href=\"#\"><img src=\"{{asset(\'frontent-template1\')}}/img/logo/footer-logo.png\" alt=\"\"></a>\r\n                        </div>\r\n                        <div class=\"footer-info\">\r\n                            <span><i class=\"fa fa-map-marker\"></i>1st Floor New World Tower Miami</span>\r\n                            <span><i class=\"fa fa-envelope\"></i>admin@power-boosts.com</span>\r\n                            <span><i class=\"fa fa-phone\"></i>(801) 2345 - 6789</span>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"footer-widget-container section-padding\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-lg-2 col-md-2 col-sm-4\">\r\n                        <div class=\"single-footer-widget\">\r\n                            <h4>Our School</h4>\r\n                            <ul class=\"footer-widget-list\">\r\n                                <li><a href=\"#\">About Us</a></li>\r\n                                <li><a href=\"#\">Blog</a></li>\r\n                                <li><a href=\"#\">Contact</a></li>\r\n                                <li><a href=\"#\">Become a Teacher</a></li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-lg-2 col-md-2 col-sm-4\">\r\n                        <div class=\"single-footer-widget\">\r\n                            <h4>Links</h4>\r\n                            <ul class=\"footer-widget-list\">\r\n                                <li><a href=\"#\">Courses</a></li>\r\n                                <li><a href=\"#\">Events</a></li>\r\n                                <li><a href=\"#\">Gallery</a></li>\r\n                                <li><a href=\"#\">FAQs</a></li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-lg-2 col-md-2 col-sm-4\">\r\n                        <div class=\"single-footer-widget\">\r\n                            <h4>Support</h4>\r\n                            <ul class=\"footer-widget-list\">\r\n                                <li><a href=\"#\">Documentation</a></li>\r\n                                <li><a href=\"#\">Forums</a></li>\r\n                                <li><a href=\"#\">Language Packs</a></li>\r\n                                <li><a href=\"#\">Release Status</a></li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"col-lg-6 col-md-6 col-sm-12\">\r\n                        <div class=\"subscribe-container\">\r\n                            <p>Subscribe now and receive weekly newsletter with educational materials, new courses, interesting posts, popular books and much more!</p>\r\n                            <form action=\"#\">\r\n                                <div class=\"subscribe-form\">\r\n                                    <input type=\"email\" name=\"email\" placeholder=\"Your email here\">\r\n                                    <button type=\"submit\"><i class=\"fa fa-send\"></i></button>\r\n                                </div>    \r\n                            </form>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-12\">\r\n                    <div class=\"footer-container\">\r\n                        <div class=\"row\">\r\n                            <div class=\"col-lg-6\">\r\n                                <span>&copy; 2021 <a href=\"#\">Power-Boosts</a>. All rights reserved</span>\r\n                            </div>\r\n                            <div class=\"col-lg-6\">\r\n                                <div class=\"social-links\">\r\n                                    <a href=\"#\"><i class=\"fa fa-facebook\"></i></a>\r\n                                    <a href=\"#\"><i class=\"fa fa-google-plus\"></i></a>\r\n                                    <a href=\"#\"><i class=\"fa fa-twitter\"></i></a>\r\n                                    <a href=\"#\"><i class=\"fa fa-pinterest-p\"></i></a>\r\n                                    <a href=\"#\"><i class=\"fa fa-instagram\"></i></a>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>', 6, 1, '2023-01-01 01:30:54', '2023-01-01 01:30:54', NULL),
-(7, 1, 'google-map-area', 'google-map-area', '<div id=\"contacts\" class=\"map-area\">\r\n            <div id=\"googleMap\" style=\"width:100%;height:451px;\"></div>\r\n</div>', 7, 1, '2023-01-01 01:34:43', '2023-01-01 01:34:43', NULL),
-(8, 1, 'skill-and-experience-area', 'skill-and-experience-area', '<div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <div class=\"section-title-wrapper\">\r\n                        <div class=\"section-title\">\r\n                            <h3>Skills and Experience</h3>\r\n                            <p>Fable daycare, preschool, and kindergarten</p>\r\n                        </div>\r\n                    </div> \r\n                </div>       \r\n            </div>\r\n            <div class=\"row\">\r\n                <div class=\"col-lg-6\">\r\n                    <div class=\"experience-skill-wrapper\">\r\n                        <div class=\"skill-bars orange\">\r\n                            <div class=\"skill-bar-item\">\r\n                                <span>Playing Science</span>\r\n                                <div class=\"progress\">\r\n                                    <div class=\"progress-bar wow fadeInLeft\" data-progress=\"80%\" style=\"width: 80%;\" data-wow-duration=\"1.5s\" data-wow-delay=\"1.2s\">\r\n                                        <span class=\"text-top\">80%</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"skill-bar-item\">\r\n                                <span>Arts And Craft</span>\r\n                                <div class=\"progress\">\r\n                                    <div class=\"progress-bar wow fadeInLeft\" data-progress=\"75%\" style=\"width: 75%;\" data-wow-duration=\"1.5s\" data-wow-delay=\"1.2s\">\r\n                                        <span class=\"text-top\">75%</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"skill-bar-item\">\r\n                                <span>Creative Writing</span>\r\n                                <div class=\"progress\">\r\n                                    <div class=\"progress-bar wow fadeInLeft\" data-progress=\"90%\" style=\"width: 90%;\" data-wow-duration=\"1.5s\" data-wow-delay=\"1.2s\">\r\n                                        <span class=\"text-top\">90%</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"skill-bar-item\">\r\n                                <span>English Lessons</span>\r\n                                <div class=\"progress\">\r\n                                    <div class=\"progress-bar wow fadeInLeft\" data-progress=\"70%\" style=\"width: 70%;\" data-wow-duration=\"1.5s\" data-wow-delay=\"1.2s\">\r\n                                        <span class=\"text-top\">70%</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>     \r\n                        </div>\r\n                    </div>    \r\n                </div>\r\n                <div class=\"col-lg-6\">\r\n                    <div class=\"experience-skill-wrapper\">\r\n                        <div class=\"skill-bars orange\">\r\n                            <div class=\"skill-bar-item\">\r\n                                <span>Arts And Craft</span>\r\n                                <div class=\"progress\">\r\n                                    <div class=\"progress-bar wow fadeInLeft\" data-progress=\"75%\" style=\"width: 75%;\" data-wow-duration=\"1.5s\" data-wow-delay=\"1.2s\">\r\n                                        <span class=\"text-top\">75%</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"skill-bar-item\">\r\n                                <span>Creative Writing</span>\r\n                                <div class=\"progress\">\r\n                                    <div class=\"progress-bar wow fadeInLeft\" data-progress=\"90%\" style=\"width: 90%;\" data-wow-duration=\"1.5s\" data-wow-delay=\"1.2s\">\r\n                                        <span class=\"text-top\">90%</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"skill-bar-item\">\r\n                                <span>Playing Science</span>\r\n                                <div class=\"progress\">\r\n                                    <div class=\"progress-bar wow fadeInLeft\" data-progress=\"80%\" style=\"width: 80%;\" data-wow-duration=\"1.5s\" data-wow-delay=\"1.2s\">\r\n                                        <span class=\"text-top\">80%</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"skill-bar-item\">\r\n                                <span>English Lessons</span>\r\n                                <div class=\"progress\">\r\n                                    <div class=\"progress-bar wow fadeInLeft\" data-progress=\"100%\" style=\"width: 100%;\" data-wow-duration=\"1.5s\" data-wow-delay=\"1.2s\">\r\n                                        <span class=\"text-top\">100%</span>\r\n                                    </div>\r\n                                </div>\r\n                            </div>     \r\n                        </div>\r\n                    </div>    \r\n                </div>\r\n            </div>\r\n        </div>', 8, 1, '2023-01-01 02:02:58', '2023-01-01 02:02:58', NULL);
 
 --
 -- Indexes for dumped tables
@@ -649,6 +725,12 @@ ALTER TABLE `contents`
   ADD KEY `slug` (`slug`);
 
 --
+-- Indexes for table `contuct_us`
+--
+ALTER TABLE `contuct_us`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `events`
 --
 ALTER TABLE `events`
@@ -669,6 +751,7 @@ ALTER TABLE `failed_jobs`
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`),
   ADD KEY `menus_user_id_foreign` (`user_id`),
+  ADD KEY `menus_template_id_foreign` (`template_id`),
   ADD KEY `slug` (`slug`);
 
 --
@@ -698,7 +781,9 @@ ALTER TABLE `notices`
 --
 ALTER TABLE `our_classes`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `our_classes_user_id_foreign` (`user_id`);
+  ADD KEY `our_classes_user_id_foreign` (`user_id`),
+  ADD KEY `our_classes_teacher_id_foreign` (`teacher_id`),
+  ADD KEY `slug` (`slug`);
 
 --
 -- Indexes for table `pages`
@@ -769,6 +854,15 @@ ALTER TABLE `sliders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sub_categories`
+--
+ALTER TABLE `sub_categories`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sub_categories_user_id_foreign` (`user_id`),
+  ADD KEY `sub_categories_category_id_foreign` (`category_id`),
+  ADD KEY `slug` (`slug`);
+
+--
 -- Indexes for table `tags`
 --
 ALTER TABLE `tags`
@@ -781,7 +875,8 @@ ALTER TABLE `tags`
 --
 ALTER TABLE `teachers`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `teachers_user_id_foreign` (`user_id`);
+  ADD KEY `teachers_user_id_foreign` (`user_id`),
+  ADD KEY `slug` (`slug`);
 
 --
 -- Indexes for table `template1s`
@@ -806,6 +901,14 @@ ALTER TABLE `video_galleries`
   ADD KEY `video_galleries_user_id_foreign` (`user_id`);
 
 --
+-- Indexes for table `volunteers`
+--
+ALTER TABLE `volunteers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `volunteers_email_unique` (`email`),
+  ADD UNIQUE KEY `volunteers_phone_unique` (`phone`);
+
+--
 -- Indexes for table `widgets`
 --
 ALTER TABLE `widgets`
@@ -827,18 +930,24 @@ ALTER TABLE `activity_areas`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `contents`
 --
 ALTER TABLE `contents`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `contuct_us`
+--
+ALTER TABLE `contuct_us`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -857,13 +966,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `news_letters`
@@ -899,7 +1008,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `photo_galleries`
 --
 ALTER TABLE `photo_galleries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `portfolios`
@@ -929,7 +1038,13 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `sub_categories`
+--
+ALTER TABLE `sub_categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tags`
@@ -941,7 +1056,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `template1s`
@@ -953,7 +1068,7 @@ ALTER TABLE `template1s`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `video_galleries`
@@ -962,10 +1077,16 @@ ALTER TABLE `video_galleries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `volunteers`
+--
+ALTER TABLE `volunteers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `widgets`
 --
 ALTER TABLE `widgets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -1000,6 +1121,7 @@ ALTER TABLE `events`
 -- Constraints for table `menus`
 --
 ALTER TABLE `menus`
+  ADD CONSTRAINT `menus_template_id_foreign` FOREIGN KEY (`template_id`) REFERENCES `template1s` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `menus_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
@@ -1018,6 +1140,7 @@ ALTER TABLE `notices`
 -- Constraints for table `our_classes`
 --
 ALTER TABLE `our_classes`
+  ADD CONSTRAINT `our_classes_teacher_id_foreign` FOREIGN KEY (`teacher_id`) REFERENCES `teachers` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `our_classes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
@@ -1051,6 +1174,13 @@ ALTER TABLE `products`
 --
 ALTER TABLE `product_event_galleries`
   ADD CONSTRAINT `product_event_galleries_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `sub_categories`
+--
+ALTER TABLE `sub_categories`
+  ADD CONSTRAINT `sub_categories_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `sub_categories_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `tags`
