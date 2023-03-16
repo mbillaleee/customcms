@@ -29,9 +29,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($photo_galleries as $photoGallery)
+                        @foreach($photo_galleries as $key => $photoGallery)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $key + 1 }}</td>
                             <td>{{ $photoGallery->title }}</td>
                             <td>{{ $photoGallery->desc }}</td>
                             <td>@if($photoGallery->image != null)<img src="{{asset('uploads/photogallery/'.$photoGallery->image)}}" width="80" alt="$photoGallery->title">@endif</td>

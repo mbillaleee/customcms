@@ -1,8 +1,20 @@
 <?php
 
+use App\Http\Controllers\NgoController;
+
 // Route::get('/', function () {
 //     return view('template/ngo/landing');
 // });
+
+Route::prefix('ngo')->group(function () {
+    Route::get('/', [NgoController::class, 'index'])->name('ngo.index');
+});
+
+
+
+
+
+
 Route::get('/', function () {
     return view('template/ngo/index');
 });

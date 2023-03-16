@@ -36,11 +36,14 @@
 
 			<div class="navbar-menu mr-0" id="navigation">
 				<ul class="navbar-end">			
+					<li class="navbar-item has-dropdown is-hoverable">
+						<a class="navbar-link" href="{{ url('/ngo') }}">Home </a>
+					</li>
 
 					<li class="navbar-item has-dropdown is-hoverable">
 						<a class="navbar-link">Who We Are<span class="ml-1">+</span></a>
 						<div class="navbar-dropdown">
-							<a class="navbar-item" href="service.html">About J U Foundation</a>
+							<a class="navbar-item" href="{{ url('/ngo/about') }}">About J U Foundation</a>
 							<a class="navbar-item" href="cause-single.html">Vision & Mission and Values</a>
 							<a class="navbar-item" href="cause-single.html">Legal Status</a>
 							<a class="navbar-item" href="cause-single.html">Governing Body</a>
@@ -68,10 +71,7 @@
 					</li>
 
 					<li class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link">Contact Us </a>
-					</li>
-					<li class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link" href="{{ url('/ngo/about') }}">About Us </a>
+						<a class="navbar-link" href="{{ url('/ngo/contact') }}">Contact Us </a>
 					</li>
 				</ul>
 			</div>

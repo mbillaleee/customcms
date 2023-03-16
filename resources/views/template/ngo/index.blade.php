@@ -19,34 +19,37 @@
 			</div>
 		</div>
 		<div class="columns is-multiline is-justify-content-center">
+			@foreach($blogs as $item)
 			<div class="column is-3-desktop is-6-tablet">
 				<div class="intro-item mb-5 mb-lg-0"> 
-					<img src="{{asset('frontend-assets/ngo')}}/images/about/image-1.jpg" alt="" class=" w-100">
-					<h4 class="mt-4 mb-3">Get inspired</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
+					<img src="{{asset('uploads/blog/'.$item->image)}}" alt="" class=" w-100">
+					
+					<!-- <h4 class="mt-4 mb-3">Get inspired</h4> -->
+					<p>{{ $item->title }}</p>
 				</div>
 			</div>
-			<div class="column is-3-desktop is-6-tablet">
+			@endforeach
+			<!-- <div class="column is-3-desktop is-6-tablet">
 				<div class="intro-item mb-5 mb-lg-0">
 					<img src="{{asset('frontend-assets/ngo')}}/images/about/image-2.jpg" alt="" class=" w-100">
 					<h4 class="mt-4 mb-3">Give Donation</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
+					<p>কুরআনের আলোয় ছড়িয়ে যাক পৃথিবী জুড়ে। কুষ্টিয়াতে JU Foundation কর্তৃক পরিচালিত.... "মক্তব"। ওই এলাকায় শিশু-কিশোরদের মাঝে কুরআনের জ্ঞান ছড়িয়ে দিতে JU Foundation এর ক্ষুদ্র প্রচেষ্টা অব্যাহত</p>
 				</div>
 			</div>
 			<div class="column is-3-desktop is-6-tablet">
 				<div class="intro-item">
 					<img src="{{asset('frontend-assets/ngo')}}/images/about/image-3.jpg" alt="" class=" w-100">
 					<h4 class="mt-4 mb-3">Become a Volunteer</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
+					<p>কুরআনের আলোয় ছড়িয়ে যাক পৃথিবী জুড়ে। কুষ্টিয়াতে JU Foundation কর্তৃক পরিচালিত.... "মক্তব"। ওই এলাকায় শিশু-কিশোরদের মাঝে কুরআনের জ্ঞান ছড়িয়ে দিতে JU Foundation এর ক্ষুদ্র প্রচেষ্টা অব্যাহত</p>
 				</div>
 			</div> 
 			<div class="column is-3-desktop is-6-tablet">
 				<div class="intro-item">
 					<img src="{{asset('frontend-assets/ngo')}}/images/about/image-1.jpg" alt="" class=" w-100">
 					<h4 class="mt-4 mb-3">Help The children</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
+					<p>কুরআনের আলোয় ছড়িয়ে যাক পৃথিবী জুড়ে। কুষ্টিয়াতে JU Foundation কর্তৃক পরিচালিত.... "মক্তব"। ওই এলাকায় শিশু-কিশোরদের মাঝে কুরআনের জ্ঞান ছড়িয়ে দিতে JU Foundation এর ক্ষুদ্র প্রচেষ্টা অব্যাহত</p>
 				</div>
-			</div> 
+			</div>  -->
 		</div>
 	</div>
 </section>
@@ -154,14 +157,17 @@
 	<div class="container">
 		<div class="gallery-wrap">
 			<div class="columns is-multiline">
+				
+				@foreach($photo_galleries as $item)
 				<div class="column is-4-desktop is-12-tablet">
 					<div class="gallery-item">
 						<a href="{{asset('frontend-assets/ngo')}}/images/gallery/1.jpg" class="gallery-popup">
-							<img src="{{asset('frontend-assets/ngo')}}/images/gallery/1.jpg" alt="" class=" w-100">
+						@if($item->image != null)<img src="{{asset('uploads/photogallery/'.$item->image)}}" alt="" class=" w-100"> @endif
 						</a>
 					</div>
 				</div>
-				<div class="column is-4-desktop is-12-tablet">
+				@endforeach
+				<!-- <div class="column is-4-desktop is-12-tablet">
 					<div class="gallery-item">
 						<a href="{{asset('frontend-assets/ngo')}}/images/gallery/2.jpg" class="gallery-popup">
 							<img src="{{asset('frontend-assets/ngo')}}/images/gallery/2.jpg" alt="" class=" w-100">
@@ -193,24 +199,10 @@
 				<div class="column is-4-desktop is-12-tablet">
 					<div class="gallery-item">
 						<a href="{{asset('frontend-assets/ngo')}}/images/gallery/6.jpg" class="gallery-popup">
-							<img src="{{asset('frontend-assets/ngo')}}/images/gallery/6.jpg" alt="" class=" w-100">
+							<img src="{{asset('frontend-assets/ngo')}}/images/gallery/5.jpg" alt="" class=" w-100">
 						</a>
 					</div>
-				</div>
-				<div class="column is-6-desktop is-12-tablet">
-					<div class="gallery-item">
-						<a href="{{asset('frontend-assets/ngo')}}/images/gallery/9.jpg" class="gallery-popup">
-							<img src="{{asset('frontend-assets/ngo')}}/images/gallery/9.jpg" alt="" class=" w-100">
-						</a>
-					</div>
-				</div>
-				<div class="column is-6-desktop is-12-tablet">
-					<div class="gallery-item">
-						<a href="{{asset('frontend-assets/ngo')}}/images/gallery/8.jpg" class="gallery-popup">
-							<img src="{{asset('frontend-assets/ngo')}}/images/gallery/8.jpg" alt="" class=" w-100">
-						</a>
-					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
@@ -320,19 +312,21 @@
 		</div>
 
 		<div class="columns is-multiline is-justify-content-center">
+			@foreach($blogs_foot as $item)
 			<div class="column is-4-desktop is-6-tablet">
 				<div class="blog-item">
-					<img src="{{asset('frontend-assets/ngo')}}/images/blog/blog_1.jpg" alt="" class="">
+					<img src="{{asset('uploads/blog/'.$item->image)}}" alt="" class="">
+					
 
 					<div class="card-body mt-2">
 						<span class="text-sm text-color is-uppercase has-text-weight-bold">January 3, 2019</span>
-						<h3 class="mb-3"><a href="blog-single.html" class="">We can make a difference in families lives</a></h3>
-						<p class="mb-4">Aspernatur obcaecati unde, quasi nihil neque, voluptatem. Consectetur.</p>
+						<h3 class="mb-3"><a href="blog-single.html" class="">{{ $item->title }}</a></h3>
+						<p class="mb-4">{{ $item->content }}</p>
 					</div>
 				</div>
 			</div>
-
-			<div class="column is-4-desktop is-6-tablet">
+			@endforeach
+			<!-- <div class="column is-4-desktop is-6-tablet">
 				<div class="blog-item">
 					<img src="{{asset('frontend-assets/ngo')}}/images/blog/blog_2.jpg" alt="" class="">
 
@@ -354,7 +348,7 @@
 						<p class="mb-4">Aspernatur obcaecati unde, quasi nihil neque, voluptatem. Consectetur.</p>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </section>
@@ -394,27 +388,44 @@
 				<div class="volunteer-form-wrap">
 					<span class="text-white">Join With us</span>
 					<h2 class="mb-6 text-lg text-white">Become A Volunteer</h2>
-					<form action="#" class="volunteer-form">
+					<form action="{{route('frontendvolunteer.store')}}" method="POST" enctype="multipart/form-data" class="volunteer-form">
+						@csrf
+						<input type="hidden" class="input" value="0" name="status">
 						<div class="mb-4">
-							<input type="text" class="input" placeholder="Full Name">
+							<input type="text" class="input" name="name" value="{{ @old('name')}}" placeholder="Full Name">
+							@error('name')
+                            	<span class="error text-white">{{ $message }}</span>
+                        	@enderror
 						</div>
 						<div class="mb-4">
-							<input type="email" class="input" placeholder="Emaill Address">
+							<input type="email" class="input" name="email" value="{{ @old('email')}}" placeholder="Emaill Address">
+							@error('email')
+                            	<span class="error text-white">{{ $message }}</span>
+                        	@enderror
 						</div>
 						<div class="mb-4">
-							<input type="text" class="input" placeholder="Phone Number">
+							<input type="text" class="input" name="phone" value="{{ @old('phone')}}" placeholder="Phone Number">
+							@error('phone')
+                            	<span class="error text-white">{{ $message }}</span>
+                        	@enderror
 						</div>
 						<div class="mb-4">
-							<input type="text" class="input" placeholder="Adress ">
+							<input type="text" class="input" name="address" value="{{ @old('address')}}" placeholder="Adress">
+							@error('address')
+                            	<span class="error text-white">{{ $message }}</span>
+                        	@enderror
 						</div>
 						<div class="mb-4">
-							<input type="text" class="input" placeholder="Occupation">
+							<input type="text" class="input" name="occupation" value="{{ @old('occupation')}}" placeholder="Occupation">
 						</div>
 						<div class="mb-4">
-							<textarea name="#" id="#" cols="30" rows="6" class="input" placeholder="Your Message"></textarea>
+							<input type="file" class="input" name="image" placeholder="Image">
+						</div>
+						<div class="mb-4">
+							<textarea name="message" id="#" cols="30" rows="6"  class="input" placeholder="Your Message">{{ @old('message')}}</textarea>
 						</div>
 
-						<a href="#" class="btn btn-main is-rounded mt-5">Send Message</a>
+						<button type="submit" class="btn btn-main is-rounded mt-5">Send Message</button>
 					</form>
 				</div>
 			</div>

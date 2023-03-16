@@ -2,16 +2,7 @@
 <aside id="customizer" class="sidebar sidebar_customizer">
 
     <!-- Togglers -->
-    <div class="toggler-wrapper">
-        <div>
-            <button class="toggler" data-toggle="customizer">
-                <span class="la la-gear animate-spin-slow"></span>
-            </button>
-            <button class="randomizer mt-2" data-toggle="randomizer">
-                <span class="la la-random"></span>
-            </button>
-        </div>
-    </div>
+    
 
     <!-- Theme Customizer -->
     <div class="flex items-center justify-between h-20 p-4">

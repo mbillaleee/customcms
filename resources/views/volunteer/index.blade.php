@@ -4,9 +4,9 @@
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <h1>Blog</h1>
+        <h1>Volunteer</h1>
         <ul>
-            <li><a href="#no-link">Blog</a></li>
+            <li><a href="#no-link">Volunteer</a></li>
             <li class="divider la la-arrow-right"></li>
             <li><a href="#no-link">List</a></li>
         </ul>
@@ -16,32 +16,32 @@
         <!-- Striped -->
         <div class="flex flex-col gap-y-5">
             <div class="card p-5">
-            <a class="btn btn_primary float-end" href="{{ route('blog.create') }}"> Add blog</a>
+            <a class="btn btn_primary float-end" href="{{ route('volunteer.create') }}"> Add Volunteer</a>
                 <table class="table table_striped w-full mt-3">
                     <thead>
                         <tr>
                             <th class="ltr:text-left rtl:text-right uppercase">#</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Name</th>
-                            <th class="ltr:text-left rtl:text-right uppercase">Category</th>
-                            <th class="ltr:text-left rtl:text-right uppercase">Desc</th>
+                            <th class="ltr:text-left rtl:text-right uppercase">Email</th>
+                            <th class="ltr:text-left rtl:text-right uppercase">Phone</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Image</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Status</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($blogs as $key => $blog)
+                        @foreach($volunteers as $volunteer)
                         <tr>
-                            <td>{{ $key + 1 }}</td>
-                            <td>{{ $blog->title }}</td>
-                            <td>{{ $blog->categories->name }}</td>
-                            <td>{{ $blog->content }}</td>
-                            <td>@if($blog->image != null)<img src="{{asset('uploads/blog/'.$blog->image)}}" width="80" alt="$blog->title">@endif</td>
-                            <td>{!! !!$blog->status ? '<span class="badge bg-success">Active</span>': '<span
-                                                class="badge bg-danger">Inactive</span>' !!}</td>
+                            <td>1</td>
+                            <td>{{ $volunteer->name }}</td>
+                            <td>{{ $volunteer->email }}</td>
+                            <td>{{ $volunteer->phone }}</td>
+                            <td>@if($volunteer->image != null)<img src="{{asset('uploads/volunteer/'.$volunteer->image)}}" width="80" alt="$volunteer->title">@endif</td>
+                            <td>{!! !!$volunteer->status ? '<span class="badge bg-success">Approve</span>': '<span
+                                                class="badge bg-danger">Pending</span>' !!}</td>
                             <td class="flex">
-                            <a class="bg-blue-500 text-white hover:text-white font-bold py-1 px-4 rounded-full" href="{{ route('blog.edit',$blog->id) }}">Edit</a>
-                                <form class="" method="POST" action="{{route('blog.destroy', $blog->id)}}">
+                            <a class="bg-blue-500 text-white hover:text-white font-bold py-1 px-4 rounded-full" href="{{ route('volunteer.edit',$volunteer->id) }}">Edit</a>
+                                <form class="" method="POST" action="{{route('volunteer.destroy', $volunteer->id)}}">
 
                                     @method('delete')
 
