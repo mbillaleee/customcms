@@ -1,7 +1,7 @@
 <nav id="navbar" class="navbar main-nav">
 		<div class="container">
 			<div class="navbar-brand">
-				<a class="navbar-item" href="index.html">
+				<a class="navbar-item" href="{{url('/')}}">
 					<img src="{{asset('frontend-assets/ngo')}}/images/logo.jpg" alt="logo">
 				</a>
 				<button role="button" class="navbar-burger burger" data-hidden="true" data-target="navigation">
@@ -57,7 +57,7 @@
 					</li>
 					
 					<li class="navbar-item">
-						<a class="navbar-link" href="contact.html">Contact</a>
+						<a class="navbar-link" href="{{url('/contact')}}">Contact</a>
 					</li>
 				</ul>
 			</div>

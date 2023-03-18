@@ -22,6 +22,9 @@
                     <div class="mt-5">
                         <label class="label block mb-2">Name</label>
                         <input type="text" id="input" class="form-control" name="name" placeholder="Enter text here">
+                        @error('name')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Category Type</label>
@@ -36,14 +39,20 @@
                     <div class="mt-5">
                         <label class="label block mb-2">Image</label>
                         <input type="file" id="input" class="form-control" name="image">
+                        @error('image')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Descrition</label>
                         <textarea type="text" class="form-control" rows="5" name="desc"></textarea>
+                        @error('desc')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Status</label>
-                        <input type="radio" name="status" value="1"><span>Active</span>
+                        <input type="radio" name="status" value="1" checked><span>Active</span>
                         <input type="radio" name="status" value="0"><span>Inactive</span>
                     </div>
                     <div class="mt-5">

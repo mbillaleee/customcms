@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 // use Illuminate\Support\Facades\Auth;
 use Auth;
+use Validator;
 
 class CategoryController extends Controller
 {
@@ -42,9 +43,18 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'category_type' => 'required',
+            'name' => 'required',
+            'desc' => 'required',
+            'image' => 'required|image:jpg,jpeg,png',            
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         
         $category = New Category;
-
         $image = $request->file('image');
             if($image != '')
             {

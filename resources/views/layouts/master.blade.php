@@ -1,4 +1,6 @@
 @include('partials._header', ['title' => $title ?? ''])
+<!-- create edit update delete success message -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 <body>
 
@@ -39,6 +41,8 @@
     @stack('js');
 
     <script src="{{ asset('build/js/script.js') }}"></script>
+
+
 
 </body>
 

@@ -109,7 +109,7 @@ class VolunteerController extends Controller
             $volunteer->status        =$request->status;
             $volunteer->save();
 
-            return redirect()->away('/');
+            return redirect()->away('/')->with('success','Volunteer register successfully!');;
     }
 
     /**

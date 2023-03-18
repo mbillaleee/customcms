@@ -22,6 +22,9 @@
                     <div class="mt-5">
                         <label class="label block mb-2">Name</label>
                         <input type="text" id="input" class="form-control" name="tag" value="{{ $tag->tag }}" placeholder="Enter text here">
+                        @error('tag')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Status</label>

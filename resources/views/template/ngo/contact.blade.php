@@ -25,10 +25,10 @@
                     <div class="col-lg-4 cont-details">
                         <address>
                             <h5 class="">Contact Address</h5>
-                            <p><span class="fa fa-map-marker"></span>235 Terry, 10001 20C Trolley Square, DE 19806 U.S.A. </p>
-                            <p> <a href="mailto:info@example.com"><span
-                                        class="fa fa-envelope"></span>info@example.com</a></p>
-                            <p><span class="fa fa-phone"></span><a href="tel:+44-000-888-999"> +44-000-888-999</a></p>
+                            <p><span class="fa fa-map-marker"></span>ka-147/1/1, Khilkhet, Dhaka-1229</p>
+                            <p> <a href="mailto:jufoundation.bd@gmail.com"><span
+                                        class="fa fa-envelope"></span>jufoundation.bd@gmail.com</a></p>
+                            <p><span class="fa fa-phone"></span><a href="tel:+88-01827-510787"> +88-01827-510787</a></p>
                             <a href="donate.html" class="btn btn-style btn-outline-primary mt-4">
                                 <span class="fa fa-heart mr-1"></span> Make Donation</a>
                         </address>

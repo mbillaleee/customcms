@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Validator;
 
 class PageController extends Controller
 {
@@ -38,6 +39,15 @@ class PageController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'content' => 'required',
+            'image' => 'required|image:jpg,jpeg,png',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $page = New Page;
 
         $image = $request->file('image');
@@ -89,6 +99,15 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'content' => 'required',
+            'image' => 'image:jpg,jpeg,png',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         $image = $request->file('image');
         if($image != '')

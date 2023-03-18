@@ -102,18 +102,20 @@
                 <h3 class="title-big">Happy Volunteers</h3>
             </div>
             <div class="team-row mt-md-5 mt-4">
+                @foreach($volunteers as $item)
                 <div class="team-wrap">
                     <div class="team-member text-center">
                         <div class="team-img">
-                            <img src="{{asset('frontend-assets/ngo')}}/images/team1.jpg" alt="" class="radius-image img-fluid">
+                            <img src="{{asset('uploads/volunteer/'.$item->image)}}" alt="" class="radius-image img-fluid vol_img">
                         </div>
-                        <a href="#url" class="team-title">Luke jacobs</a>
+                        <a href="#url" class="team-title">{{ $item->name }}</a>
                         <p>Volunteers</p>
                     </div>
                 </div>
+                @endforeach
                 <!-- end team member -->
 
-                <div class="team-wrap">
+                <!-- <div class="team-wrap">
                     <div class="team-member text-center">
                         <div class="team-img">
                             <img src="{{asset('frontend-assets/ngo')}}/images/team2.jpg" alt="" class="radius-image img-fluid">
@@ -121,10 +123,10 @@
                         <a href="#url" class="team-title">Claire olson</a>
                         <p>Volunteers</p>
                     </div>
-                </div>
+                </div> -->
                 <!-- end team member -->
 
-                <div class="team-wrap">
+                <!-- <div class="team-wrap">
                     <div class="team-member last text-center">
                         <div class="team-img">
                             <img src="{{asset('frontend-assets/ngo')}}/images/team3.jpg" alt="" class="radius-image img-fluid">
@@ -132,10 +134,10 @@
                         <a href="#url" class="team-title">Phillip hunt</a>
                         <p>Volunteers</p>
                     </div>
-                </div>
+                </div> -->
                 <!-- end team member -->
 
-                <div class="team-wrap">
+                <!-- <div class="team-wrap">
                     <div class="team-member last text-center">
                         <div class="team-img">
                             <img src="{{asset('frontend-assets/ngo')}}/images/team4.jpg" alt="" class="radius-image img-fluid">
@@ -143,10 +145,10 @@
                         <a href="#url" class="team-title">Sara grant</a>
                         <p>Volunteers</p>
                     </div>
-                </div>
+                </div> -->
                 <!-- end team member -->
 
-                <div class="team-wrap">
+                <!-- <div class="team-wrap">
                     <div class="team-member last text-center">
                         <div class="team-img">
                             <img src="{{asset('frontend-assets/ngo')}}/images/team5.jpg" alt="" class="radius-image img-fluid">
@@ -154,10 +156,10 @@
                         <a href="#url" class="team-title">Sara grant</a>
                         <p>Volunteers</p>
                     </div>
-                </div>
+                </div> -->
                 <!-- end team member -->
 
-                <div class="team-wrap">
+                <!-- <div class="team-wrap">
                     <div class="team-member last text-center">
                         <div class="team-img">
                             <img src="{{asset('frontend-assets/ngo')}}/images/team6.jpg" alt="" class="radius-image img-fluid">
@@ -165,10 +167,10 @@
                         <a href="#url" class="team-title">Sara grant</a>
                         <p>Volunteers</p>
                     </div>
-                </div>
+                </div> -->
                 <!-- end team member -->
 
-                <div class="team-wrap">
+                <!-- <div class="team-wrap">
                     <div class="team-member last text-center">
                         <div class="team-img">
                             <img src="{{asset('frontend-assets/ngo')}}/images/team7.jpg" alt="" class="radius-image img-fluid">
@@ -176,10 +178,10 @@
                         <a href="#url" class="team-title">Sara grant</a>
                         <p>Volunteers</p>
                     </div>
-                </div>
+                </div> -->
                 <!-- end team member -->
 
-                <div class="team-wrap">
+                <!-- <div class="team-wrap">
                     <div class="team-member last text-center">
                         <div class="team-img">
                             <img src="{{asset('frontend-assets/ngo')}}/images/team8.jpg" alt="" class="radius-image img-fluid">
@@ -187,10 +189,10 @@
                         <a href="#url" class="team-title">Sara grant</a>
                         <p>Volunteers</p>
                     </div>
-                </div>
+                </div> -->
                 <!-- end team member -->
 
-                <div class="team-wrap">
+                <!-- <div class="team-wrap">
                     <div class="team-member last text-center">
                         <div class="team-img">
                             <img src="{{asset('frontend-assets/ngo')}}/images/team9.jpg" alt="" class="radius-image img-fluid">
@@ -198,7 +200,7 @@
                         <a href="#url" class="team-title">Sara grant</a>
                         <p>Volunteers</p>
                     </div>
-                </div>
+                </div> -->
                 <!-- end team member -->
 
                 <div class="team-apply">

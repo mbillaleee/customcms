@@ -32,7 +32,7 @@
                         @foreach($pages as $page)
                         <tr>
                             <td>1</td>
-                            <td>{{ $page->name }}</td>
+                            <td>{{ $page->title }}</td>
                             <td>{{ $page->content }}</td>
                             <td>@if($page->image != null)<img src="{{asset('uploads/page/'.$page->image)}}" width="50" alt="$page->name">@endif</td>
                             <td>{!! !!$page->status ? '<span class="badge bg-success">Active</span>': '<span

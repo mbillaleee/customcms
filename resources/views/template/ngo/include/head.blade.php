@@ -9,7 +9,7 @@
   <!-- theme meta -->
   <meta name="theme-name" content="wishfund-bulma" />
 
-  <title>WishFund- Nonprofit Charity Funderising Theme</title>
+  <title>JU Foundation</title>
 
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="{{asset('frontend-assets/ngo')}}/plugins/bulma/bulma.min.css">
@@ -51,23 +51,7 @@
     <!-- Template Stylesheet -->
     <link href="{{asset('frontend-assets/ngo')}}/css/style.css" rel="stylesheet">
 
-
-
-
-
-
-
-    <!-- Landing page start -->
-    <link rel="icon" type="{{asset('frontend-assets/ngo/landing')}}image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{{asset('frontend-assets/ngo/landing')}}css/styles.css" rel="stylesheet" />
-
-      <!-- Landing page end -->
+    <!-- create edit update delete success message -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 </head>

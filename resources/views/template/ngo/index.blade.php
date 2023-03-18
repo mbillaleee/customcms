@@ -167,42 +167,6 @@
 					</div>
 				</div>
 				@endforeach
-				<!-- <div class="column is-4-desktop is-12-tablet">
-					<div class="gallery-item">
-						<a href="{{asset('frontend-assets/ngo')}}/images/gallery/2.jpg" class="gallery-popup">
-							<img src="{{asset('frontend-assets/ngo')}}/images/gallery/2.jpg" alt="" class=" w-100">
-						</a>
-					</div>
-				</div>
-				<div class="column is-4-desktop is-12-tablet">
-					<div class="gallery-item">
-						<a href="{{asset('frontend-assets/ngo')}}/images/gallery/3.jpg" class="gallery-popup">
-							<img src="{{asset('frontend-assets/ngo')}}/images/gallery/3.jpg" alt="" class=" w-100">
-						</a>
-					</div>
-				</div>
-				<div class="column is-4-desktop is-12-tablet">
-					<div class="gallery-item">
-						<a href="{{asset('frontend-assets/ngo')}}/images/gallery/4.jpg" class="gallery-popup">
-							<img src="{{asset('frontend-assets/ngo')}}/images/gallery/4.jpg" alt="" class=" w-100">
-						</a>
-					</div>
-				</div>
-
-				<div class="column is-4-desktop is-12-tablet">
-					<div class="gallery-item">
-						<a href="{{asset('frontend-assets/ngo')}}/images/gallery/5.jpg" class="gallery-popup">
-							<img src="{{asset('frontend-assets/ngo')}}/images/gallery/5.jpg" alt="" class=" w-100">
-						</a>
-					</div>
-				</div>
-				<div class="column is-4-desktop is-12-tablet">
-					<div class="gallery-item">
-						<a href="{{asset('frontend-assets/ngo')}}/images/gallery/6.jpg" class="gallery-popup">
-							<img src="{{asset('frontend-assets/ngo')}}/images/gallery/5.jpg" alt="" class=" w-100">
-						</a>
-					</div>
-				</div> -->
 			</div>
 		</div>
 	</div>
@@ -326,29 +290,6 @@
 				</div>
 			</div>
 			@endforeach
-			<!-- <div class="column is-4-desktop is-6-tablet">
-				<div class="blog-item">
-					<img src="{{asset('frontend-assets/ngo')}}/images/blog/blog_2.jpg" alt="" class="">
-
-					<div class="card-body mt-2">
-						<span class="text-sm text-color is-uppercase has-text-weight-bold">January 3, 2019</span>
-						<h3 class="mb-3"><a href="blog-single.html" class="">A place where start new life with peace</a></h3>
-						<p class="mb-4">Aspernatur obcaecati unde, quasi nihil neque, voluptatem. Consectetur.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="column is-4-desktop is-6-tablet">
-				<div class="blog-item">
-					<img src="{{asset('frontend-assets/ngo')}}/images/blog/blog_3.jpg" alt="" class="">
-
-					<div class="card-body mt-2">
-						<span class="text-sm text-color is-uppercase has-text-weight-bold">January 3, 2019</span>
-						<h3 class="mb-3"><a href="blog-single.html" class="">Build school for poor childrens</a></h3>
-						<p class="mb-4">Aspernatur obcaecati unde, quasi nihil neque, voluptatem. Consectetur.</p>
-					</div>
-				</div>
-			</div> -->
 		</div>
 	</div>
 </section>
@@ -425,7 +366,7 @@
 							<textarea name="message" id="#" cols="30" rows="6"  class="input" placeholder="Your Message">{{ @old('message')}}</textarea>
 						</div>
 
-						<button type="submit" class="btn btn-main is-rounded mt-5">Send Message</button>
+						<button type="submit" class="btn btn-main is-rounded mt-5">Register</button>
 					</form>
 				</div>
 			</div>

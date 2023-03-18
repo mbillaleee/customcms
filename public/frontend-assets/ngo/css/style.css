@@ -1832,3 +1832,18 @@ h3.quote::before {
 /*# sourceMappingURL=style.css.map */
 
 
+/* custom css start */
+
+.vol_img {
+  max-width: 100%;
+  height: 165px;
+}
+
+.team-wrap {
+  border: 1px solid #e5d7d7;
+  border-radius: 7px;
+}
+
+/* custom css end */
+
+

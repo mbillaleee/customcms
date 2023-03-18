@@ -229,7 +229,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('/', [VolunteerController::class, 'index'])->name('volunteer.index');
             Route::get('/create', [VolunteerController::class, 'create'])->name('volunteer.create');
             Route::any('/store', [VolunteerController::class, 'store'])->name('volunteer.store');
-            Route::any('/frontend/store', [VolunteerController::class, 'volenteerstore'])->name('frontendvolunteer.store');
+           
             Route::get('/edit/{volunteer}', [VolunteerController::class, 'edit'])->name('volunteer.edit');
             Route::post('/update/{volunteer}', [VolunteerController::class, 'update'])->name('volunteer.update');
             Route::delete('/destroy/{volunteer}', [VolunteerController::class, 'destroy'])->name('volunteer.destroy'); 

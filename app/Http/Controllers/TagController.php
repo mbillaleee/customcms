@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Validator;
+use Auth;
 
 class TagController extends Controller
 {
@@ -38,13 +40,20 @@ class TagController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'tag' => 'required',            
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $tag = New Tag;
 
         // $user = Auth::user();
         // $id = Auth::user()->id;
 
             $tag->tag=$request->tag;
-            $tag->user_id=1;
+            $tag->user_id= Auth::user()->id;
             $tag->slug= Str::slug($request->tag);
             $tag->status=$request->status;
             $tag->save();
@@ -84,6 +93,13 @@ class TagController extends Controller
     public function update(Request $request, Tag $tag)
     {
         // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'tag' => 'required',            
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $tag->tag=$request->tag;
         $tag->user_id=1;
         $tag->slug= Str::slug($request->tag);
