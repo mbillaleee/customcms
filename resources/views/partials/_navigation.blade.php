@@ -123,7 +123,7 @@
                 </div>
                 <hr>
                 <div class="p-5">
-                    <a href="#no-link" class="flex items-center text-normal hover:text-primary">
+                    <a href="{{url('/')}}" class="flex items-center text-normal hover:text-primary">
                         <span class="la la-power-off text-2xl leading-none ltr:mr-2 rtl:ml-2"></span>
                         <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -381,6 +381,10 @@
             <a href="{{ route('volunteer.index') }}">
                 <span class="la la-list"></span>
                 Volunteer List
+            </a>
+            <a href="{{ route('message.index') }}">
+                <span class="la la-list"></span>
+                Message List
             </a>
             <a href="{{ route('template1.index') }}">
                 <span class="la la-list"></span>

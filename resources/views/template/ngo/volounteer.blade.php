@@ -4,7 +4,6 @@
 @section('content')
 @include('template.ngo.include.slider')
 
-
 <section class="section causes">
 	<div class="container">
 		<div class="columns is-justify-content-center">

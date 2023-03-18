@@ -32,6 +32,11 @@ class NgoController extends Controller
         $volunteers = Volunteer::where('status', 1)->take(10)->get();
         return view('template/ngo/volounteer', compact('volunteers'));
     }
+    public function becomeVolounteer()
+    {
+        $become_volunteers = Volunteer::where('status', 0)->take(10)->get();
+        return view('template/ngo/become-volounteer', compact('become_volunteers'));
+    }
     public function religiousProgram()
     {
         $blogs = Blog::where('status', 1)->take(20)->get();
@@ -103,5 +108,7 @@ class NgoController extends Controller
     {
         //
     }
+
+    
     
 }

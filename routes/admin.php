@@ -22,6 +22,7 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\Template1Controller;
 use App\Http\Controllers\ContuctUsController;
 use App\Http\Controllers\VolunteerController;
+use App\Http\Controllers\MessageController;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
@@ -234,6 +235,11 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::post('/update/{volunteer}', [VolunteerController::class, 'update'])->name('volunteer.update');
             Route::delete('/destroy/{volunteer}', [VolunteerController::class, 'destroy'])->name('volunteer.destroy'); 
         });
+    Route::prefix('message')->group(function () {
+        // Route::prefix('blog')->middleware('auth')->group(function () {
+            Route::get('/', [MessageController::class, 'index'])->name('message.index');
+            Route::delete('/destroy/{message}', [MessageController::class, 'destroy'])->name('message.destroy');
+          });
 
 
 });

@@ -149,10 +149,16 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 
+		<!-- create edit update delete success message -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
 	<!-- Landing page edn -->
 
 
-<script>    
+
+<script>
+ 
   @if(Session::has('success'))
   toastr.options =
   {

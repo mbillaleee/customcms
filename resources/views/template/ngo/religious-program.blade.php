@@ -25,6 +25,7 @@
                             <img src="{{asset('uploads/blog/'.$item->image)}}" alt="" class="radius-image img-fluid vol_img">
                         </div>
                         <a href="#url" class="">{{ $item->title }}</a>
+						<hr>
                         <p>{{ Str::limit($item->content, 100, ' ...') }}</p>
                     </div>
                 </div>

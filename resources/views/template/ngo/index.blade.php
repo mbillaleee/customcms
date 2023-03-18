@@ -2,7 +2,14 @@
 
 
 @section('content')
+
 @include('template.ngo.include.slider')
+
+@if(Session::has('success'))
+    <script>
+		setTimeout(function() { alert('{{ Session::get('success') }}'); }, 3000);
+    </script>
+@endif
 
 <!-- Section Intro Start -->
 <section class="section intro">
@@ -25,7 +32,7 @@
 					<img src="{{asset('uploads/blog/'.$item->image)}}" alt="" class=" w-100">
 					
 					<!-- <h4 class="mt-4 mb-3">Get inspired</h4> -->
-					<p>{{ $item->title }}</p>
+					<p class="mt-4">{{ $item->title }}</p>
 				</div>
 			</div>
 			@endforeach
@@ -366,7 +373,7 @@
 							<textarea name="message" id="#" cols="30" rows="6"  class="input" placeholder="Your Message">{{ @old('message')}}</textarea>
 						</div>
 
-						<button type="submit" class="btn btn-main is-rounded mt-5">Register</button>
+						<button type="submit" id="submitt" onClick="btnClick()" class="btn btn-main is-rounded mt-5">Register</button>
 					</form>
 				</div>
 			</div>
@@ -375,3 +382,13 @@
 </div>
 
 @endsection
+
+<script>
+const form = document.querySelector('form');
+const successMessage = document.querySelector('#form');
+form.addEventListener('submitt', (e) => {
+    e.preventDefault();
+    successMessage.classList.add('show');
+    setTimeout(() => form.submit(), 2000);
+} );
+</script>

@@ -12,10 +12,9 @@
 					<div class="header-top-right has-text-right-tablet has-text-centered-mobile">
 						<a href="https://www.facebook.com/jufoundation.bd" target="_blank"><i class="icofont-facebook"></i></a>
 						<a href="https://twitter.com/" target="_blank"><i class="icofont-twitter"></i></a>
-						<a href="https://github.com/" target="_blank"><i class="icofont-github"></i></a>
 						<a href="#" target="_blank"><i class="icofont-pinterest"></i></a>
 						<a href="#" target="_blank"><i class="icofont-linkedin"></i></a>
-						<a href="donation.html" class="top-btn">Donate Now</a>
+						<a href="#" class="top-btn">Donate Now</a>
 					</div>
 				</div>
 			</div>
@@ -44,10 +43,11 @@
 						<a class="navbar-link">Who We Are<span class="ml-1">+</span></a>
 						<div class="navbar-dropdown">
 							<a class="navbar-item" href="{{ url('/about') }}">About J U Foundation</a>
-							<a class="navbar-item" href="cause-single.html">Vision & Mission and Values</a>
-							<a class="navbar-item" href="cause-single.html">Legal Status</a>
-							<a class="navbar-item" href="cause-single.html">Governing Body</a>
-							<a class="navbar-item" href="cause-single.html">Partners and Donors</a>
+							<a class="navbar-item" href="#">Vision & Mission and Values</a> 
+							<a class="navbar-item" href="#">Legal Status</a>
+							<a class="navbar-item" href="#">Governing Body</a>
+							<a class="navbar-item" href="#">Partners and Donors</a>
+							<!-- cause-single.html -->
 						</div>
 					</li>
 
@@ -55,17 +55,18 @@
 						<a class="navbar-link">What We Do<span class="ml-1">+</span></a>
 						<div class="navbar-dropdown">
 							<a class="navbar-item" href="{{ url('/religious-program') }}">Religious Projects</a>
-							<a class="navbar-item" href="volunteer.html">Our Programs</a>
-							<a class="navbar-item" href="volunteer.html">Program Archive</a>
+							<a class="navbar-item" href="#">Our Programs</a>
+							<a class="navbar-item" href="#">Program Archive</a>
 						</div>
 					</li>
 
 					<li class="navbar-item has-dropdown is-hoverable">
 						<a class="navbar-link">Ways to Support<span class="ml-1">+</span></a>
 						<div class="navbar-dropdown">
-							<a class="navbar-item" href="event.html">Donate (Highlighted Colored)</a>
-							<a class="navbar-item" href="event-single.html">Sponsor a Child</a>
-							<a class="navbar-item" href="{{url('/volounteer')}}">Become a Volunteer </a>
+							<a class="navbar-item" href="#">Donate (Highlighted Colored)</a>
+							<a class="navbar-item" href="#">Sponsor a Child</a>
+							<a class="navbar-item" href="{{url('/become-volounteer')}}">Become a Volunteer </a>
+							<a class="navbar-item" href="{{url('/volounteer')}}">Volunteer list</a>
 						</div>
 					</li>
 
