@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Validator;
 
 class SliderController extends Controller
 {
@@ -38,6 +39,17 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'content' => 'required',
+            'image' => 'required|image:jpg,jpeg,png',
+            
+        ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
         
         $slider = New Slider();
 
@@ -49,11 +61,9 @@ class SliderController extends Controller
                 $slider->image=$imagename;
             }
 
-            // $slider->user_id=1;
             $slider->title=$request->title;
             $slider->button_name=$request->button_name;
             $slider->button_link=$request->button_link;
-            // $slider->slug= Str::slug($request->title);
             $slider->content=$request->content;
             $slider->status=$request->status;
             $slider->save();
@@ -94,6 +104,16 @@ class SliderController extends Controller
     public function update(Request $request, Slider $slider)
     {
         // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'content' => 'required',
+            'image' => 'image:jpg,jpeg,png',
+            
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
 
         $image = $request->file('image');
@@ -107,11 +127,9 @@ class SliderController extends Controller
             $slider->image=$imagename;
         }
 
-        $slider->user_id=1;
         $slider->title=$request->title;
         $slider->button_name=$request->button_name;
         $slider->button_link=$request->button_link;
-        // $slider->slug= Str::slug($request->title);
         $slider->content=$request->content;
         $slider->status=$request->status;
         $slider->save();

@@ -1,6 +1,6 @@
 @extends('layouts.master', ['title' => 'Chat - Applications', 'footer' => false, 'workspaceClasses' => 'pb-32'])
 
-@section('workspace')
+@section('workspace') 
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
@@ -29,9 +29,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($sliders as $slider)
+                        @foreach($sliders as $key => $slider)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $key + 1 }}</td>
                             <td>{{ $slider->title }}</td>
                             <td>{{ $slider->content }}</td>
                             <td>@if($slider->image != null)<img src="{{asset('uploads/slider/'.$slider->image)}}" width="80" alt="$slider->name">@endif</td>

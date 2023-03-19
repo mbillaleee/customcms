@@ -1,17 +1,20 @@
 <header class="navigation">
+	@php
+	$setting = App\Models\Setting::where('status', 1)->get();
+	@endphp
 	<div class="header-top ">
 		<div class="container">
 			<div class="columns is-gapless is-justify-content-space-between is-align-items-center">
 				<div class="column is-6-desktop is-4-tablet has-text-left-desktop has-text-centered-mobile">
 					<div class="header-top-info">
-						<a href="tel:+88-01827-510787"><i class="icofont-phone mr-2"></i><span>+88-01827-510787</span></a>
-						<a href="mailto:jufoundation.bd@gmail.com" ><i class="icofont-email mr-2"></i><span>jufoundation.bd@gmail.com</span></a>
+						<a href="tel:{{ $setting[0]->phone ?? ''}}"><i class="icofont-phone mr-2"></i><span>{{ $setting[0]->mobile ?? ''}}</span></a>
+						<a href="mailto:{{ $setting[0]->email ?? ''}}" ><i class="icofont-email mr-2"></i><span>{{ $setting[0]->email ?? ''}}</span></a>
 					</div>
 				</div>
 				<div class="column is-6-desktop is-8-tablet">
 					<div class="header-top-right has-text-right-tablet has-text-centered-mobile">
-						<a href="https://www.facebook.com/jufoundation.bd" target="_blank"><i class="icofont-facebook"></i></a>
-						<a href="https://twitter.com/" target="_blank"><i class="icofont-twitter"></i></a>
+						<a href="{{ $setting[0]->facebook_url ?? ''}}" target="_blank"><i class="icofont-facebook"></i></a>
+						<a href="{{ $setting[0]->twitter_url ?? ''}}" target="_blank"><i class="icofont-twitter"></i></a>
 						<a href="#" target="_blank"><i class="icofont-pinterest"></i></a>
 						<a href="#" target="_blank"><i class="icofont-linkedin"></i></a>
 						<a href="#" class="top-btn">Donate Now</a>

@@ -23,6 +23,7 @@ use App\Http\Controllers\Template1Controller;
 use App\Http\Controllers\ContuctUsController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\SettingController;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
@@ -239,6 +240,11 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         // Route::prefix('blog')->middleware('auth')->group(function () {
             Route::get('/', [MessageController::class, 'index'])->name('message.index');
             Route::delete('/destroy/{message}', [MessageController::class, 'destroy'])->name('message.destroy');
+          });
+    Route::prefix('setting')->group(function () {
+        // Route::prefix('blog')->middleware('auth')->group(function () {
+            Route::get('/', [SettingController::class, 'index'])->name('setting.index');
+            Route::post('/update', [SettingController::class, 'update'])->name('setting.update');
           });
 
 

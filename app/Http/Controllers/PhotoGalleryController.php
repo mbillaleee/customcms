@@ -6,6 +6,8 @@ use App\Models\PhotoGallery;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Validator;
+use Auth;
 
 class PhotoGalleryController extends Controller
 {
@@ -40,6 +42,16 @@ class PhotoGalleryController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'desc' => 'required',
+            'image' => 'required|image:jpg,jpeg,png',
+            
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         
         $photogallery = New PhotoGallery;
 
@@ -53,7 +65,7 @@ class PhotoGalleryController extends Controller
 
             $photogallery->category_id=$request->category_id;
             $photogallery->title=$request->title;
-            $photogallery->user_id=1;
+            $photogallery->user_id=Auth::user()->id;
             $photogallery->slug= Str::slug($request->title);
             $photogallery->desc=$request->desc;
             $photogallery->status=$request->status;
@@ -95,6 +107,16 @@ class PhotoGalleryController extends Controller
     public function update(Request $request, PhotoGallery $photoGallery)
     {
         // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'desc' => 'required',
+            'image' => 'image:jpg,jpeg,png',
+            
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $image = $request->file('image');
         if($image != '')
         {

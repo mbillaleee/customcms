@@ -6,9 +6,9 @@
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <h1>Product</h1>
+        <h1>Template</h1>
         <ul>
-            <li><a href="#no-link">Product</a></li>
+            <li><a href="#no-link">Template</a></li>
             <li class="divider la la-arrow-right"></li>
             <li><a href="#no-link">Update</a></li>
         </ul>
@@ -21,11 +21,17 @@
                 <div class="card p-5">
                     <div class="mt-5">
                         <label class="label block mb-2">Title</label>
-                        <input type="text" id="input" class="form-control" name="title" value="{{ $template1->title }}" placeholder="Enter text here">
+                        <input type="text" id="input" class="form-control" name="title" value="{{ $template1->title }}" placeholder="Enter title here">
+                        @error('title')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Thumbnail</label>
                         <input type="file" id="input" class="form-control" name="thumb">
+                        @error('thumb')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                         @if($template1->thumb != null)<img src="{{asset('uploads/template1/'.$template1->thumb)}}" width="80" alt="{{$template1->title}}">@endif
                     </div>
                     <div class="mt-5">

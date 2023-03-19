@@ -6,9 +6,9 @@
 
     <!-- Breadcrumb -->
     <section class="breadcrumb">
-        <h1>Product</h1>
+        <h1>Template</h1>
         <ul>
-            <li><a href="#no-link">Product</a></li>
+            <li><a href="#no-link">Template</a></li>
             <li class="divider la la-arrow-right"></li>
             <li><a href="#no-link">Create</a></li>
         </ul>
@@ -21,19 +21,28 @@
                 <div class="card p-5">
                     <div class="mt-5">
                         <label class="label block mb-2">Title</label>
-                        <input type="text" id="input" class="form-control" name="title" placeholder="Enter text here">
+                        <input type="text" id="input" class="form-control" name="title" value="{{ @old('title')}}" placeholder="Enter title here">
+                        @error('title')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Thumbnail</label>
                         <input type="file" id="input" class="form-control" name="thumb">
+                        @error('thumb')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Content</label>
-                        <textarea type="text" class="form-control" rows="5" name="content"></textarea>
+                        <textarea type="text" class="form-control" rows="5" name="content">{{ @old('content')}}</textarea>
+                        @error('content')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Status</label>
-                        <input type="radio" name="status" value="1"><span>Active</span>
+                        <input type="radio" name="status" value="1" checked><span>Active</span>
                         <input type="radio" name="status" value="0"><span>Inactive</span>
                     </div>
                     <div class="mt-5">

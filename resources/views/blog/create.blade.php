@@ -21,11 +21,17 @@
                 <div class="card p-5">
                     <div class="mt-5">
                         <label class="label block mb-2">Title</label>
-                        <input type="text" id="input" class="form-control" name="title" placeholder="Enter text here">
+                        <input type="text" id="input" class="form-control" name="title" value="{{ @old('title')}}" placeholder="Enter title here">
+                        @error('title')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Image</label>
                         <input type="file" id="input" class="form-control" name="image">
+                        @error('image')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Category</label>
@@ -38,11 +44,14 @@
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Content</label>
-                        <textarea type="text" class="form-control" rows="5" name="content"></textarea>
+                        <textarea type="text" class="form-control" rows="5" name="content">{{ @old('content')}}</textarea>
+                        @error('content')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Status</label>
-                        <input type="radio" name="status" value="1"><span>Active</span>
+                        <input type="radio" name="status" value="1" checked><span>Active</span>
                         <input type="radio" name="status" value="0"><span>Inactive</span>
                     </div>
                     <div class="mt-5">

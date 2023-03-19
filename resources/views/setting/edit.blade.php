@@ -21,7 +21,7 @@
                 <div class="card p-5">
                     <div class="mt-5">
                         <label class="label block mb-2">Company Name</label>
-                        <input type="text" id="input" class="form-control" name="company_name" value="" placeholder="Enter text here">
+                        <input type="text" id="input" class="form-control" name="company_name" value="{{$settings->company_name}}" placeholder="Enter text here">
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Address</label>

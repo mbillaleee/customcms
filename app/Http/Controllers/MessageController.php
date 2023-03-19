@@ -100,6 +100,6 @@ class MessageController extends Controller
             $message->save();
 
             // return redirect()->route('ngo.index')->with('success','Message sent successfully!');;
-            return redirect()->away('/contact');
+            return redirect()->back()->with('success','Message deleted successfully!');
     }
 }

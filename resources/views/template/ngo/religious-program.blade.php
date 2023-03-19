@@ -11,29 +11,21 @@
 </div>
 
 
-<section class="w3l-team-main" id="team">
-    <div class="team py-5">
-        <div class="container py-lg-5">
-            <div class="title-content text-center">
-                <h3 class="title-big">Our Religious Program</h3>
-            </div>
-            <div class="team-row mt-md-5 mt-4">
-                @foreach($blogs as $item)
-                <div class="team-wrap">
-                    <div class="team-member text-center">
-                        <div class="team-img">
-                            <img src="{{asset('uploads/blog/'.$item->image)}}" alt="" class="radius-image img-fluid vol_img">
-                        </div>
-                        <a href="#url" class="">{{ $item->title }}</a>
-						<hr>
-                        <p>{{ Str::limit($item->content, 100, ' ...') }}</p>
-                    </div>
-                </div>
-                @endforeach
-                <!-- end team member -->
-
-            </div>
-        </div>
+<section class="section intro">
+	<div class="container">
+		<div class="columns is-multiline is-justify-content-center">
+			@foreach($blogs as $item)
+			<div class="column is-3-desktop is-6-tablet fst_blog">
+				<div class="intro-item mb-5 mb-lg-0"> 
+					<img src="{{asset('uploads/blog/'.$item->image)}}" alt="" class=" w-100">
+					
+					<!-- <h4 class="mt-4 mb-3">Get inspired</h4> -->
+					<p class="mt-4">{{ $item->title }}</p>
+				</div>
+			</div>
+			@endforeach
+		</div>
+	</div>
 </section>
 <!--//team-sec-->
 

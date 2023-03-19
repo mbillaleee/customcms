@@ -10,7 +10,8 @@
   <meta name="theme-name" content="wishfund-bulma" />
 
   <title>JU Foundation</title>
-
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{{asset('frontend-assets/ngo')}}/images/fav-icon.png">
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="{{asset('frontend-assets/ngo')}}/plugins/bulma/bulma.min.css">
   <!-- Icon Font Css -->

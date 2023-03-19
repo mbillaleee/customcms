@@ -5,11 +5,7 @@
 
 @include('template.ngo.include.slider')
 
-@if(Session::has('success'))
-    <script>
-		setTimeout(function() { alert('{{ Session::get('success') }}'); }, 3000);
-    </script>
-@endif
+
 
 <!-- Section Intro Start -->
 <section class="section intro">
@@ -27,7 +23,7 @@
 		</div>
 		<div class="columns is-multiline is-justify-content-center">
 			@foreach($blogs as $item)
-			<div class="column is-3-desktop is-6-tablet">
+			<div class="column is-3-desktop is-6-tablet fst_blog">
 				<div class="intro-item mb-5 mb-lg-0"> 
 					<img src="{{asset('uploads/blog/'.$item->image)}}" alt="" class=" w-100">
 					
@@ -36,27 +32,6 @@
 				</div>
 			</div>
 			@endforeach
-			<!-- <div class="column is-3-desktop is-6-tablet">
-				<div class="intro-item mb-5 mb-lg-0">
-					<img src="{{asset('frontend-assets/ngo')}}/images/about/image-2.jpg" alt="" class=" w-100">
-					<h4 class="mt-4 mb-3">Give Donation</h4>
-					<p>কুরআনের আলোয় ছড়িয়ে যাক পৃথিবী জুড়ে। কুষ্টিয়াতে JU Foundation কর্তৃক পরিচালিত.... "মক্তব"। ওই এলাকায় শিশু-কিশোরদের মাঝে কুরআনের জ্ঞান ছড়িয়ে দিতে JU Foundation এর ক্ষুদ্র প্রচেষ্টা অব্যাহত</p>
-				</div>
-			</div>
-			<div class="column is-3-desktop is-6-tablet">
-				<div class="intro-item">
-					<img src="{{asset('frontend-assets/ngo')}}/images/about/image-3.jpg" alt="" class=" w-100">
-					<h4 class="mt-4 mb-3">Become a Volunteer</h4>
-					<p>কুরআনের আলোয় ছড়িয়ে যাক পৃথিবী জুড়ে। কুষ্টিয়াতে JU Foundation কর্তৃক পরিচালিত.... "মক্তব"। ওই এলাকায় শিশু-কিশোরদের মাঝে কুরআনের জ্ঞান ছড়িয়ে দিতে JU Foundation এর ক্ষুদ্র প্রচেষ্টা অব্যাহত</p>
-				</div>
-			</div> 
-			<div class="column is-3-desktop is-6-tablet">
-				<div class="intro-item">
-					<img src="{{asset('frontend-assets/ngo')}}/images/about/image-1.jpg" alt="" class=" w-100">
-					<h4 class="mt-4 mb-3">Help The children</h4>
-					<p>কুরআনের আলোয় ছড়িয়ে যাক পৃথিবী জুড়ে। কুষ্টিয়াতে JU Foundation কর্তৃক পরিচালিত.... "মক্তব"। ওই এলাকায় শিশু-কিশোরদের মাঝে কুরআনের জ্ঞান ছড়িয়ে দিতে JU Foundation এর ক্ষুদ্র প্রচেষ্টা অব্যাহত</p>
-				</div>
-			</div>  -->
 		</div>
 	</div>
 </section>
@@ -210,10 +185,6 @@
 					<div class="card-body">
 						<h3 class="mb-4"><a href="cause-single.html">Save Poor Childrens</a></h3>
 
-						<ul class="list-inline border-bottom border-top py-3 mb-4">
-						<li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal:	<span>$890</span></li>
-						<li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
-						</ul>
 						<p class="card-text mb-5">Save poor child by supporting text below as a natural lead-in to additional content.</p>
 
 						<a href="donation.html" class="btn btn-main is-rounded">Donate Now</a>
@@ -227,11 +198,6 @@
 
 					<div class="card-body">
 						<h3 class="mb-4"><a href="cause-single.html">Clean Drink Water</a></h3>
-
-						<ul class="list-inline border-bottom border-top py-3 mb-4">
-						<li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal:	<span>$890</span></li>
-						<li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
-						</ul>
 						<p class="card-text mb-5">Save poor child by supporting text below as a natural lead-in to additional content.</p>
 
 						<a href="donation.html" class="btn btn-main is-rounded">Donate Now</a>
@@ -290,9 +256,9 @@
 					
 
 					<div class="card-body mt-2">
-						<span class="text-sm text-color is-uppercase has-text-weight-bold">January 3, 2019</span>
-						<h3 class="mb-3"><a href="blog-single.html" class="">{{ $item->title }}</a></h3>
-						<p class="mb-4">{{ $item->content }}</p>
+						<span class="text-sm text-color is-uppercase has-text-weight-bold">{{ date('d-m-Y', strtotime($item->created_at)); }}</span>
+						<h5 class="mb-3"><a href="blog-single.html" class="">{{ Str::limit($item->title, 45, ' ...') }}</a></h5>
+						<p class="mb-4">{{ Str::limit($item->content, 100, ' ...') }}</p>
 					</div>
 				</div>
 			</div>
@@ -383,12 +349,17 @@
 
 @endsection
 
-<script>
-const form = document.querySelector('form');
-const successMessage = document.querySelector('#form');
-form.addEventListener('submitt', (e) => {
-    e.preventDefault();
-    successMessage.classList.add('show');
-    setTimeout(() => form.submit(), 2000);
-} );
-</script>
+@if(Session::has('success'))
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+		setTimeout(function() { 
+		
+		Swal.fire({
+			icon: 'success',
+			title: 'Volunteer register successfully',
+			showConfirmButton: false,
+			timer: 3500
+		})
+		})
+    </script>
+@endif

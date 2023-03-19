@@ -67,3 +67,12 @@
     </div>
 
 @endsection
+
+
+@push('js')
+    <script>
+        document.ready(function(){
+            alert('ok');
+        })
+    </script>
+@endpush

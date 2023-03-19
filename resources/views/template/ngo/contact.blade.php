@@ -50,3 +50,18 @@
 </div>
 
 @endsection
+
+@if(Session::has('success'))
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+		setTimeout(function() { 
+		
+		Swal.fire({
+			icon: 'success',
+			title: 'Your message sent successfully',
+			showConfirmButton: false,
+			timer: 3500
+		})
+		})
+    </script>
+@endif

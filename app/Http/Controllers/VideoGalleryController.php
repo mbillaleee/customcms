@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\VideoGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Validator;
+use Auth;
+
 
 class VideoGalleryController extends Controller
 {
@@ -39,6 +42,17 @@ class VideoGalleryController extends Controller
     {
 
         // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'code' => 'required',
+            'desc' => 'required',
+            'image' => 'required|image:jpg,jpeg,png',
+            
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $videogallery = New VideoGallery;
 
         $image = $request->file('image');
@@ -49,15 +63,15 @@ class VideoGalleryController extends Controller
                 $videogallery->image=$imagename;
             }
 
+            $videogallery->title=$request->title;
             $videogallery->code=$request->code;
-            $videogallery->user_id=1;
-            // $videogallery->slug= Str::slug($request->code);
+            $videogallery->user_id=Auth::user()->id;
             $videogallery->desc=$request->desc;
             $videogallery->type=$request->type;
             $videogallery->status=$request->status;
             $videogallery->save();
 
-            return redirect()->route('videogallery.index')->with('success','videogallery created successfully!');
+            return redirect()->route('videogallery.index')->with('success','Video insert successfully!');
     }
 
     /**
@@ -94,7 +108,18 @@ class VideoGalleryController extends Controller
         //
 
 
-            // dd($request->all());
+        // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'code' => 'required',
+            'desc' => 'required',
+            'image' => 'image:jpg,jpeg,png',
+            
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
         $image = $request->file('image');
         if($image != '')
         {
@@ -105,16 +130,15 @@ class VideoGalleryController extends Controller
             $image->move(public_path('uploads/videogallery'), $imagename);
             $videoGallery->image=$imagename;
         }
-
+        $videoGallery->title=$request->title;
         $videoGallery->code=$request->code;
-        $videoGallery->user_id=1;
-        // $videoGallery->slug= Str::slug($request->code);
+        $videoGallery->user_id=Auth::user()->id;
         $videoGallery->desc=$request->desc;
         $videoGallery->type=$request->type;
         $videoGallery->status=$request->status;
         $videoGallery->save();
 
-        return redirect()->route('videogallery.index')->with('success','video Gallery created successfully!');
+        return redirect()->route('videogallery.index')->with('success','video update successfully!');
     }
 
     /**
@@ -126,6 +150,6 @@ class VideoGalleryController extends Controller
     public function destroy(VideoGallery $videoGallery)
     {
         $videoGallery->delete(); 
-        return redirect()->back()->with('success','photo Gallery deleted successfully!');
+        return redirect()->back()->with('success','Video deleted successfully!');
     }
 }

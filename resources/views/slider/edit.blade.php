@@ -22,6 +22,9 @@
                     <div class="mt-5">
                         <label class="label block mb-2">Title</label>
                         <input type="text" id="input" class="form-control" name="title" value="{{ $slider->title }}" placeholder="Enter text here">
+                        @error('title')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Button Name</label>
@@ -34,11 +37,17 @@
                     <div class="mt-5">
                         <label class="label block mb-2">Image</label>
                         <input type="file" id="input" class="form-control" name="image">
+                        @error('image')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                         @if($slider->image != null)<img src="{{asset('uploads/slider/'.$slider->image)}}" width="80" alt="{{$slider->name}}">@endif
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Content</label>
                         <textarea type="text" class="form-control" rows="5" name="content" value="">{{ $slider->content }}</textarea>
+                        @error('content')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="mt-5">
                         <label class="label block mb-2">Status</label>

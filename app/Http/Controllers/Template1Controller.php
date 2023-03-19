@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Template1;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Validator;
+use Auth;
 
 class Template1Controller extends Controller
 {
@@ -40,6 +42,17 @@ class Template1Controller extends Controller
     {
         // dd($request->all());
 
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'content' => 'required',
+            'thumb' => 'required|image:jpg,jpeg,png',
+            
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $template1 = New Template1;
 
         $thumb = $request->file('thumb');
@@ -50,7 +63,7 @@ class Template1Controller extends Controller
                 $template1->thumb=$imagename;
             }
 
-            $template1->user_id=1;
+            $template1->user_id=Auth::user()->id;
             $template1->title=$request->title;
             $template1->slug= Str::slug($request->title);
             $template1->content=$request->content;
@@ -92,6 +105,16 @@ class Template1Controller extends Controller
     public function update(Request $request, Template1 $template1)
     {
         // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'content' => 'required',
+            'thumb' => 'image:jpg,jpeg,png',
+            
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         $thumb = $request->file('thumb');
         if($thumb != '')

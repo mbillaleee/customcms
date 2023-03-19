@@ -1,19 +1,22 @@
 <footer class="footer section">
+	@php
+	$setting = App\Models\Setting::where('status', 1)->get();
+	@endphp
 	<div class="container">
 		<div class="columns is-multiline">
 			<div class="column is-4-desktop is-6-tablet">
 				<div class="footer-widget widget">
 					<h4 class="is-capitalize mb-4 text-white">Company</h4>
-					<p>ka-147/1/1, Khilkhet, Dhaka-1229</p>
+					<p>{{ $setting[0]->address ?? ''}}</p>
 
 					<ul class="list-unstyled footer-menu mt-4">
-						<li><a href="#"><i class="icofont-phone"></i>+88-01827-510787</a></li>
-						<li><a href="#"><i class="icofont-email"></i>jufoundation.bd@gmail.com</a></li>
+						<li><a href="tel:{{ $setting[0]->mobile ?? ''}}"><i class="icofont-phone"></i>{{ $setting[0]->mobile ?? ''}}</a></li>
+						<li><a href="mailto:{{ $setting[0]->email ?? ''}}"><i class="icofont-email"></i>{{ $setting[0]->email ?? ''}}</a></li>
 					</ul>
 					<ul class="list-inline footer-socials">
-						<li class="list-inline-item"><a href="https://www.facebook.com/jufoundation.bd"><i class="icofont-facebook"></i></a></li>
-						<li class="list-inline-item"><a href="https://twitter.com/"><i class="icofont-twitter"></i></a></li>
-						<li class="list-inline-item"><a href="https://www.pinterest.com/"><i class="icofont-linkedin"></i></a></li>
+						<li class="list-inline-item"><a href="{{ $setting[0]->facebook_url ?? ''}}"><i class="icofont-facebook"></i></a></li>
+						<li class="list-inline-item"><a href="{{ $setting[0]->twitter_url ?? ''}}"><i class="icofont-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="{{ $setting[0]->youtube_url ?? ''}}"><i class="icofont-linkedin"></i></a></li>
 					</ul>
 				</div>
 			</div>
@@ -56,21 +59,6 @@
 							<img src="{{asset('uploads/photogallery/'.$item->image)}}" alt="" class="">
 						</div>
 						@endforeach
-						<!-- <div class="gallery-img">
-							<img src="{{asset('frontend-assets/ngo')}}/images/blog/gallery-2.jpg" alt="" class="">
-						</div>
-						<div class="gallery-img">
-							<img src="{{asset('frontend-assets/ngo')}}/images/blog/gallery-3.jpg" alt="" class="">
-						</div>
-						<div class="gallery-img">
-							<img src="{{asset('frontend-assets/ngo')}}/images/blog/gallery-6.jpg" alt="" class="">
-						</div>
-						<div class="gallery-img">
-							<img src="{{asset('frontend-assets/ngo')}}/images/blog/gallery-5.jpg" alt="" class="">
-						</div>
-						<div class="gallery-img">
-							<img src="{{asset('frontend-assets/ngo')}}/{{asset('frontend-assets/ngo')}}/images/blog/gallery-2.jpg" alt="" class="">
-						</div> -->
 					</div>
 				</div>
 			</div>
@@ -80,7 +68,7 @@
 			<div class="columns is-justify-content-center">
 				<div class="column is-12">
 					<div class="copyright has-text-centered">
-						<small>&copy; Copyright Reserved to JU Foundation by <a href="https://themefisher.com/" target="_blank" class="text-color">xPrTx</a></small>
+						<small>  <a href="https://xprtx.net/" target="_blank" class="text-color">{{ $setting[0]->copy_right ?? ''}}</a></small>
 					</div>
 				</div>
 			</div>

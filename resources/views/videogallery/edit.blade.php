@@ -20,6 +20,13 @@
             @csrf
                 <div class="card p-5">
                     <div class="mt-5">
+                        <label class="label block mb-2">Title</label>
+                        <input type="text" id="input" class="form-control" name="title" value="{{ $videoGallery->title}}" placeholder="Enter title here">
+                        @error('title')
+                            	<span class="error text-red-500">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mt-5">
                         <label class="label block mb-2">Code</label>
                         <input type="text" id="input" class="form-control" name="code" value="{{ $videoGallery->code }}" placeholder="Enter text here">
                     </div>
