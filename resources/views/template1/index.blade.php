@@ -20,7 +20,7 @@
                 <table class="table table_striped w-full mt-3">
                     <thead>
                         <tr>
-                            <th class="ltr:text-left rtl:text-right uppercase">#</th>
+                            <th class="ltr:text-left rtl:text-right uppercase">ID</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Title</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Content</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Thumbnail</th>
@@ -31,7 +31,7 @@
                     <tbody>
                         @foreach($template1s as $template1)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $template1->id }}</td>
                             <td>{{ $template1->title }}</td>
                             <td>{{ $template1->content }}</td>
                             <td>@if($template1->thumb != null)<img src="{{asset('uploads/template1/'.$template1->thumb)}}" width="80" alt="$template1->title">@endif</td>

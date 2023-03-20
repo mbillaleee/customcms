@@ -14,6 +14,7 @@ Route::get('/about', [NgoController::class, 'about'])->name('ngo.about');
 Route::get('/volounteer', [NgoController::class, 'volounteer'])->name('ngo.volounteer');
 Route::get('/become-volounteer', [NgoController::class, 'becomeVolounteer'])->name('ngo.becomevolounteer');
 Route::get('/religious-program', [NgoController::class, 'religiousProgram'])->name('ngo.religiousprogram');
+Route::get('/donation', [NgoController::class, 'donation'])->name('ngo.donation');
 
 
 

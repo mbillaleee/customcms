@@ -390,6 +390,10 @@
                 <span class="la la-list"></span>
                 Template List
             </a>
+            <a href="{{ route('setting.index') }}">
+                <span class="la la-list"></span>
+                General setting
+            </a>
             
             <hr>
            

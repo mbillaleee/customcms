@@ -14,10 +14,7 @@
 				<div class="column is-6-desktop is-8-tablet">
 					<div class="header-top-right has-text-right-tablet has-text-centered-mobile">
 						<a href="{{ $setting[0]->facebook_url ?? ''}}" target="_blank"><i class="icofont-facebook"></i></a>
-						<a href="{{ $setting[0]->twitter_url ?? ''}}" target="_blank"><i class="icofont-twitter"></i></a>
-						<a href="#" target="_blank"><i class="icofont-pinterest"></i></a>
-						<a href="#" target="_blank"><i class="icofont-linkedin"></i></a>
-						<a href="#" class="top-btn">Donate Now</a>
+						<a href="{{ route('ngo.donation') }}" class="top-btn">Donate Now</a>
 					</div>
 				</div>
 			</div>

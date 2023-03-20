@@ -5,8 +5,8 @@ use App\Http\Controllers\FrontendController;
 
 
 
-Route::prefix('education')->group(function () {
-    Route::get('/home', [FrontendController::class, 'index'])->name('education.index');
+
+    Route::get('/education', [FrontendController::class, 'index'])->name('education.index');
     Route::get('/gallery', [FrontendController::class, 'photogallery'])->name('photogallery.index');
     Route::get('/teacher', [FrontendController::class, 'teachers']);
     Route::get('/teacher-info', [FrontendController::class, 'teacher.info']);
@@ -19,4 +19,3 @@ Route::prefix('education')->group(function () {
     Route::post('/store', [FrontendController::class, 'storecontuctus'])->name('education.contuctus.store');
     
 
-});
