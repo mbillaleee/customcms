@@ -24,6 +24,7 @@ use App\Http\Controllers\ContuctUsController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\ColorController;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
@@ -245,6 +246,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         // Route::prefix('blog')->middleware('auth')->group(function () {
             Route::get('/', [SettingController::class, 'index'])->name('setting.index');
             Route::post('/update', [SettingController::class, 'update'])->name('setting.update');
+          });
+    Route::prefix('color')->group(function () {
+        // Route::prefix('blog')->middleware('auth')->group(function () {
+            Route::get('/', [ColorController::class, 'index'])->name('color.index');
+            Route::get('/edit/{color}', [ColorController::class, 'edit'])->name('color.edit');
+            Route::post('/update/{color}', [ColorController::class, 'update'])->name('color.update');
           });
 
 

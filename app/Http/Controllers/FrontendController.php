@@ -14,6 +14,8 @@ use App\Models\Tag;
 use App\Models\Template1;
 use App\Models\Widgets;
 use App\Models\ContuctUs;
+use App\Models\Volunteer;
+use App\Models\Setting;
 
 
 class FrontendController extends Controller
@@ -23,23 +25,28 @@ class FrontendController extends Controller
         $activetemplate = Template1::where('status', 1)->first();
         // dd($activetemplate);
         if($activetemplate->id == 1){
-        $sliders = Slider::all();
-        $blogs = Blog::all();
-        $photogallery = PhotoGallery::all();
-        $teachers = Teacher::all();
-        $ourclasses = OurClass::all();
-        $activity_area = Widgets::where('position', 1)->first();
-        $advertise_area = Widgets::where('position', 2)->first();
-        $service_area = Widgets::where('position', 3)->first();
-        $footer_area = Widgets::where('position', 6)->first();
-        $google_map_area = Widgets::where('position', 7)->first();
-        $categories = Category::where('category_type',2)->get();
-        $menus = Menu::with('childs')->where('parent_id', null)->get();
+            $sliders = Slider::all();
+            $blogs = Blog::all();
+            $photogallery = PhotoGallery::all();
+            $teachers = Teacher::all();
+            $ourclasses = OurClass::all();
+            $activity_area = Widgets::where('position', 1)->first();
+            $advertise_area = Widgets::where('position', 2)->first();
+            $service_area = Widgets::where('position', 3)->first();
+            $footer_area = Widgets::where('position', 6)->first();
+            $google_map_area = Widgets::where('position', 7)->first();
+            $categories = Category::where('category_type',2)->get();
+            $menus = Menu::with('childs')->where('parent_id', null)->get();
         return view('template.education.index', compact('sliders', 'blogs', 'photogallery', 'teachers', 'ourclasses', 'activity_area', 'advertise_area', 'service_area', 'footer_area', 'google_map_area', 'categories', 'menus'));
         }elseif($activetemplate->id == 2){
             return view('template.ecommerce.index');
         }elseif($activetemplate->id == 3){
-
+            $photo_galleries = PhotoGallery::where('status', 1)->take(6)->get();
+            $blogs = Blog::where('status', 1)->take(4)->get();
+            $blogs_foot = Blog::where('status', 1)->take(3)->get();
+            // dd("ok");
+            return view('template/ngo/index', compact('photo_galleries', 'blogs', 'blogs_foot'));
+            
         }elseif($activetemplate->id == 4){
             
         }
@@ -98,6 +105,13 @@ class FrontendController extends Controller
             $footer_area = Widgets::where('position', 6)->first();
             $skill_and_experience_area = Widgets::where('position', 8)->first();
             return view('template.education.about', compact('teachers', 'about_area', 'skill_and_experience_area', 'activity_area', 'footer_area'));
+        }elseif($activetemplate->id == 2){
+            
+        }elseif($activetemplate->id == 3){
+            $volunteers = Volunteer::where('status', 1)->take(10)->get();
+            return view('template/ngo/about', compact('volunteers'));
+        }elseif($activetemplate->id == 4){
+            
         }
     }
 
@@ -134,6 +148,9 @@ class FrontendController extends Controller
         if($activetemplate->id == 1){
             $footer_area = Widgets::where('position', 6)->first();
             return view('template.education.contact', compact('footer_area'));
+        }elseif($activetemplate->id == 2){
+        }elseif($activetemplate->id == 3){
+            return view('template/ngo/contact');
         }
     }
 
@@ -150,6 +167,44 @@ class FrontendController extends Controller
             $contuctus->message=$request->message;
             $contuctus->save();
             return redirect()->route('education.index')->with('success','Message Send successfully!');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function volounteer()
+    {
+        $volunteers = Volunteer::where('status', 1)->take(10)->get();
+        return view('template/ngo/volounteer', compact('volunteers'));
+    }
+    public function becomeVolounteer()
+    {
+        $become_volunteers = Volunteer::where('status', 0)->take(10)->get();
+        return view('template/ngo/become-volounteer', compact('become_volunteers'));
+    }
+    public function religiousProgram()
+    {
+        $blogs = Blog::where('status', 1)->take(20)->get();
+        $setting = Setting::where('status', 1)->get();
+        return view('template/ngo/religious-program', compact('blogs', 'setting'));
+    }
+    public function donation()
+    {
+        // dd("ok");
+        return view('template/ngo/donation');
     }
 
     
