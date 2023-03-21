@@ -322,8 +322,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 
 require __DIR__.'/ngo.php';
-
-
+require __DIR__.'/xprtx.php';
 require __DIR__.'/ecommerce.php';
 require __DIR__.'/education.php';
 require __DIR__.'/admin.php';

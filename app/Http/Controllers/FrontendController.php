@@ -16,6 +16,7 @@ use App\Models\Widgets;
 use App\Models\ContuctUs;
 use App\Models\Volunteer;
 use App\Models\Setting;
+use App\Models\Team;
 
 
 class FrontendController extends Controller
@@ -48,6 +49,8 @@ class FrontendController extends Controller
             return view('template/ngo/index', compact('photo_galleries', 'blogs', 'blogs_foot'));
             
         }elseif($activetemplate->id == 4){
+            $teams = Team::where('status', 1)->take(4)->get();
+            return view('template/xprtx/index', compact("teams"));
             
         }
     }

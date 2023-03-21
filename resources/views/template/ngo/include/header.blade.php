@@ -2,8 +2,6 @@
 	@php
 	$setting = App\Models\Setting::where('status', 1)->get();
 	$coloe_head = App\Models\Color::where('section_name', 'header')->first();
-
-
 	@endphp
 	
 	<div class="header-top " style="background-color:{{$coloe_head->background_color}}; color:{{$coloe_head->color}}">

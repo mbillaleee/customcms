@@ -25,6 +25,8 @@ use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ColorController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TeamController;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
 
@@ -253,6 +255,23 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('/edit/{color}', [ColorController::class, 'edit'])->name('color.edit');
             Route::post('/update/{color}', [ColorController::class, 'update'])->name('color.update');
           });
+
+    Route::prefix('service')->group(function () {
+    Route::get('/', [ServiceController::class, 'index'])->name('service.index');
+    Route::get('/create', [ServiceController::class, 'create'])->name('service.create');
+    Route::post('/store', [ServiceController::class, 'store'])->name('service.store');
+    Route::get('/edit/{service}', [ServiceController::class, 'edit'])->name('service.edit');
+    Route::post('/update/{service}', [ServiceController::class, 'update'])->name('service.update');
+    Route::delete('/destroy/{service}', [ServiceController::class, 'destroy'])->name('service.destroy');
+    });
+    Route::prefix('team')->group(function () {
+    Route::get('/', [TeamController::class, 'index'])->name('team.index');
+    Route::get('/create', [TeamController::class, 'create'])->name('team.create');
+    Route::post('/store', [TeamController::class, 'store'])->name('team.store');
+    Route::get('/edit/{team}', [TeamController::class, 'edit'])->name('team.edit');
+    Route::post('/update/{team}', [TeamController::class, 'update'])->name('team.update');
+    Route::delete('/destroy/{team}', [TeamController::class, 'destroy'])->name('team.destroy');
+    });
 
 
 });

@@ -42,7 +42,8 @@ class SliderController extends Controller
 
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'content' => 'required',
+            'description' => 'required',
+            'icon' => 'required',
             'image' => 'required|image:jpg,jpeg,png',
             
         ]);
