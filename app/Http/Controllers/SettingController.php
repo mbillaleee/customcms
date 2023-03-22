@@ -88,6 +88,10 @@ class SettingController extends Controller
              'youtube_url' => $request->youtube_url,
              'copy_right' => $request->copy_right,
              'blog_show' => $request->blog_show,
+             'mission' => $request->mission,
+             'vission' => $request->vission,
+             'values' => $request->values,
+             'donation' => $request->donation,
              'status' => 1,
              ]
         );

@@ -56,6 +56,22 @@
                         <input type="text" id="input" class="form-control" name="copy_right" value="{{ $setting[0]->copy_right ?? '' }}" placeholder="Enter copy right here">
                     </div>
                     <div class="mt-5">
+                        <label class="label block mb-2">Our mission</label>
+                        <textarea name="mission" id="mission" class="form-control" cols="30" rows="10">{{ $setting[0]->mission ?? '' }}</textarea>
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Our vission</label>
+                        <textarea name="vission" id="ckeditor" class="form-control" cols="30" rows="10">{{ $setting[0]->vission ?? '' }}</textarea>
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Values</label>
+                        <textarea name="values" id="values" class="form-control" cols="30" rows="10">{{ $setting[0]->values ?? '' }}</textarea>
+                    </div>
+                    <div class="mt-5">
+                        <label class="label block mb-2">Donation Content</label>
+                        <textarea name="donation" class="form-control editor" cols="30" rows="10">{{ $setting[0]->donation ?? '' }}</textarea>
+                    </div>
+                    <div class="mt-5">
                         <label class="label block mb-2">Blog show</label>
                         <select class="form-control" name="blog_show" id="">
                             <option value="0" {{ $setting[0] ? $setting[0]->blog_show == 0 ? "selected" : "": ""   }}>Inactive</option>

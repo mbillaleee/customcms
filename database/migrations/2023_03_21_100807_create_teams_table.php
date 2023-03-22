@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id'); 
             $table->text('name');
             $table->text('designation');
             $table->text('description');
@@ -26,7 +27,7 @@ return new class extends Migration
             $table->text('instagram')->nullable();
             $table->text('linkedin')->nullable();
             $table->integer('status')->default(1)->comment('Active=1, Inactive=0');
-
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

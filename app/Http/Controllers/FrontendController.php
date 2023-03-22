@@ -17,6 +17,7 @@ use App\Models\ContuctUs;
 use App\Models\Volunteer;
 use App\Models\Setting;
 use App\Models\Team;
+use App\Models\Service;
 
 
 class FrontendController extends Controller
@@ -50,7 +51,8 @@ class FrontendController extends Controller
             
         }elseif($activetemplate->id == 4){
             $teams = Team::where('status', 1)->take(4)->get();
-            return view('template/xprtx/index', compact("teams"));
+            $service = Service::where('status', 1)->take(4)->get();
+            return view('template/xprtx/index', compact("teams","service"));
             
         }
     }
@@ -171,6 +173,23 @@ class FrontendController extends Controller
             $contuctus->save();
             return redirect()->route('education.index')->with('success','Message Send successfully!');
     }
+    public function vissionMission(Request $request)
+    {
+        $activetemplate = Template1::where('status', 1)->first();
+        if($activetemplate->id == 3){
+            return view('template/ngo/vission-mission');
+        }
+    }
+    public function legalStutas(Request $request)
+    {
+        $activetemplate = Template1::where('status', 1)->first();
+        if($activetemplate->id == 3){
+            return view('template/ngo/legal-status');
+        }
+    }
+
+
+
 
 
 

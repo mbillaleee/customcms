@@ -63,7 +63,7 @@ class TeamController extends Controller
                 $image->move(public_path('uploads/team'), $imagename);
                 $team->image=$imagename;
             }
-
+            $team->user_id=Auth::user()->id;
             $team->name=$request->name;
             $team->designation=$request->designation;
             $team->email=$request->email;

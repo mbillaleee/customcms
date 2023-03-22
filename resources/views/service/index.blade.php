@@ -22,7 +22,7 @@
                         <tr>
                             <th class="ltr:text-left rtl:text-right uppercase">#</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Title</th>
-                            <th class="ltr:text-left rtl:text-right uppercase">Content</th>
+                            <th class="ltr:text-left rtl:text-right uppercase">Description</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Image</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Status</th>
                             <th class="ltr:text-left rtl:text-right uppercase">Action</th>
@@ -33,7 +33,7 @@
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $item->title }}</td>
-                            <td>{{ $item->content }}</td>
+                            <td>{{ $item->description }}</td>
                             <td>@if($item->image != null)<img src="{{asset('uploads/service/'.$item->image)}}" width="80" alt="$item->name">@endif</td>
                             <td>{!! !!$item->status ? '<span class="badge bg-success">Active</span>': '<span
                                                 class="badge bg-danger">Inactive</span>' !!}</td>

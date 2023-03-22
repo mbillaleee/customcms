@@ -45,8 +45,8 @@
 						<a class="navbar-link">Who We Are<span class="ml-1">+</span></a>
 						<div class="navbar-dropdown">
 							<a class="navbar-item" href="{{ url('/about') }}">About J U Foundation</a>
-							<a class="navbar-item" href="#">Vision & Mission and Values</a> 
-							<a class="navbar-item" href="#">Legal Status</a>
+							<a class="navbar-item" href="{{route('ngo.vissionmission')}}">Vision & Mission and Values</a> 
+							<a class="navbar-item" href="{{route('ngo.legalstutas')}}">Legal Status</a>
 							<a class="navbar-item" href="#">Governing Body</a>
 							<a class="navbar-item" href="#">Partners and Donors</a>
 							<!-- cause-single.html -->
@@ -65,7 +65,7 @@
 					<li class="navbar-item has-dropdown is-hoverable">
 						<a class="navbar-link">Ways to Support<span class="ml-1">+</span></a>
 						<div class="navbar-dropdown">
-							<a class="navbar-item" href="#">Donate (Highlighted Colored)</a>
+							<a class="navbar-item" href="{{ route('ngo.donation') }}">Donate (Highlighted Colored)</a>
 							<a class="navbar-item" href="#">Sponsor a Child</a>
 							<a class="navbar-item" href="{{url('/become-volounteer')}}">Become a Volunteer </a>
 							<a class="navbar-item" href="{{url('/volounteer')}}">Volunteer list</a>

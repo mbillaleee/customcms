@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
  <!-- create edit update delete success message -->
  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-
+ <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/>
 <body>
 
     @include('partials._navigation')
@@ -39,22 +39,18 @@
     <script src="{{ asset('build/js/vendor.js') }}"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/nestable2/1.6.0/jquery.nestable.min.js"></script>
     <!-- create edit update delete success message -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
     @yield('scripts')
     @stack('js');
 
     <script src="{{ asset('build/js/script.js') }}"></script>
     <script>
-        $(function () {
-            // Summernote
-            $('.summernote').summernote()
-            // CodeMirror
-            CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-            mode: "htmlmixed",
-            theme: "monokai"
-            });
-        })
+        CKEDITOR.replace('donation');
+        CKEDITOR.replace('values');
+        CKEDITOR.replace('mission');
+        CKEDITOR.replace('vission');
+
         @if(Session::has('success'))
             toastr.options =
             {

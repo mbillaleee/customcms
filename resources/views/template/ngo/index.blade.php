@@ -5,7 +5,9 @@
 
 @include('template.ngo.include.slider')
 
-
+@php
+	$setting = App\Models\Setting::where('status', 1)->get();
+@endphp
 
 <!-- Section Intro Start -->
 <section class="section intro">
@@ -38,7 +40,7 @@
 <!-- Section Intro END -->
 <section class="w3-services-ab py-5" id="mission">
     <div class="container py-lg-5 py-md-4">
-        <h3 class="title-big text-center mb-5">Our Mission and Goals</h3>
+        <h3 class="title-big text-center mb-5">Vision, Mission and Values of JU Foundation</h3>
         <div class="w3-services-grids">
             <div class="fea-gd-vv row">
                 <div class="col-lg-4 col-md-6">
@@ -47,8 +49,9 @@
                             <img src="{{asset('frontend-assets/ngo')}}/images/home.png" alt="" class="img-fluid">
                         </div>
                         <div class="icon-info">
-                            <h5>আমাদের লক্ষ্য</h5>
-                            <p> আমাদের এনজিও আমাদের স্থানীয় সম্প্রদায়ের সুবিধাবঞ্চিত ব্যক্তি এবং পরিবারের জীবন উন্নত করার জন্য নিবেদিত। আমরা বিভিন্ন প্রকল্প এবং কর্মসূচির মাধ্যমে শিক্ষা, স্বাস্থ্য, এবং সামাজিক কল্যাণের প্রচার করার চেষ্টা করি।</p>
+                            <h5>Our vission</h5>
+                            <p>{!! Str::limit($setting[0]->vission ?? '', 130, ' ...') !!} </p>
+							<a href="{{ route('ngo.vissionmission') }}" class="btn btn-main is-rounded">View more</a>
 
                         </div>
                     </div>
@@ -59,8 +62,9 @@
                             <img src="{{asset('frontend-assets/ngo')}}/images/education.png" alt="" class="img-fluid">
                         </div>
                         <div class="icon-info">
-                            <h5>আমাদের প্রকল্প</h5>
-                            <p> সুবিধাবঞ্চিত শিশুদের জন্য শিক্ষাগত সহায়তা নিম্ন আয়ের পরিবারগুলিতে প্রাথমিক স্বাস্থ্যসেবা প্রদান করা দক্ষতা প্রশিক্ষণ এবং আয়বর্ধক কার্যক্রমের মাধ্যমে নারীর ক্ষমতায়ন</p>
+                            <h5>Our mission</h5>
+                            <p> {!! Str::limit($setting[0]->mission ?? '', 130, ' ...') !!}</p>
+							<a href="{{ route('ngo.vissionmission') }}" class="btn btn-main is-rounded">View more</a>
                         </div>
                     </div>
                 </div>
@@ -70,10 +74,9 @@
                             <img src="{{asset('frontend-assets/ngo')}}/images/health.png" alt="" class="img-fluid">
                         </div>
                         <div class="icon-info">
-                            <h5>আমাদের চলমান প্রকল্প</h5>
-                            <p> সংকট বা প্রাকৃতিক দুর্যোগের সময় ত্রাণ ও সহায়তা প্রদান
-আপনার দান কীভাবে সাহায্য করতে পারে:
-আপনার দান, যতই ছোট হোক না কেন, আমাদের প্রকল্পগুলিকে সমর্থন করতে এবং যাদের প্রয়োজন তাদের জীবনে পরিবর্তন আনতে অনেক দূর যেতে পারে।</p>
+                            <h5>Values</h5>
+                            <p>{!! Str::limit($setting[0]->values ?? '', 130, ' ...') !!} </p>
+							<a href="{{ route('ngo.vissionmission') }}" class="btn btn-main is-rounded">View more</a>
                         </div>
                     </div>
                 </div>

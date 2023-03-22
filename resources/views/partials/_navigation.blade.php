@@ -5,7 +5,7 @@
     <button class="menu-toggler la la-bars" data-toggle="menu"></button>
 
     <!-- Brand -->
-    <span class="brand">Yeti</span>
+    <span class="brand">xprtx soft</span>
 
     <!-- Search -->
     <form class="hidden md:block ltr:ml-10 rtl:mr-10">

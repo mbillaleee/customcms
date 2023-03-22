@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Validator;
+use Auth;
 
 class ServiceController extends Controller
 {
@@ -60,7 +61,7 @@ class ServiceController extends Controller
                 $image->move(public_path('uploads/service'), $imagename);
                 $service->image=$imagename;
             }
-
+            $service->user_id=Auth::user()->id;
             $service->title=$request->title;
             $service->icon=$request->icon;
             $service->description=$request->description;
@@ -127,7 +128,7 @@ class ServiceController extends Controller
                 $image->move(public_path('uploads/service'), $imagename);
                 $service->image=$imagename;
             }
-
+            
             $service->title=$request->title;
             $service->icon=$request->icon;
             $service->description=$request->description;
