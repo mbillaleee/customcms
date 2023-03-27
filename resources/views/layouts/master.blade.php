@@ -50,6 +50,7 @@
         CKEDITOR.replace('values');
         CKEDITOR.replace('mission');
         CKEDITOR.replace('vission');
+        CKEDITOR.replace('sponsor_child');
 
         @if(Session::has('success'))
             toastr.options =

@@ -16,6 +16,7 @@ Route::get('/volounteer', [FrontendController::class, 'volounteer'])->name('ngo.
 Route::get('/become-volounteer', [FrontendController::class, 'becomeVolounteer'])->name('ngo.becomevolounteer');
 Route::get('/religious-program', [FrontendController::class, 'religiousProgram'])->name('ngo.religiousprogram');
 Route::get('/donation', [FrontendController::class, 'donation'])->name('ngo.donation');
+Route::get('/sponser-child', [FrontendController::class, 'sponserChild'])->name('ngo.sponserchild');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('ngo.contact');
 Route::get('/vission-mission', [FrontendController::class, 'vissionMission'])->name('ngo.vissionmission');
 Route::get('/legal-status', [FrontendController::class, 'legalStutas'])->name('ngo.legalstutas');

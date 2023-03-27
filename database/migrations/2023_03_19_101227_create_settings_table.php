@@ -26,6 +26,11 @@ return new class extends Migration
             $table->text('twitter_url')->nullable();
             $table->text('youtube_url')->nullable();
             $table->text('copy_right')->nullable();
+            $table->text('mission')->nullable();
+            $table->text('vission')->nullable();
+            $table->text('values')->nullable();
+            $table->text('donation')->nullable();
+            $table->text('sponsor_child')->nullable();
             $table->integer('blog_show')->default(0)->comment('Hide=0, Grid=1, List=2');
             $table->integer('status')->default(1)->comment('Active=1, Inactive=0');
             $table->timestamps();

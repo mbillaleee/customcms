@@ -225,8 +225,11 @@ class FrontendController extends Controller
     }
     public function donation()
     {
-        // dd("ok");
         return view('template/ngo/donation');
+    }
+    public function sponserChild()
+    {
+        return view('template/ngo/sponser-child');
     }
 
     

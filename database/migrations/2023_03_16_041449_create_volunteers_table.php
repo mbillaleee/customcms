@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->longText('address');
+            $table->date('date_of_birth');
             $table->longText('occupation')->nullable();
             $table->longText('message')->nullable();
             $table->longText('area_of_work')->nullable();

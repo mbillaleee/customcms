@@ -236,7 +236,6 @@
 		<div class="columns is-multiline">
 			<div class="column is-7-desktop is-12-tablet">
 				<div class="volunteer-content">
-					<img src="{{asset('frontend-assets/ngo')}}/images/bg/image-5.jpg" alt="" class="">
 					<h2 class="text-lg mb-5 mt-3">We can’t help everyone, but everyone can help someone</h2>
 					<p>Assumenda reiciendis delectus dolore incidunt molestias omnis quo quaerat voluptate, eligendi perspiciatis ipsa laudantium nesciunt officia, odit nemo quidem hic itaque. Fugiat.</p>
 
@@ -261,7 +260,7 @@
 				</div>
 			</div>
 
-			<div class="column is-5-desktop is-12-tablet">
+			<div class="column is-5-desktop is-12-tablet" id="go-form">
 				<div class="volunteer-form-wrap">
 					<span class="text-white">Join With us</span>
 					<h2 class="mb-6 text-lg text-white">Become A Volunteer</h2>
@@ -269,39 +268,52 @@
 						@csrf
 						<input type="hidden" class="input" value="0" name="status">
 						<div class="mb-4">
+							<label class="text-white" for="">Name *</label>
 							<input type="text" class="input" name="name" value="{{ @old('name')}}" placeholder="Full Name">
 							@error('name')
-                            	<span class="error text-white">{{ $message }}</span>
+                            	<span class="error text-danger">{{ $message }}</span>
                         	@enderror
 						</div>
 						<div class="mb-4">
+						<label class="text-white" for="">Email *</label>
 							<input type="email" class="input" name="email" value="{{ @old('email')}}" placeholder="Emaill Address">
 							@error('email')
-                            	<span class="error text-white">{{ $message }}</span>
+                            	<span class="error text-danger">{{ $message }}</span>
                         	@enderror
 						</div>
 						<div class="mb-4">
+						<label class="text-white" for="">Phone *</label>
 							<input type="text" class="input" name="phone" value="{{ @old('phone')}}" placeholder="Phone Number">
 							@error('phone')
-                            	<span class="error text-white">{{ $message }}</span>
+                            	<span class="error text-danger">{{ $message }}</span>
                         	@enderror
 						</div>
 						<div class="mb-4">
+						<label class="text-white" for="">Address *</label>
 							<input type="text" class="input" name="address" value="{{ @old('address')}}" placeholder="Adress">
 							@error('address')
-                            	<span class="error text-white">{{ $message }}</span>
+                            	<span class="error text-danger">{{ $message }}</span>
                         	@enderror
 						</div>
 						<div class="mb-4">
+						<label class="text-white" for="">Date of birth</label>
+							<input type="date" class="input" name="date_of_birth" value="{{ @old('date_of_birth')}}" placeholder="Date of birth">
+						</div>
+						<div class="mb-4">
+						<label class="text-white" for="">Occupation</label>
 							<input type="text" class="input" name="occupation" value="{{ @old('occupation')}}" placeholder="Occupation">
 						</div>
 						<div class="mb-4">
+						<label class="text-white" for="">Image (jpg,jpeg,png)</label>
 							<input type="file" class="input" name="image" placeholder="Image">
+							@error('image')
+                            	<span class="error text-danger">{{ $message }}</span>
+                        	@enderror
 						</div>
 						<div class="mb-4">
+							<label class="text-white" for="">Message </label>
 							<textarea name="message" id="#" cols="30" rows="6"  class="input" placeholder="Your Message">{{ @old('message')}}</textarea>
 						</div>
-
 						<button type="submit" id="submitt" onClick="btnClick()" class="btn btn-main is-rounded mt-5">Register</button>
 					</form>
 				</div>
@@ -309,6 +321,15 @@
 		</div>
 	</div>
 </div>
+
+
+@if(@$message)
+    <script>
+		console.log('sss' {{@$message}})
+        window.scrollBy(0, 600);
+    </script>
+
+    @endif
 
 @endsection
 
@@ -325,4 +346,8 @@
 		})
 		})
     </script>
+
+
 @endif
+
+

@@ -92,6 +92,7 @@ class SettingController extends Controller
              'vission' => $request->vission,
              'values' => $request->values,
              'donation' => $request->donation,
+             'sponsor_child' => $request->sponsor_child,
              'status' => 1,
              ]
         );

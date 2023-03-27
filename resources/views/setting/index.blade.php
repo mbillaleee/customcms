@@ -72,6 +72,10 @@
                         <textarea name="donation" class="form-control editor" cols="30" rows="10">{{ $setting[0]->donation ?? '' }}</textarea>
                     </div>
                     <div class="mt-5">
+                        <label class="label block mb-2">Sponsor a Child</label>
+                        <textarea name="sponsor_child" class="form-control editor" cols="30" rows="10">{{ $setting[0]->sponsor_child ?? '' }}</textarea>
+                    </div>
+                    <div class="mt-5">
                         <label class="label block mb-2">Blog show</label>
                         <select class="form-control" name="blog_show" id="">
                             <option value="0" {{ $setting[0] ? $setting[0]->blog_show == 0 ? "selected" : "": ""   }}>Inactive</option>

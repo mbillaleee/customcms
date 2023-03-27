@@ -32,6 +32,10 @@
                         <input type="text" id="input" class="form-control" name="phone" value="{{ $volunteer->phone }}" placeholder="Enter phone">
                     </div>
                     <div class="mt-5">
+                        <label class="label block mb-2">Date of birth</label>
+                        <input type="date" id="input" class="form-control" name="date_of_birth" value="{{ $volunteer->date_of_birth }}">
+                    </div>
+                    <div class="mt-5">
                         <label class="label block mb-2">address</label>
                         <input type="text" id="input" class="form-control" name="address" value="{{ $volunteer->address }}" placeholder="Enter address">
                     </div>

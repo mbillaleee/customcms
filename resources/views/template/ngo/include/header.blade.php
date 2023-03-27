@@ -26,7 +26,8 @@
 		<div class="container">
 			<div class="navbar-brand">
 				<a class="navbar-item" href="{{ url('/') }}">
-					<img src="{{asset('frontend-assets/ngo')}}/images/logo.jpg" alt="logo" height="50px">
+					<img src="{{asset('frontend-assets/ngo')}}/images/logo.jpg" alt="logo" height="35px">
+					<span class="logo-span">{{ $setting[0]->title ?? ''}}</span>
 				</a>
 				<button role="button" class="navbar-burger burger" data-hidden="true" data-target="navigation">
 					<span aria-hidden="true"></span>
@@ -65,8 +66,8 @@
 					<li class="navbar-item has-dropdown is-hoverable">
 						<a class="navbar-link">Ways to Support<span class="ml-1">+</span></a>
 						<div class="navbar-dropdown">
-							<a class="navbar-item" href="{{ route('ngo.donation') }}">Donate (Highlighted Colored)</a>
-							<a class="navbar-item" href="#">Sponsor a Child</a>
+							<a class="navbar-item" href="{{ route('ngo.donation') }}">Donate</a>
+							<a class="navbar-item" href="{{ route('ngo.sponserchild') }}">Sponsor a Child</a>
 							<a class="navbar-item" href="{{url('/become-volounteer')}}">Become a Volunteer </a>
 							<a class="navbar-item" href="{{url('/volounteer')}}">Volunteer list</a>
 						</div>

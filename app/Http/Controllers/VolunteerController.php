@@ -67,7 +67,7 @@ class VolunteerController extends Controller
             $volunteer->address       =$request->address;
             $volunteer->occupation    =$request->occupation;
             $volunteer->message       =$request->message;
-            $volunteer->area_of_work  =$request->area_of_work;
+            $volunteer->date_of_birth =$request->date_of_birth;
             $volunteer->status        =$request->status;
             $volunteer->save();
 
@@ -88,8 +88,7 @@ class VolunteerController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        // dd($request->all());
-        $volunteer = New Volunteer;
+        $volunteer = New Volunteer();
 
         $image = $request->file('image');
             if($image != '')
@@ -102,14 +101,14 @@ class VolunteerController extends Controller
             $volunteer->name          =$request->name;
             $volunteer->email         =$request->email;
             $volunteer->phone         =$request->phone;
+            $volunteer->date_of_birth =$request->date_of_birth;
             $volunteer->address       =$request->address;
             $volunteer->occupation    =$request->occupation;
             $volunteer->message       =$request->message;
-            $volunteer->area_of_work  =$request->area_of_work;
             $volunteer->status        =$request->status;
             $volunteer->save();
 
-            return redirect()->route('ngo.index')->with('success','Volunteer register successfully!');;
+            return redirect()->back()->with('success','Volunteer register successfully!');;
     }
 
     /**
